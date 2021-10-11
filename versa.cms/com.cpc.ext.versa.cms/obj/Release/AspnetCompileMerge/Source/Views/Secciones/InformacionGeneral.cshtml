@@ -1,0 +1,105 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+
+@{
+    ViewBag.Title = "InformacionGeneral";
+    Layout = "~/Views/_Layout.cshtml";
+    EInformacionContactoEmpresa informacionContactoEmpresa = new EInformacionContactoEmpresa();
+    ERedesSocialesEmpresa redesSocialesEmpresa = new ERedesSocialesEmpresa();
+    ELogotipoEmpresa logotipoEmpresa = new ELogotipoEmpresa();
+    EDocumentoEsr documentoEsr = new EDocumentoEsr();
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h1>Información general</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-contacto-empresa" role="tab" aria-controls="nav-contacto-empresa" aria-selected="true">Información contacto empresa</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-logotipo-principal" role="tab" aria-controls="nav-logotipo-principal" aria-selected="false">Logotipo principal</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-redes-sociales" role="tab" aria-controls="nav-redes-sociales" aria-selected="false">Información redes sociales</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-documento-esr" role="tab" aria-controls="nav-documento-esr" aria-selected="false">Documento ESR</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-contacto-empresa" role="tabpanel" aria-labelledby="nav-contacto-empresa-tab">
+                    <form class="container-fluid" action="@Url.Content(Utils.Ruta.rutaPostActualizarInformacionContactoEmpresa.getRedirect())" method="post">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Teléfono de contacto</label>
+                                <input type="text" class="form-control" name="telefono-contacto" maxlength="100" required value="@(informacionContactoEmpresa.obt<EInformacionContactoEmpresa>().telefonoContacto)" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Dirección física</label>
+                                <input type="text" class="form-control" name="direccion-fisica" maxlength="100" required value="@(informacionContactoEmpresa.obt<EInformacionContactoEmpresa>().direccionFisica)"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-12 col-md-12 text-right">
+                                <button type="submit" class="btn btn-info btn-top-margin">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-logotipo-principal" role="tabpanel" aria-labelledby="nav-logotipo-principal-tab">
+                    <form class="container-fluid" action="@Url.Content(Utils.Ruta.rutaPostActualizarLogotipo.getRedirect())" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 text-right">
+                                <img src="@("http://grupoversa.com/files/storage/" + logotipoEmpresa.obt<ELogotipoEmpresa>().nombreArchivo)" class="img-all-width" />
+                                <input type="file" name="logotipo" class="form-control" required />
+                                <button type="submit" class="btn btn-info" style="margin-top: 10px;">Guardar</button>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-redes-sociales" role="tabpanel" aria-labelledby="nav-redes-sociales-tab">
+                    <form class="container-fluid" action="@Url.Content(Utils.Ruta.rutaPostActualizarRedesSocialesEmpresa.getRedirect())" method="post">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Página de Facebook</label>
+                                <input type="text" class="form-control" name="pagina-facebook" maxlength="100" required value="@(redesSocialesEmpresa.obt<ERedesSocialesEmpresa>().urlFacebook)"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Canal de Youtube</label>
+                                <input type="text" class="form-control" name="canal-youtube" maxlength="100" required value="@(redesSocialesEmpresa.obt<ERedesSocialesEmpresa>().urlYoutube)"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-12 col-md-12 text-right">
+                                <button type="submit" class="btn btn-info btn-top-margin">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-documento-esr" role="tabpanel" aria-labelledby="nav-documento-esr-tab">
+                    <form class="container-fluid" action="@Url.Content(Utils.Ruta.rutaPostActualizarDocumentoEsr.getRedirect())" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 text-right">
+                                <input type="file" name="documento" class="form-control text-right" required />
+                                <a href="@("http://grupoversa.com/files/storage/" + documentoEsr.obt<EDocumentoEsr>().nombreArchivo)" target="_blank">Ver documento</a>
+                                <button type="submit" class="btn btn-info" style="margin-top: 10px;">Guardar</button>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

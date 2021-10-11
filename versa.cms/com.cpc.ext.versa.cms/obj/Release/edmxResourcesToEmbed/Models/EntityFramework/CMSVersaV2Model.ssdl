@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSVersaV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="cms_cmsHomeCarruselNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="imagen_escritorio" Type="varchar(max)" Mode="In" />
+    <Parameter Name="imagen_movil" Type="varchar(max)" Mode="In" />
+    <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="usuario_creo" Type="int" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_documentoEsrActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_documentoEsrObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_informacionContactoEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="telefono_contacto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="direccion_fisica" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_informacionContactoEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_logotipoEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_imagen" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_logotipoEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_modufilesArchivoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="archivo_hash" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_modufilesArchivoNuevoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_obtImagenTabla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_obtNombreUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuario_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_pSkuNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sku" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_pSkuObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_pTipoActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="imagen" Type="varchar" Mode="In" />
+    <Parameter Name="alias" Type="varchar" Mode="In" />
+    <Parameter Name="classname_img_mobile" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_pTipoEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_pTipoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="imagen" Type="varchar" Mode="In" />
+    <Parameter Name="alias" Type="varchar" Mode="In" />
+    <Parameter Name="classname_img_mobile" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_pTipoObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_redesSocialesEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="url_facebook" Type="varchar(max)" Mode="In" />
+    <Parameter Name="url_youtube" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_redesSocialesEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionHomeNoticiasCarruselActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_carrusel_noticias_id" Type="int" Mode="In" />
+    <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+    <Parameter Name="movil" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeNoticiasCarruselDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_carrusel_noticias_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeNoticiasCarruselNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+    <Parameter Name="movil" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeNoticiasCarruselObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionHomeSobreNosotrosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="contenido" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeSobreNosotrosActualizarNombreArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeSobreNosotrosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionHomeVideosEventosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeVideosEventosActualizarDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeVideosEventosDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeVideosEventosNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeVideosEventosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionHomeVideosEventosObtenerDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionHomeVideosEventosObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionNosotrosCarruselPlantasActualizarMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="movil" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosCarruselPlantasActualizarOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosCarruselPlantasDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_nosotros_carrusel_plantas_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosCarruselPlantasNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="orden" Type="int" Mode="In" />
+    <Parameter Name="movil" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosCarruselPlantasObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionNosotrosLineaTiempoActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosLineaTiempoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionNosotrosLineaTiempoObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cms_seccionProductosDocumentosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="documento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionProductosDocumentosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_Producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionProductosEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionProductosNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_tipo" Type="int" Mode="In" />
+    <Parameter Name="sku" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="subnombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionUsuariosEditar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuarioId" Type="int" Mode="In" />
+    <Parameter Name="pass" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionUsuariosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuarioId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_websiteMensajeContactoObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fraseguModuloNivelObtenerPorModulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="frasegu_modulo_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fraseguModuloObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fraseguUsuarioPerfilEditar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fraseguUsuarioPerfilEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fraseguUsuarioPerfilModuloNivelNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+    <Parameter Name="frasegu_modulo_nivel_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fraseguUsuarioPerfilModuloNivelObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fraseguUsuarioPerfilNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fraseguUsuarioPerfilObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="guardarMensajeContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="asunto" Type="varchar" Mode="In" />
+    <Parameter Name="mensaje" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ins_cms_seccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="website_seccion_id" Type="int" Mode="In" />
+    <Parameter Name="titulo" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion_corta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ins_cms_seccion_contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cms_seccion_id" Type="int" Mode="In" />
+    <Parameter Name="html_control_id" Type="varchar" Mode="In" />
+    <Parameter Name="contenido" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ins_cms_website_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="url" Type="varchar(max)" Mode="In" />
+    <Parameter Name="controlador" Type="varchar(max)" Mode="In" />
+    <Parameter Name="accion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="cms_website_menu_padre_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ins_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+    <Parameter Name="var_sku" Type="varchar" Mode="In" />
+    <Parameter Name="var_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="var_descripcion" Type="text" Mode="In" />
+    <Parameter Name="var_presentacion" Type="varchar" Mode="In" />
+    <Parameter Name="var_contenido" Type="varchar" Mode="In" />
+    <Parameter Name="var_beneficios" Type="text" Mode="In" />
+    <Parameter Name="var_imagen" Type="varchar" Mode="In" />
+    <Parameter Name="var_precio" Type="float" Mode="In" />
+    <Parameter Name="var_pdf_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="var_subnombre" Type="varchar" Mode="In" />
+    <Parameter Name="var_cintillo" Type="text" Mode="In" />
+    <Parameter Name="var_show_index" Type="bit" Mode="In" />
+    <Parameter Name="var_pie" Type="text" Mode="In" />
+    <Parameter Name="var_imagen_logo" Type="varchar" Mode="In" />
+    <Parameter Name="var_imagen_logo_carpeta" Type="varchar" Mode="In" />
+    <Parameter Name="var_imagen_logo_blanco" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ins_productos_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+    <Parameter Name="var_cultivo" Type="text" Mode="In" />
+    <Parameter Name="var_enfermedad" Type="text" Mode="In" />
+    <Parameter Name="var_dosis" Type="text" Mode="In" />
+    <Parameter Name="var_intervalo_seguridad" Type="text" Mode="In" />
+    <Parameter Name="var_observaciones" Type="text" Mode="In" />
+    <Parameter Name="var_epoca" Type="text" Mode="In" />
+    <Parameter Name="var_lmrp" Type="varchar" Mode="In" />
+    <Parameter Name="var_epa" Type="varchar" Mode="In" />
+    <Parameter Name="var_tolerancias" Type="varchar" Mode="In" />
+    <Parameter Name="var_estudios" Type="varchar" Mode="In" />
+    <Parameter Name="var_agricultura_protegida" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ins_productos_composicion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+    <Parameter Name="var_ingrediente" Type="varchar" Mode="In" />
+    <Parameter Name="var_formula" Type="text" Mode="In" />
+    <Parameter Name="var_tipo" Type="bit" Mode="In" />
+    <Parameter Name="var_porcentaje" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ins_usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="correo" Type="varchar" Mode="In" />
+    <Parameter Name="clave" Type="varchar" Mode="In" />
+    <Parameter Name="usuario_perfil_id" Type="int" Mode="In" />
+    <Parameter Name="usuario_mod" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ins_website_seccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="titulo" Type="varchar" Mode="In" />
+    <Parameter Name="nombre_fichero_vista" Type="varchar" Mode="In" />
+    <Parameter Name="ruta_publica" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion_corta" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="modutrackNuevoIngresoAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuario_id" Type="int" Mode="In" />
+    <Parameter Name="sistema_ip" Type="varchar" Mode="In" />
+    <Parameter Name="sistema_operativo" Type="varchar" Mode="In" />
+    <Parameter Name="sistema_navegador" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="modutrackNuevoIngresoFallido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="correo_fallido" Type="varchar" Mode="In" />
+    <Parameter Name="pass_fallida" Type="varchar" Mode="In" />
+    <Parameter Name="sistema_ip" Type="varchar" Mode="In" />
+    <Parameter Name="sistema_operativo" Type="varchar" Mode="In" />
+    <Parameter Name="sistema_navegador" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="nuevoEventoAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="evento_aplicacion_tipo_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="search_productos_filtro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_cultivo" Type="int" Mode="In" />
+    <Parameter Name="var_id_enfermedad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_cms_seccion_contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="website_seccion_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_cms_website_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_cultivos_para_filtros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_enfermedades_para_filtro_por_cultivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_cultivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_enfermedades_para_filtros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_producto_nombre_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_producto_tipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos_aplicacion_Fil_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_productos_composicion_Fil_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_productos_para_home_index" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos_para_intra_editar_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_producto_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_productos_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos_para_intra_ver_productos_filtro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="producto_tipo" Type="int" Mode="In" />
+    <Parameter Name="producto_sku" Type="varchar" Mode="In" />
+    <Parameter Name="producto_nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sel_productos_para_producto_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos_para_proteccion_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_productos_sku" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_productos_tipos_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_sku_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sel_tabla_aplicacion_titulo_por_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sel_tabla_composicion_por_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_temp_buscador_v1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_cultivo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="var_enfermedad" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="upd_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+    <Parameter Name="var_sku" Type="varchar" Mode="In" />
+    <Parameter Name="var_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="var_subnombre" Type="varchar" Mode="In" />
+    <Parameter Name="var_descripcion" Type="text" Mode="In" />
+    <Parameter Name="var_presentacion" Type="text" Mode="In" />
+    <Parameter Name="var_contenido" Type="varchar" Mode="In" />
+    <Parameter Name="var_beneficios" Type="text" Mode="In" />
+    <Parameter Name="var_cintillo" Type="text" Mode="In" />
+    <Parameter Name="var_pie" Type="text" Mode="In" />
+    <Parameter Name="var_producto_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id" Type="int" Mode="In" />
+    <Parameter Name="var_cultivo" Type="text" Mode="In" />
+    <Parameter Name="var_enfermedad" Type="text" Mode="In" />
+    <Parameter Name="var_dosis" Type="text" Mode="In" />
+    <Parameter Name="var_intervalo_seguridad" Type="text" Mode="In" />
+    <Parameter Name="var_observaciones" Type="text" Mode="In" />
+    <Parameter Name="var_epoca" Type="text" Mode="In" />
+    <Parameter Name="var_lmrp" Type="varchar" Mode="In" />
+    <Parameter Name="var_epa" Type="varchar" Mode="In" />
+    <Parameter Name="var_tolerancias" Type="varchar" Mode="In" />
+    <Parameter Name="var_estudios" Type="varchar" Mode="In" />
+    <Parameter Name="var_agricultura_protegida" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_aplicacion_inactive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_composicion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_ingrediente" Type="varchar" Mode="In" />
+    <Parameter Name="var_formula" Type="text" Mode="In" />
+    <Parameter Name="var_porcentaje" Type="varchar" Mode="In" />
+    <Parameter Name="var_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_composicion_inactive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_imagen_color" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_logo_color" Type="varchar" Mode="In" />
+    <Parameter Name="var_producto_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_imagen_logo_blanco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_imagen_logo_blanco" Type="varchar(max)" Mode="In" />
+    <Parameter Name="var_producto_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_productos_imagen_render" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_render" Type="varchar" Mode="In" />
+    <Parameter Name="var_producto_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="upd_titulo_tabla_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="var_id_columna" Type="int" Mode="In" />
+    <Parameter Name="var_titulo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="var_id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usuarioNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="correo" Type="varchar" Mode="In" />
+    <Parameter Name="clave" Type="varchar" Mode="In" />
+    <Parameter Name="usuario_perfil_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usuarioObtTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="val_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="correo" Type="varchar" Mode="In" />
+    <Parameter Name="clave" Type="varchar" Mode="In" />
+    <Parameter Name="ip_usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_borrarEstructuraTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="userversa">
+    <Parameter Name="idProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_borrarImagenTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="userversa">
+    <Parameter Name="idProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_seccionProductosActualizarImagenTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="userversa">
+    <Parameter Name="imagenTablaAplicacion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="productoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_tablaAplicacionTituloObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="userversa">
+    <Parameter Name="id_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cms_usuarioBorrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="userversa">
+    <Parameter Name="usuario_id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CMSVersaV2ModelStoreContainer" />
+</Schema>

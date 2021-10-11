@@ -1,0 +1,115 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+
+@{
+	ViewBag.Title = "Ver usuarios";
+	Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h2>Usuarios del sistema</h2>
+		</div>
+	</div>
+
+	<form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostNuevoUsuario.getRedirect())">
+		<div class="col-sm-12 col-md-3">
+			<div class="form-group">
+				<label>Nombre</label>
+				<input type="text" class="form-control" name="nombre" maxlength="250" required/>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<div class="form-group">
+				<label>Correo</label>
+				<input type="email" class="form-control" name="email" maxlength="250" required/>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<div class="form-group">
+				<label>Clave</label>
+				<input type="password" class="form-control" name="pass" maxlength="250" required/>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<div class="form-group">
+				<label>Perfil de usuario</label>
+				<select class="form-control" name="perfil-usuario" required>
+					@{ int i = 0; }
+					@foreach (EUsuarioPerfil el in EUsuarioPerfil.obtTodos())
+					{
+						if (i == 0)
+						{
+							<option selected value="@el.id">@el.descripcion</option>
+						}
+						else
+						{
+							<option value="@el.id">@el.descripcion</option>
+						}
+						i = i + 1;
+					}
+				</select>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 text-right">
+			<button type="submit" class="btn btn-info btn-sm">Nuevo usuario</button>
+		</div>
+	</form>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h2>Usuarios del sistema</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<!--Basic Table-->
+			<div class="table-responsive">
+				<table class="table table-bordered u-table--v2">
+					<thead class="text-uppercase g-letter-spacing-1">
+						<tr>
+							<th class="g-font-weight-300 g-color-black">ID</th>
+							<th class="g-font-weight-300 g-color-black">Nombre usuario</th>
+							<th class="g-font-weight-300 g-color-black">Correo</th>
+							<th class="g-font-weight-300 g-color-black g-min-width-200">Perfil usuario</th>
+							<th class="g-font-weight-300 g-color-black">Acciones</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@foreach (EUsuario item in EUsuario.obtTodos())
+						{
+							<tr>
+								<td class="align-middle text-nowrap">
+									<p>@item.id</p>
+								</td>
+								<td class="align-middle text-nowrap">
+									<p>@item.nombre</p>
+								</td>
+								<td class="align-middle text-nowrap">
+									<p>@item.correo</p>
+								</td>
+								<td class="align-middle">
+									<p>@item.perfilPuesto</p>
+								</td>
+
+								<td class="align-middle text-nowrap text-center">
+									<form method="post" action="@(Url.Action(Utils.Ruta.rutaPostBorrarUsuario.action, Utils.Ruta.rutaPostBorrarUsuario.controller))">
+                                        <input type="hidden" name="usuario-id" value="@item.id" />
+                                        <a href="@(Url.Action(Utils.Ruta.rutaVistaEditarUsuarios.action, Utils.Ruta.rutaVistaEditarUsuarios.controller) + "?usuarioId=" + item.id)">
+                                            <button type="button" class="btn-sm btn-info">Editar</button>
+                                        </a>
+                                        <button type="submit" class="btn-sm btn-danger">Borrar</button>
+                                    </form>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!--End Basic Table-->
+		</div>
+	</div>
+</div>

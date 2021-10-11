@@ -1,0 +1,208 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+
+@{
+    ViewBag.Title = "PerfilesAcceso";
+    Layout = "~/Views/_Layout.cshtml";
+    EModulo modulo = new EModulo();
+
+    int i = 0;
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h2>PerfilesAcceso</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<ul class="nav nav-tabs" id="nav-perfiles-accesos" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="nav-tab-perfiles-usuarios" data-toggle="tab" href="#tab-perfiles-usuarios" role="tab" aria-controls="tab-perfiles-usuarios" aria-selected="true">Perfiles de usuarios</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="nav-tab-accesos" data-toggle="tab" href="#tab-accesos" role="tab" aria-controls="tab-accesos" aria-selected="false">Accesos</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="tab-perfiles-accesos">
+				<div class="tab-pane fade show active" id="tab-perfiles-usuarios" role="tabpanel" aria-labelledby="home-tab">
+					<div class="container-fluid">
+						<form class="row" method="post" action="#">
+							<div class="col-sm-12 col-md-10">
+								<label>Descripción</label>
+								<input type="text" name="descripcion" class="form-control" maxlength="100" placeholder="Descripción del perfil de usuario" required />
+							</div>
+							<div class="col-sm-12 col-md-2">
+								<button type="submit" class="btn btn-info btn-top-margin">Nuevo perfil de usuario</button>
+							</div>
+						</form>
+						<div class="row" style="margin-top: 20px;">
+							<div class="col-sm-12 col-md-12">
+								<!--Basic Table-->
+								<div class="table-responsive">
+									<table class="table table-bordered u-table--v2">
+										<thead class="text-uppercase g-letter-spacing-1">
+											<tr>
+												<th class="g-font-weight-300 g-color-black">ID</th>
+												<th class="g-font-weight-300 g-color-black">Usuario perfil</th>
+												<th class="g-font-weight-300 g-color-black">Acciones</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											@foreach (EUsuarioPerfil item in EUsuarioPerfil.obtTodos())
+											{
+												<tr>
+													<td class="align-middle text-nowrap">
+														<p>@item.id</p>
+													</td>
+													<td class="align-middle text-nowrap">
+														<p>@item.descripcion</p>
+													</td>
+													<td class="align-middle text-nowrap text-center">
+														<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="#" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+															<i class="icon-pencil g-font-size-18 g-mr-7"></i>
+														</a>
+														<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="#!" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+															<i class="icon-trash g-font-size-18 g-mr-7"></i>
+														</a>
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table>
+								</div>
+								<!--End Basic Table-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="tab-accesos" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="container-fluid">
+						<form class="row" method="post" action="#">
+							<div class="col-sm-12 col-md-3">
+								<label>Módulo</label>
+								<select name="modulo" id="select-modulo" class="form-control">
+									@{  i = 0; }
+									@foreach (EModulo el in modulo.obtTodos<EModulo>())
+									{
+										if (i == 0)
+										{
+											<option value="@el.id" selected>@el.nombre</option>
+										}
+										else
+										{
+											<option value="@el.id">@el.nombre</option>
+										}
+										i = i + 1;
+									}
+								</select>
+							</div>
+							<div class="col-sm-12 col-md-3">
+								<label>Nivel</label>
+								<select name="nivel" id="nivel-modulo" class="form-control">
+								</select>
+							</div>
+							<div class="col-sm-12 col-md-3">
+								<label>Perfil de usuario</label>
+								<select name="perfil-usuario" id="usuario-perfil-modulo" class="form-control">
+									@{  i = 0; }
+									@foreach (EUsuarioPerfil el in EUsuarioPerfil.obtTodos())
+									{
+										if (i == 0)
+										{
+											<option value="@el.id" selected>@el.descripcion</option>
+										}
+										else
+										{
+											<option value="@el.id">@el.descripcion</option>
+										}
+										i = i + 1;
+									}
+								</select>
+							</div>
+							<div class="col-sm-12 col-md-3">
+								<button type="submit" class="btn btn-info btn-top-margin btn-all-width">Nuevo acceso</button>
+							</div>
+						</form>
+						<div class="row" style="margin-top: 20px;">
+							<div class="col-sm-12 col-md-12">
+								<!--Basic Table-->
+								<div class="table-responsive">
+									<table class="table table-bordered u-table--v2">
+										<thead class="text-uppercase g-letter-spacing-1">
+											<tr>
+												<th class="g-font-weight-300 g-color-black">Módulo</th>
+												<th class="g-font-weight-300 g-color-black">Usuario perfil</th>
+												<th class="g-font-weight-300 g-color-black">Nivel</th>
+												<th class="g-font-weight-300 g-color-black g-min-width-200">Descripción nivel</th>
+												<th class="g-font-weight-300 g-color-black">Acciones</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											@foreach (EUsuarioPerfilModuloNivel item in EUsuarioPerfilModuloNivel.obtTodos())
+											{
+												<tr>
+													<td class="align-middle text-nowrap">
+														<p>@item.modulo</p>
+													</td>
+													<td class="align-middle text-nowrap">
+														<p>@item.usuarioPerfil</p>
+													</td>
+													<td class="align-middle text-nowrap">
+														<p>@item.nivel</p>
+													</td>
+													<td class="align-middle">
+														<p>@item.nivelDescripcion</p>
+													</td>
+
+													<td class="align-middle text-nowrap text-center">
+														<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="#" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+															<i class="icon-pencil g-font-size-18 g-mr-7"></i>
+														</a>
+														<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="#!" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+															<i class="icon-trash g-font-size-18 g-mr-7"></i>
+														</a>
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table>
+								</div>
+								<!--End Basic Table-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('#select-modulo').change(function () {
+		if ($(this).val() != '')
+		{
+			showNiveles($('#select-modulo').val());
+		}
+	});
+
+	var showNiveles = function (moduloId) {
+		$.ajax({
+			url: '/post/json/modulos/niveles/obtener',
+			data: { 'modulo-id': moduloId },
+			type: 'POST',
+			success: function (response) {
+				var obj = jQuery.parseJSON(response);
+				$('#nivel-modulo').find('option').remove();
+				for (var i = 0; i < obj.length; i++) {
+					$('#nivel-modulo').append('<option value="' + obj[i].id + '">' + obj[i].nivel + ' | ' + obj[i].descripcion + '</option>');
+				}
+			}
+		});
+	};
+
+	showNiveles($('#select-modulo').val());
+</script>

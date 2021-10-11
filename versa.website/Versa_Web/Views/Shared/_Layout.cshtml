@@ -1,0 +1,28 @@
+﻿@using Versa_Web.Code
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Versa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="@Utils.getUrlAssets("Fonts.css", this)" rel="stylesheet" type="text/css" crossorigin="anonymous" />
+    <link href="@Utils.getUrlAssets("app/Menu.css", this)" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="@Url.Content("~/Public/img/favicon64.ico")" />
+    @RenderSection("css", false)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	@RenderSection("Scripts", false)
+    <link href="@Utils.getUrlAssets("app/Layout.css", this)" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @Html.Partial("_Menu");
+    @RenderBody()
+    @Html.Partial("_Footer")
+</body>
+</html>

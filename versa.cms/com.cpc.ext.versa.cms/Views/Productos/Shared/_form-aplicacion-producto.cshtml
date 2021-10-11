@@ -1,0 +1,335 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+
+@{
+	EProducto productos_data = @Model;
+}
+
+<style>
+	.apli-prod-table--td-ancho {
+		width: 300px;
+	}
+	.apli-prod-table--td-id-ancho {
+		width: 70px;
+	}
+	.apli-prod-table--td-enfermedad {
+		width: 400px;
+	}
+</style>
+<script>
+	function OnChecked(id_checkbox, id_input)
+	{
+		if (document.getElementById(id_checkbox).checked)
+		{
+			document.getElementById(id_input).value = "true";
+		} else {
+			document.getElementById(id_input).value = "false";
+		}
+	}
+</script>
+
+<div class="row">
+	<div class="col-sm-12 col-md-12 text-center">
+		<h1>Aplicaciones</h1>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12 col-md-12">
+		<form id="ver-intra-prod-edit-comp-porcen-form" name="ver-intra-prod-edit-comp-porcen-form" method="post" action="@Url.Content("~/intra/productos/editar/update/producto-aplicacion")">
+			<input type="hidden" id="apli-prod--prod-id" name="apli-prod--prod-id" value="@productos_data.id" />
+			<div style="width: 100%; overflow-x: scroll; position: relative; height: 500px;">
+				<table style="position: absolute; top: 0; left: 0; table-layout: fixed !important; width: 100%;">
+					<thead>
+						<tr>
+							<th class="apli-prod-table--td-id-ancho">Acciones</th>
+							<th class="apli-prod-table--td-ancho">Cultivo</th>
+							<th class="apli-prod-table--td-enfermedad">Enfermedad</th>
+							<th class="apli-prod-table--td-ancho">Dósis</th>
+							<th class="apli-prod-table--td-ancho">Intérvalo de seguridad</th>
+							<th class="apli-prod-table--td-ancho">LMREPA</th>
+							<th class="apli-prod-table--td-ancho">EPA</th>
+							<th class="apli-prod-table--td-ancho">Observaciones</th>
+							<th class="apli-prod-table--td-ancho">Estudio</th>
+							<th class="apli-prod-table--td-ancho">Época</th>
+						</tr>
+					</thead>
+					<tbody id="apli-prod--tbody">
+						@{
+							int cantidad = productos_data.aplicacion.Count;
+							int contador = 1;
+							if (cantidad == 0)
+							{
+								<tr data-id-contador="@contador">
+									<td class="apli-prod-table--td-id-ancho">
+										<i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>
+										<input type="checkbox" id="apli-prod--checkbox-agricultura-protegida" onclick="OnChecked('apli-prod--checkbox-agricultura-protegida', 'apli-prod--input-agricultura-protegida');">
+										<input type="hidden" id="apli-prod--input-agricultura-protegida" name="apli-prod--agricultura-protegida" value="false" />
+										<input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="0" />
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--cultivo" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--cultivo" name="apli-prod-input--cultivo" value="" />
+										<script> InicializarControl('apli-prod-div--cultivo', 'apli-prod-input--cultivo'); </script>
+									</td>
+									<td class="apli-prod-table--td-enfermedad">
+										<div id="apli-prod-div--enfermedad" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--enfermedad" name="apli-prod-input--enfermedad" value="" />
+										<script> InicializarControl('apli-prod-div--enfermedad', 'apli-prod-input--enfermedad'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--dosis" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--dosis" name="apli-prod-input--dosis" value="" />
+										<script> InicializarControl('apli-prod-div--dosis', 'apli-prod-input--dosis'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--inter-seg" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--inter-seg" name="apli-prod-input--inter-seg" value="" />
+										<script> InicializarControl('apli-prod-div--inter-seg', 'apli-prod-input--inter-seg'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--lmrepa" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--lmrepa" name="apli-prod-input--lmrepa" value="" />
+										<script> InicializarControl('apli-prod-div--lmrepa', 'apli-prod-input--lmrepa'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--epa" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--epa" name="apli-prod-input--epa" value="" />
+										<script> InicializarControl('apli-prod-div--epa', 'apli-prod-input--epa'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--observaciones" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--observaciones" name="apli-prod-input--observaciones" value="" />
+										<script> InicializarControl('apli-prod-div--observaciones', 'apli-prod-input--observaciones'); </script>
+									</td>
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--estudio" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--estudio" name="apli-prod-input--estudio" value="" />
+										<script> InicializarControl('apli-prod-div--estudio', 'apli-prod-input--estudio'); </script>
+									</td>									
+									<td class="apli-prod-table--td-ancho">
+										<div id="apli-prod-div--epoca" class="pell-container"></div>
+										<input type="hidden" id="apli-prod-input--epoca" name="apli-prod-input--epoca" value="" />
+										<script> InicializarControl('apli-prod-div--epoca', 'apli-prod-input--epoca'); </script>
+									</td>	
+								</tr>
+							}
+							else
+							{
+								foreach (sel_productos_aplicacion_Fil_id_producto_Result elemento in productos_data.aplicacion)
+								{
+									<tr data-id-contador="@contador">
+										<td class="apli-prod-table--td-id-ancho">
+											<i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>
+											@if (Convert.ToBoolean(elemento.agricultura_protegida))
+											{
+												<input type="checkbox" id="@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))" onclick="OnChecked('@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))', '@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))');" checked>
+												<input type="hidden" id="@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))" name="apli-prod--agricultura-protegida" value="true" />
+											}
+											else
+											{
+												<input type="checkbox" id="@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))" onclick="OnChecked('@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))', '@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))');">
+												<input type="hidden" id="@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))" name="apli-prod--agricultura-protegida" value="false" />
+											}
+											<input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="@elemento.id" />
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--cultivo" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--cultivo" + Convert.ToString(contador))" name="apli-prod-input--cultivo" value="@elemento.cultivo" />
+											<script> InicializarControl('@("apli-prod-div--cultivo" + Convert.ToString(contador))', '@("apli-prod-input--cultivo" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-enfermedad">
+											<div id="@("apli-prod-div--enfermedad" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--enfermedad" + Convert.ToString(contador))" name="apli-prod-input--enfermedad" value="@elemento.enfermedad" />
+											<script> InicializarControl('@("apli-prod-div--enfermedad" + Convert.ToString(contador))', '@("apli-prod-input--enfermedad" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--dosis" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--dosis" + Convert.ToString(contador))" name="apli-prod-input--dosis" value="@elemento.dosis" />
+											<script> InicializarControl('@("apli-prod-div--dosis" + Convert.ToString(contador))', '@("apli-prod-input--dosis" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--inter-seg" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--inter-seg" + Convert.ToString(contador))" name="apli-prod-input--inter-seg" value="@elemento.intervalo_seguridad" />
+											<script> InicializarControl('@("apli-prod-div--inter-seg" + Convert.ToString(contador))', '@("apli-prod-input--inter-seg" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--lmrepa" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--lmrepa" + Convert.ToString(contador))" name="apli-prod-input--lmrepa" value="@elemento.LMRP" />
+											<script> InicializarControl('@("apli-prod-div--lmrepa" + Convert.ToString(contador))', '@("apli-prod-input--lmrepa" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--epa" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--epa" + Convert.ToString(contador))" name="apli-prod-input--epa" value="@elemento.EPA2" />
+											<script> InicializarControl('@("apli-prod-div--epa" + Convert.ToString(contador))', '@("apli-prod-input--epa" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--observaciones" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--observaciones" + Convert.ToString(contador))" name="apli-prod-input--observaciones" value="@elemento.obervaciones" />
+											<script> InicializarControl('@("apli-prod-div--observaciones" + Convert.ToString(contador))', '@("apli-prod-input--observaciones" + Convert.ToString(contador))'); </script>
+										</td>
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--estudio" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--estudio" + Convert.ToString(contador))" name="apli-prod-input--estudio" value="@elemento.estudios" />
+											<script> InicializarControl('@("apli-prod-div--estudio" + Convert.ToString(contador))', '@("apli-prod-input--estudio" + Convert.ToString(contador))'); </script>
+										</td>
+
+										<td class="apli-prod-table--td-ancho">
+											<div id="@("apli-prod-div--epoca" + Convert.ToString(contador))" class="pell-container"></div>
+											<input type="hidden" id="@("apli-prod-input--epoca" + Convert.ToString(contador))" name="apli-prod-input--epoca" value="@elemento.epoca" />
+											<script> InicializarControl('@("apli-prod-div--epoca" + Convert.ToString(contador))', '@("apli-prod-input--epoca" + Convert.ToString(contador))'); </script>
+										</td>
+									</tr>
+
+									contador = contador + 1;
+								}
+							}
+						}
+					</tbody>
+				</table>
+			</div>
+
+			<div class="text-right">
+				<button type="button" id="apli-prod--button-agregar" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+				<script>document.getElementById("apli-prod--button-agregar").addEventListener("click", function () { AgregarAplicacionProducto(); });</script>
+				<button type="submit" id="apli-prod--button-enviar" class="btn btn-info btn-sm" style="display: inline-block;">Enviar</button>
+			</div>
+
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título cultivo</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--cultivo" name="apli-prod--titulo-columna--cultivo" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título enfermedad</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--enfermedad" name="apli-prod--titulo-columna--enfermedad" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título dósis</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--dosis" name="apli-prod--titulo-columna--dosis" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título intérvalo de seguridad</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--intseg" name="apli-prod--titulo-columna--intseg" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título observaciones</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--observaciones" name="apli-prod--titulo-columna--observaciones" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título época</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--epoca" name="apli-prod--titulo-columna--epoca" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título LMRP</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--lmrp" name="apli-prod--titulo-columna--lmrp" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título EPA</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--epa" name="apli-prod--titulo-columna--epa" />
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-sm-12 col-md-12">
+					<label><strong>Título estudios</strong></label>
+					<input type="text" class="form-control" id="apli-prod--titulo-columna--estudios" name="apli-prod--titulo-columna--estudios" />
+				</div>
+			</div>
+
+			<div class="text-right">
+				<button type="submit" class="btn btn-info btn-sm" style="display: inline-block;">Guardar</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	cant_aplic_prod = @(contador + 1);
+	function AgregarAplicacionProducto() {
+		var tr = document.createElement('tr');
+		tr.setAttribute("data-id-contador", cant_aplic_prod);
+		tr.innerHTML =
+		'<td class="apli-prod-table--td-id-ancho">' +
+			'<i class="fa fa-close" data-id-contador="' + cant_aplic_prod + '" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>' +
+			'<input type="checkbox" id="apli-prod--checkbox-agricultura-protegida' + cant_aplic_prod + '" onclick="OnChecked(\'apli-prod--checkbox-agricultura-protegida' + cant_aplic_prod + '\', \'apli-prod--input-agricultura-protegida' + cant_aplic_prod + '\');">' +
+			'<input type="hidden" id="apli-prod--input-agricultura-protegida' + cant_aplic_prod + '" name="apli-prod--agricultura-protegida" value="false" />' +
+			'<input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="0" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--cultivo' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--cultivo' + cant_aplic_prod + '" name="apli-prod-input--cultivo" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-enfermedad">' +
+			'<div id="apli-prod-div--enfermedad' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--enfermedad' + cant_aplic_prod + '" name="apli-prod-input--enfermedad" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--dosis' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--dosis' + cant_aplic_prod + '" name="apli-prod-input--dosis" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--inter-seg' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--inter-seg' + cant_aplic_prod + '" name="apli-prod-input--inter-seg" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--lmrepa' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--lmrepa' + cant_aplic_prod + '" name="apli-prod-input--lmrepa" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--epa' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--epa' + cant_aplic_prod + '" name="apli-prod-input--epa" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--observaciones' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--observaciones' + cant_aplic_prod + '" name="apli-prod-input--observaciones" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--estudio' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--estudio' + cant_aplic_prod + '" name="apli-prod-input--estudio" value="" />' +
+		'</td>' +
+		'<td class="apli-prod-table--td-ancho">' +
+			'<div id="apli-prod-div--epoca' + cant_aplic_prod + '" class="pell-container"></div>' +
+			'<input type="hidden" id="apli-prod-input--epoca' + cant_aplic_prod + '" name="apli-prod-input--epoca" value="" />' +
+		'</td>';
+		document.getElementById('apli-prod--tbody').appendChild(tr);
+		InicializarControl('apli-prod-div--cultivo' + cant_aplic_prod, 'apli-prod-input--cultivo' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--enfermedad' + cant_aplic_prod, 'apli-prod-input--enfermedad' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--dosis' + cant_aplic_prod, 'apli-prod-input--dosis' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--inter-seg' + cant_aplic_prod, 'apli-prod-input--inter-seg' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--lmrepa' + cant_aplic_prod, 'apli-prod-input--lmrepa' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--epa' + cant_aplic_prod, 'apli-prod-input--epa' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--observaciones' + cant_aplic_prod, 'apli-prod-input--observaciones' + cant_aplic_prod);
+		InicializarControl('apli-prod-div--estudio' + cant_aplic_prod, 'apli-prod-input--estudio' + cant_aplic_prod);
+		cant_aplic_prod++;
+	}
+
+	function BorrarAplicacionProducto(e) {
+		var id_contador = e.dataset.idContador;
+		var container = document.getElementById("apli-prod--tbody");
+		var nodos = container.children;
+		var elemento_borrar = null;
+		for (i = 0; i < nodos.length; i++) {
+			if (nodos[i].dataset.idContador == id_contador) {
+				console.log(nodos[i]);
+				elemento_borrar = nodos[i];
+			}
+		}
+		container.removeChild(elemento_borrar);
+	}
+</script>

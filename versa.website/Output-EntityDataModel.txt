@@ -1,0 +1,15 @@
+﻿Generated model file: versa_Model.edmx.
+Loading metadata from the database took 00:00:02.7341821.
+Generating the model took 00:00:06.7342163.
+Generated model file: versa_Model.edmx.
+Loading metadata from the database took 00:00:04.2323577.
+Generating the model took 00:00:06.6445114.
+Generated model file: versa_Model.edmx.
+Loading metadata from the database took 00:00:02.3263793.
+Generating the model took 00:00:04.7931273.
+Generated model file: versa_Model.edmx.
+Loading metadata from the database took 00:00:02.1844338.
+Generating the model took 00:00:04.7033891.
+Generated model file: versa_Model.edmx.
+Loading metadata from the database took 00:00:02.1521651.
+Generating the model took 00:00:07.2423430.

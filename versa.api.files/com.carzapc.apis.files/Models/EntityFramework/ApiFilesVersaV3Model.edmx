@@ -1,0 +1,2058 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ApiFilesVersaV3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="cms_borrarEstructuraTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_borrarImagenTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_cmsHomeCarruselNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="imagen_escritorio" Type="varchar(max)" Mode="In" />
+          <Parameter Name="imagen_movil" Type="varchar(max)" Mode="In" />
+          <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="usuario_creo" Type="int" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_documentoEsrActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_documentoEsrObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_informacionContactoEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="telefono_contacto" Type="varchar(max)" Mode="In" />
+          <Parameter Name="direccion_fisica" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_informacionContactoEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_logotipoEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_imagen" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_logotipoEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_modufilesArchivoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="archivo_hash" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_modufilesArchivoNuevoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_obtImagenTabla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_obtNombreUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_productoActualizarTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="imagen_tabla_aplicacion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_pSkuNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sku" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_pSkuObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_pTipoActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="imagen" Type="varchar" Mode="In" />
+          <Parameter Name="alias" Type="varchar" Mode="In" />
+          <Parameter Name="classname_img_mobile" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_pTipoEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_pTipoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="imagen" Type="varchar" Mode="In" />
+          <Parameter Name="alias" Type="varchar" Mode="In" />
+          <Parameter Name="classname_img_mobile" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_pTipoObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_redesSocialesEmpresaActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="url_facebook" Type="varchar(max)" Mode="In" />
+          <Parameter Name="url_youtube" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_redesSocialesEmpresaObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionHomeNoticiasCarruselActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_carrusel_noticias_id" Type="int" Mode="In" />
+          <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+          <Parameter Name="movil" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeNoticiasCarruselDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_carrusel_noticias_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeNoticiasCarruselNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="url_redireccion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+          <Parameter Name="movil" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeNoticiasCarruselObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionHomeSobreNosotrosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contenido" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeSobreNosotrosActualizarNombreArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeSobreNosotrosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionHomeVideosEventosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeVideosEventosActualizarDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeVideosEventosDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeVideosEventosNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeVideosEventosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionHomeVideosEventosObtenerDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_home_videos_eventos_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionHomeVideosEventosObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionNosotrosCarruselPlantasActualizarMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="movil" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosCarruselPlantasActualizarOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosCarruselPlantasDesactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_nosotros_carrusel_plantas_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosCarruselPlantasNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+          <Parameter Name="movil" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosCarruselPlantasObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionNosotrosLineaTiempoActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosLineaTiempoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre_archivo" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionNosotrosLineaTiempoObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cms_seccionProductosActualizarImagenTablaAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="imagenTablaAplicacion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionProductosDocumentosActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="documento" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionProductosDocumentosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionProductosEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionProductosNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_tipo" Type="int" Mode="In" />
+          <Parameter Name="sku" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="subnombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionUsuariosEditar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuarioId" Type="int" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="cms_seccionUsuariosObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuarioId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_tablaAplicacionTituloObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_usuarioBorrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="cms_websiteMensajeContactoObtener" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fraseguModuloNivelObtenerPorModulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="frasegu_modulo_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fraseguModuloObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fraseguUsuarioPerfilEditar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="fraseguUsuarioPerfilEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fraseguUsuarioPerfilModuloNivelNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="frasegu_usuario_perfil_id" Type="int" Mode="In" />
+          <Parameter Name="frasegu_modulo_nivel_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fraseguUsuarioPerfilModuloNivelObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fraseguUsuarioPerfilNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="fraseguUsuarioPerfilObtenerTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="guardarMensajeContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="asunto" Type="varchar" Mode="In" />
+          <Parameter Name="mensaje" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ins_cms_seccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="website_seccion_id" Type="int" Mode="In" />
+          <Parameter Name="titulo" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion_corta" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ins_cms_seccion_contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cms_seccion_id" Type="int" Mode="In" />
+          <Parameter Name="html_control_id" Type="varchar" Mode="In" />
+          <Parameter Name="contenido" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ins_cms_website_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="url" Type="varchar(max)" Mode="In" />
+          <Parameter Name="controlador" Type="varchar(max)" Mode="In" />
+          <Parameter Name="accion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="texto" Type="varchar(max)" Mode="In" />
+          <Parameter Name="cms_website_menu_padre_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ins_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+          <Parameter Name="var_sku" Type="varchar" Mode="In" />
+          <Parameter Name="var_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="var_descripcion" Type="text" Mode="In" />
+          <Parameter Name="var_presentacion" Type="varchar" Mode="In" />
+          <Parameter Name="var_contenido" Type="varchar" Mode="In" />
+          <Parameter Name="var_beneficios" Type="text" Mode="In" />
+          <Parameter Name="var_imagen" Type="varchar" Mode="In" />
+          <Parameter Name="var_precio" Type="float" Mode="In" />
+          <Parameter Name="var_pdf_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="var_subnombre" Type="varchar" Mode="In" />
+          <Parameter Name="var_cintillo" Type="text" Mode="In" />
+          <Parameter Name="var_show_index" Type="bit" Mode="In" />
+          <Parameter Name="var_pie" Type="text" Mode="In" />
+          <Parameter Name="var_imagen_logo" Type="varchar" Mode="In" />
+          <Parameter Name="var_imagen_logo_carpeta" Type="varchar" Mode="In" />
+          <Parameter Name="var_imagen_logo_blanco" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ins_productos_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+          <Parameter Name="var_cultivo" Type="text" Mode="In" />
+          <Parameter Name="var_enfermedad" Type="text" Mode="In" />
+          <Parameter Name="var_dosis" Type="text" Mode="In" />
+          <Parameter Name="var_intervalo_seguridad" Type="text" Mode="In" />
+          <Parameter Name="var_observaciones" Type="text" Mode="In" />
+          <Parameter Name="var_epoca" Type="text" Mode="In" />
+          <Parameter Name="var_lmrp" Type="varchar" Mode="In" />
+          <Parameter Name="var_epa" Type="varchar" Mode="In" />
+          <Parameter Name="var_tolerancias" Type="varchar" Mode="In" />
+          <Parameter Name="var_estudios" Type="varchar" Mode="In" />
+          <Parameter Name="var_agricultura_protegida" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ins_productos_composicion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+          <Parameter Name="var_ingrediente" Type="varchar" Mode="In" />
+          <Parameter Name="var_formula" Type="text" Mode="In" />
+          <Parameter Name="var_tipo" Type="bit" Mode="In" />
+          <Parameter Name="var_porcentaje" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ins_usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="usuario_perfil_id" Type="int" Mode="In" />
+          <Parameter Name="usuario_mod" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ins_website_seccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="titulo" Type="varchar" Mode="In" />
+          <Parameter Name="nombre_fichero_vista" Type="varchar" Mode="In" />
+          <Parameter Name="ruta_publica" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion_corta" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="modutrackNuevoIngresoAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario_id" Type="int" Mode="In" />
+          <Parameter Name="sistema_ip" Type="varchar" Mode="In" />
+          <Parameter Name="sistema_operativo" Type="varchar" Mode="In" />
+          <Parameter Name="sistema_navegador" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="modutrackNuevoIngresoFallido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo_fallido" Type="varchar" Mode="In" />
+          <Parameter Name="pass_fallida" Type="varchar" Mode="In" />
+          <Parameter Name="sistema_ip" Type="varchar" Mode="In" />
+          <Parameter Name="sistema_operativo" Type="varchar" Mode="In" />
+          <Parameter Name="sistema_navegador" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="nuevoEventoAplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="evento_aplicacion_tipo_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="search_productos_filtro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_cultivo" Type="int" Mode="In" />
+          <Parameter Name="var_id_enfermedad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_cms_seccion_contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="website_seccion_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_cms_website_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_cultivos_para_filtros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_enfermedades_para_filtro_por_cultivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_cultivo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_enfermedades_para_filtros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_producto_nombre_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_producto_tipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos_aplicacion_Fil_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_productos_composicion_Fil_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_productos_para_home_index" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos_para_intra_editar_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_producto_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_productos_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos_para_intra_ver_productos_filtro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="producto_tipo" Type="int" Mode="In" />
+          <Parameter Name="producto_sku" Type="varchar" Mode="In" />
+          <Parameter Name="producto_nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sel_productos_para_producto_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos_para_proteccion_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_productos_sku" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_productos_tipos_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_sku_para_intra_ver_productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_tabla_aplicacion_titulo_por_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_tabla_composicion_por_id_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_temp_buscador_v1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_cultivo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="var_enfermedad" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="upd_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_tipo" Type="int" Mode="In" />
+          <Parameter Name="var_sku" Type="varchar" Mode="In" />
+          <Parameter Name="var_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="var_subnombre" Type="varchar" Mode="In" />
+          <Parameter Name="var_descripcion" Type="text" Mode="In" />
+          <Parameter Name="var_presentacion" Type="text" Mode="In" />
+          <Parameter Name="var_contenido" Type="varchar" Mode="In" />
+          <Parameter Name="var_beneficios" Type="text" Mode="In" />
+          <Parameter Name="var_cintillo" Type="text" Mode="In" />
+          <Parameter Name="var_pie" Type="text" Mode="In" />
+          <Parameter Name="var_producto_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id" Type="int" Mode="In" />
+          <Parameter Name="var_cultivo" Type="text" Mode="In" />
+          <Parameter Name="var_enfermedad" Type="text" Mode="In" />
+          <Parameter Name="var_dosis" Type="text" Mode="In" />
+          <Parameter Name="var_intervalo_seguridad" Type="text" Mode="In" />
+          <Parameter Name="var_observaciones" Type="text" Mode="In" />
+          <Parameter Name="var_epoca" Type="text" Mode="In" />
+          <Parameter Name="var_lmrp" Type="varchar" Mode="In" />
+          <Parameter Name="var_epa" Type="varchar" Mode="In" />
+          <Parameter Name="var_tolerancias" Type="varchar" Mode="In" />
+          <Parameter Name="var_estudios" Type="varchar" Mode="In" />
+          <Parameter Name="var_agricultura_protegida" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_aplicacion_inactive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_composicion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_ingrediente" Type="varchar" Mode="In" />
+          <Parameter Name="var_formula" Type="text" Mode="In" />
+          <Parameter Name="var_porcentaje" Type="varchar" Mode="In" />
+          <Parameter Name="var_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_composicion_inactive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_imagen_color" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_logo_color" Type="varchar" Mode="In" />
+          <Parameter Name="var_producto_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_imagen_logo_blanco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_imagen_logo_blanco" Type="varchar(max)" Mode="In" />
+          <Parameter Name="var_producto_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_productos_imagen_render" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_render" Type="varchar" Mode="In" />
+          <Parameter Name="var_producto_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="upd_titulo_tabla_aplicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="var_id_columna" Type="int" Mode="In" />
+          <Parameter Name="var_titulo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="var_id_producto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usuarioNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="usuario_perfil_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usuarioObtTodos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="val_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="ip_usuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="website_sp1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="website_sp2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="website_sp3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="website_sp4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="website_sp5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productoId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="website_sp6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_id_producto" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ApiFilesVersaV3StoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApiFilesVersaV3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ApiFilesVersaV3Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="cms_borrarEstructuraTablaAplicacion">
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_borrarImagenTablaAplicacion">
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_cmsHomeCarruselNuevo">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="imagen_escritorio" Mode="In" Type="String" />
+            <Parameter Name="imagen_movil" Mode="In" Type="String" />
+            <Parameter Name="url_redireccion" Mode="In" Type="String" />
+            <Parameter Name="usuario_creo" Mode="In" Type="Int32" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_documentoEsrActualizar">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_documentoEsrObtener" ReturnType="Collection(String)" />
+          <FunctionImport Name="cms_informacionContactoEmpresaActualizar">
+            <Parameter Name="telefono_contacto" Mode="In" Type="String" />
+            <Parameter Name="direccion_fisica" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_informacionContactoEmpresaObtener" ReturnType="Collection(ApiFilesVersaV3.cms_informacionContactoEmpresaObtener_Result)" />
+          <FunctionImport Name="cms_logotipoEmpresaActualizar">
+            <Parameter Name="nombre_imagen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_logotipoEmpresaObtener" ReturnType="Collection(String)" />
+          <FunctionImport Name="cms_modufilesArchivoNuevo">
+            <Parameter Name="archivo_hash" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_modufilesArchivoNuevoId" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="cms_obtImagenTabla" ReturnType="Collection(String)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_obtNombreUsuario" ReturnType="Collection(ApiFilesVersaV3.cms_obtNombreUsuario_Result)">
+            <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_productoActualizarTablaAplicacion">
+            <Parameter Name="imagen_tabla_aplicacion" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_pSkuNuevo">
+            <Parameter Name="sku" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_pSkuObtener" ReturnType="Collection(ApiFilesVersaV3.cms_pSkuObtener_Result)" />
+          <FunctionImport Name="cms_pTipoActualizar">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="imagen" Mode="In" Type="String" />
+            <Parameter Name="alias" Mode="In" Type="String" />
+            <Parameter Name="classname_img_mobile" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_pTipoEliminar">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_pTipoNuevo">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="imagen" Mode="In" Type="String" />
+            <Parameter Name="alias" Mode="In" Type="String" />
+            <Parameter Name="classname_img_mobile" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_pTipoObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.cms_pTipoObtenerTodos_Result)" />
+          <FunctionImport Name="cms_redesSocialesEmpresaActualizar">
+            <Parameter Name="url_facebook" Mode="In" Type="String" />
+            <Parameter Name="url_youtube" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_redesSocialesEmpresaObtener" ReturnType="Collection(ApiFilesVersaV3.cms_redesSocialesEmpresaObtener_Result)" />
+          <FunctionImport Name="cms_seccionHomeNoticiasCarruselActualizar">
+            <Parameter Name="cms_seccion_home_carrusel_noticias_id" Mode="In" Type="Int32" />
+            <Parameter Name="url_redireccion" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+            <Parameter Name="movil" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeNoticiasCarruselDesactivar">
+            <Parameter Name="cms_seccion_home_carrusel_noticias_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeNoticiasCarruselNuevo">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+            <Parameter Name="url_redireccion" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+            <Parameter Name="movil" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeNoticiasCarruselObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeNoticiasCarruselObtener_Result)" />
+          <FunctionImport Name="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="cms_seccionHomeSobreNosotrosActualizar">
+            <Parameter Name="contenido" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeSobreNosotrosActualizarNombreArchivo">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeSobreNosotrosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeSobreNosotrosObtener_Result)" />
+          <FunctionImport Name="cms_seccionHomeVideosEventosActualizar">
+            <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeVideosEventosActualizarDescripcion">
+            <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeVideosEventosDesactivar">
+            <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeVideosEventosNuevo">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeVideosEventosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeVideosEventosObtener_Result)" />
+          <FunctionImport Name="cms_seccionHomeVideosEventosObtenerDescripcion" ReturnType="Collection(String)">
+            <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionHomeVideosEventosObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasActualizarMovil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="movil" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasActualizarOrden">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasDesactivar">
+            <Parameter Name="cms_seccion_nosotros_carrusel_plantas_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasNuevo">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+            <Parameter Name="movil" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionNosotrosCarruselPlantasObtener_Result)" />
+          <FunctionImport Name="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="cms_seccionNosotrosLineaTiempoActualizar">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosLineaTiempoNuevo">
+            <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionNosotrosLineaTiempoObtener" ReturnType="Collection(String)" />
+          <FunctionImport Name="cms_seccionProductosActualizarImagenTablaAplicacion">
+            <Parameter Name="imagenTablaAplicacion" Mode="In" Type="String" />
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionProductosDocumentosActualizar">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="documento" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionProductosDocumentosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionProductosDocumentosObtener_Result)">
+            <Parameter Name="id_Producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionProductosEliminar">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionProductosNuevo" ReturnType="Collection(Int32)">
+            <Parameter Name="id_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="sku" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="subnombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionUsuariosEditar">
+            <Parameter Name="usuarioId" Mode="In" Type="Int32" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="cms_seccionUsuariosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionUsuariosObtener_Result)">
+            <Parameter Name="usuarioId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_tablaAplicacionTituloObtener" ReturnType="Collection(ApiFilesVersaV3.cms_tablaAplicacionTituloObtener_Result)">
+            <Parameter Name="id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_usuarioBorrar">
+            <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="cms_websiteMensajeContactoObtener" ReturnType="Collection(ApiFilesVersaV3.cms_websiteMensajeContactoObtener_Result)" />
+          <FunctionImport Name="fraseguModuloNivelObtenerPorModulo" ReturnType="Collection(ApiFilesVersaV3.fraseguModuloNivelObtenerPorModulo_Result)">
+            <Parameter Name="frasegu_modulo_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fraseguModuloObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguModuloObtenerTodos_Result)" />
+          <FunctionImport Name="fraseguUsuarioPerfilEditar">
+            <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fraseguUsuarioPerfilEliminar">
+            <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fraseguUsuarioPerfilModuloNivelNuevo">
+            <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+            <Parameter Name="frasegu_modulo_nivel_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fraseguUsuarioPerfilModuloNivelObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguUsuarioPerfilModuloNivelObtenerTodos_Result)" />
+          <FunctionImport Name="fraseguUsuarioPerfilNuevo">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fraseguUsuarioPerfilObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguUsuarioPerfilObtenerTodos_Result)" />
+          <FunctionImport Name="guardarMensajeContacto">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="asunto" Mode="In" Type="String" />
+            <Parameter Name="mensaje" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_cms_seccion">
+            <Parameter Name="website_seccion_id" Mode="In" Type="Int32" />
+            <Parameter Name="titulo" Mode="In" Type="String" />
+            <Parameter Name="descripcion_corta" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_cms_seccion_contenido">
+            <Parameter Name="cms_seccion_id" Mode="In" Type="Int32" />
+            <Parameter Name="html_control_id" Mode="In" Type="String" />
+            <Parameter Name="contenido" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_cms_website_menu">
+            <Parameter Name="url" Mode="In" Type="String" />
+            <Parameter Name="controlador" Mode="In" Type="String" />
+            <Parameter Name="accion" Mode="In" Type="String" />
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="cms_website_menu_padre_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ins_producto">
+            <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="var_sku" Mode="In" Type="String" />
+            <Parameter Name="var_nombre" Mode="In" Type="String" />
+            <Parameter Name="var_descripcion" Mode="In" Type="String" />
+            <Parameter Name="var_presentacion" Mode="In" Type="String" />
+            <Parameter Name="var_contenido" Mode="In" Type="String" />
+            <Parameter Name="var_beneficios" Mode="In" Type="String" />
+            <Parameter Name="var_imagen" Mode="In" Type="String" />
+            <Parameter Name="var_precio" Mode="In" Type="Double" />
+            <Parameter Name="var_pdf_nombre" Mode="In" Type="String" />
+            <Parameter Name="var_subnombre" Mode="In" Type="String" />
+            <Parameter Name="var_cintillo" Mode="In" Type="String" />
+            <Parameter Name="var_show_index" Mode="In" Type="Boolean" />
+            <Parameter Name="var_pie" Mode="In" Type="String" />
+            <Parameter Name="var_imagen_logo" Mode="In" Type="String" />
+            <Parameter Name="var_imagen_logo_carpeta" Mode="In" Type="String" />
+            <Parameter Name="var_imagen_logo_blanco" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_productos_aplicacion">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+            <Parameter Name="var_cultivo" Mode="In" Type="String" />
+            <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+            <Parameter Name="var_dosis" Mode="In" Type="String" />
+            <Parameter Name="var_intervalo_seguridad" Mode="In" Type="String" />
+            <Parameter Name="var_observaciones" Mode="In" Type="String" />
+            <Parameter Name="var_epoca" Mode="In" Type="String" />
+            <Parameter Name="var_lmrp" Mode="In" Type="String" />
+            <Parameter Name="var_epa" Mode="In" Type="String" />
+            <Parameter Name="var_tolerancias" Mode="In" Type="String" />
+            <Parameter Name="var_estudios" Mode="In" Type="String" />
+            <Parameter Name="var_agricultura_protegida" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ins_productos_composicion">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+            <Parameter Name="var_ingrediente" Mode="In" Type="String" />
+            <Parameter Name="var_formula" Mode="In" Type="String" />
+            <Parameter Name="var_tipo" Mode="In" Type="Boolean" />
+            <Parameter Name="var_porcentaje" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_usuario" ReturnType="Collection(Int32)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="usuario_perfil_id" Mode="In" Type="Int32" />
+            <Parameter Name="usuario_mod" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ins_website_seccion">
+            <Parameter Name="titulo" Mode="In" Type="String" />
+            <Parameter Name="nombre_fichero_vista" Mode="In" Type="String" />
+            <Parameter Name="ruta_publica" Mode="In" Type="String" />
+            <Parameter Name="descripcion_corta" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="modutrackNuevoIngresoAplicacion">
+            <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+            <Parameter Name="sistema_ip" Mode="In" Type="String" />
+            <Parameter Name="sistema_operativo" Mode="In" Type="String" />
+            <Parameter Name="sistema_navegador" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="modutrackNuevoIngresoFallido">
+            <Parameter Name="correo_fallido" Mode="In" Type="String" />
+            <Parameter Name="pass_fallida" Mode="In" Type="String" />
+            <Parameter Name="sistema_ip" Mode="In" Type="String" />
+            <Parameter Name="sistema_operativo" Mode="In" Type="String" />
+            <Parameter Name="sistema_navegador" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="nuevoEventoAplicacion">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="evento_aplicacion_tipo_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="search_productos_filtro" ReturnType="Collection(ApiFilesVersaV3.search_productos_filtro_Result)">
+            <Parameter Name="var_id_cultivo" Mode="In" Type="Int32" />
+            <Parameter Name="var_id_enfermedad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_cms_seccion_contenido" ReturnType="Collection(ApiFilesVersaV3.sel_cms_seccion_contenido_Result)">
+            <Parameter Name="website_seccion_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_cms_website_menu" ReturnType="Collection(ApiFilesVersaV3.sel_cms_website_menu_Result)" />
+          <FunctionImport Name="sel_cultivos_para_filtros" ReturnType="Collection(ApiFilesVersaV3.sel_cultivos_para_filtros_Result)" />
+          <FunctionImport Name="sel_enfermedades_para_filtro_por_cultivo" ReturnType="Collection(ApiFilesVersaV3.sel_enfermedades_para_filtro_por_cultivo_Result)">
+            <Parameter Name="var_id_cultivo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_enfermedades_para_filtros" ReturnType="Collection(ApiFilesVersaV3.sel_enfermedades_para_filtros_Result)" />
+          <FunctionImport Name="sel_producto_nombre_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_producto_nombre_para_intra_ver_productos_Result)" />
+          <FunctionImport Name="sel_producto_tipo" ReturnType="Collection(ApiFilesVersaV3.sel_producto_tipo_Result)" />
+          <FunctionImport Name="sel_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_Result)" />
+          <FunctionImport Name="sel_productos_aplicacion_Fil_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_productos_aplicacion_Fil_id_producto_Result)">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_productos_composicion_Fil_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_productos_composicion_Fil_id_producto_Result)">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_productos_para_home_index" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_home_index_Result)" />
+          <FunctionImport Name="sel_productos_para_intra_editar_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_editar_productos_Result)">
+            <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_productos_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_ver_productos_Result)" />
+          <FunctionImport Name="sel_productos_para_intra_ver_productos_filtro" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_ver_productos_filtro_Result)">
+            <Parameter Name="producto_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="producto_sku" Mode="In" Type="String" />
+            <Parameter Name="producto_nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sel_productos_para_producto_buscar" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_producto_buscar_Result)" />
+          <FunctionImport Name="sel_productos_para_proteccion_categoria" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_proteccion_categoria_Result)">
+            <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_productos_sku" ReturnType="Collection(ApiFilesVersaV3.sel_productos_sku_Result)" />
+          <FunctionImport Name="sel_productos_tipos_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_tipos_para_intra_ver_productos_Result)" />
+          <FunctionImport Name="sel_sku_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_sku_para_intra_ver_productos_Result)" />
+          <FunctionImport Name="sel_tabla_aplicacion_titulo_por_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_tabla_aplicacion_titulo_por_id_producto_Result)">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_tabla_composicion_por_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_tabla_composicion_por_id_producto_Result)">
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_temp_buscador_v1" ReturnType="Collection(ApiFilesVersaV3.sp_temp_buscador_v1_Result)">
+            <Parameter Name="var_cultivo" Mode="In" Type="String" />
+            <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="upd_producto">
+            <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="var_sku" Mode="In" Type="String" />
+            <Parameter Name="var_nombre" Mode="In" Type="String" />
+            <Parameter Name="var_subnombre" Mode="In" Type="String" />
+            <Parameter Name="var_descripcion" Mode="In" Type="String" />
+            <Parameter Name="var_presentacion" Mode="In" Type="String" />
+            <Parameter Name="var_contenido" Mode="In" Type="String" />
+            <Parameter Name="var_beneficios" Mode="In" Type="String" />
+            <Parameter Name="var_cintillo" Mode="In" Type="String" />
+            <Parameter Name="var_pie" Mode="In" Type="String" />
+            <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_aplicacion">
+            <Parameter Name="var_id" Mode="In" Type="Int32" />
+            <Parameter Name="var_cultivo" Mode="In" Type="String" />
+            <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+            <Parameter Name="var_dosis" Mode="In" Type="String" />
+            <Parameter Name="var_intervalo_seguridad" Mode="In" Type="String" />
+            <Parameter Name="var_observaciones" Mode="In" Type="String" />
+            <Parameter Name="var_epoca" Mode="In" Type="String" />
+            <Parameter Name="var_lmrp" Mode="In" Type="String" />
+            <Parameter Name="var_epa" Mode="In" Type="String" />
+            <Parameter Name="var_tolerancias" Mode="In" Type="String" />
+            <Parameter Name="var_estudios" Mode="In" Type="String" />
+            <Parameter Name="var_agricultura_protegida" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_aplicacion_inactive">
+            <Parameter Name="var_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_composicion">
+            <Parameter Name="var_ingrediente" Mode="In" Type="String" />
+            <Parameter Name="var_formula" Mode="In" Type="String" />
+            <Parameter Name="var_porcentaje" Mode="In" Type="String" />
+            <Parameter Name="var_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_composicion_inactive">
+            <Parameter Name="var_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_imagen_color">
+            <Parameter Name="var_logo_color" Mode="In" Type="String" />
+            <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_imagen_logo_blanco">
+            <Parameter Name="var_imagen_logo_blanco" Mode="In" Type="String" />
+            <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_productos_imagen_render">
+            <Parameter Name="var_render" Mode="In" Type="String" />
+            <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="upd_titulo_tabla_aplicacion">
+            <Parameter Name="var_id_columna" Mode="In" Type="Int32" />
+            <Parameter Name="var_titulo" Mode="In" Type="String" />
+            <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usuarioNuevo">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="usuario_perfil_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usuarioObtTodos" ReturnType="Collection(ApiFilesVersaV3.usuarioObtTodos_Result)" />
+          <FunctionImport Name="val_login" ReturnType="Collection(Int32)">
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="ip_usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp1" ReturnType="Collection(ApiFilesVersaV3.website_sp1_Result)">
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp2" ReturnType="Collection(ApiFilesVersaV3.website_sp2_Result)">
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp3" ReturnType="Collection(ApiFilesVersaV3.website_sp3_Result)">
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp4" ReturnType="Collection(ApiFilesVersaV3.website_sp4_Result)">
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp5" ReturnType="Collection(ApiFilesVersaV3.website_sp5_Result)">
+            <Parameter Name="productoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="website_sp6" ReturnType="Collection(DateTime)">
+            <Parameter Name="p_id_producto" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="cms_informacionContactoEmpresaObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="telefono_contacto" Nullable="true" />
+          <Property Type="String" Name="direccion_fisica" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_obtNombreUsuario_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="cms_pSkuObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="producto" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sku" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="producto_presentacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="cultivo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="plaga_nombre_comun" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="plaga_nombre_cientifico" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nutrientes" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="resistencia" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ingrediente_activo" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="tipo_producto" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="numero_aplicaciones" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="dosis_minima" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dosis_maxima" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="unidades" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="presentacion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tipo_formulacion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="cms_pTipoObtenerTodos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="imagen" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="alias" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="cms_redesSocialesEmpresaObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="url_facebook" Nullable="true" />
+          <Property Type="String" Name="url_youtube" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionHomeNoticiasCarruselObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre_archivo" Nullable="true" />
+          <Property Type="String" Name="url_redireccion" Nullable="true" />
+          <Property Type="Int32" Name="orden" Nullable="false" />
+          <Property Type="Boolean" Name="movil" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionHomeSobreNosotrosObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="contenido" Nullable="true" />
+          <Property Type="String" Name="nombre_archivo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionHomeVideosEventosObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre_archivo" Nullable="true" />
+          <Property Type="Int32" Name="orden" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionNosotrosCarruselPlantasObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre_archivo" Nullable="true" />
+          <Property Type="Int32" Name="orden" Nullable="false" />
+          <Property Type="Boolean" Name="movil" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionProductosDocumentosObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_Producto" Nullable="true" />
+          <Property Type="Int32" Name="id_Tipo" Nullable="true" />
+          <Property Type="String" Name="tipo_Documento" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="documento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ruta" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="cms_seccionUsuariosObtener_Result">
+          <Property Type="Int32" Name="usuario_id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="usuario_perfil_id" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_creacion" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fecha_borrado" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="usuario_mod" Nullable="true" />
+          <Property Type="String" Name="contexto_mod" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="cms_tablaAplicacionTituloObtener_Result">
+          <Property Type="Int32" Name="id_columna" Nullable="false" />
+          <Property Type="String" Name="titulo" Nullable="false" />
+          <Property Type="Int32" Name="id_producto" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="cms_websiteMensajeContactoObtener_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="asunto" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="mensaje" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_creacion" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="fraseguModuloNivelObtenerPorModulo_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="nivel" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="fraseguModuloObtenerTodos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="fraseguUsuarioPerfilModuloNivelObtenerTodos_Result">
+          <Property Type="Int32" Name="frasegu_modulo_id" Nullable="false" />
+          <Property Type="String" Name="modulo" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="frasegu_usuario_perfil_id" Nullable="false" />
+          <Property Type="String" Name="usuario_perfil" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="nivel" Nullable="false" />
+          <Property Type="String" Name="nivel_descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="fraseguUsuarioPerfilObtenerTodos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="search_productos_filtro_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="presentacion" Nullable="true" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sel_cms_seccion_contenido_Result">
+          <Property Type="Int32" Name="cms_seccion_id" Nullable="false" />
+          <Property Type="String" Name="titulo" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="descripcion_corta" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="cms_seccion_contenido_id" Nullable="false" />
+          <Property Type="String" Name="html_control_id" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="contenido" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sel_cms_website_menu_Result">
+          <Property Type="Int32" Name="cms_website_menu_id" Nullable="false" />
+          <Property Type="String" Name="url" Nullable="true" />
+          <Property Type="String" Name="controlador" Nullable="true" />
+          <Property Type="String" Name="accion" Nullable="true" />
+          <Property Type="String" Name="texto" Nullable="false" />
+          <Property Type="String" Name="html_control_id" Nullable="true" />
+          <Property Type="Int32" Name="cms_website_menu_padre_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_cultivos_para_filtros_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="sel_enfermedades_para_filtro_por_cultivo_Result">
+          <Property Type="Int32" Name="id_enfermedad" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="sel_enfermedades_para_filtros_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="sel_producto_nombre_para_intra_ver_productos_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <ComplexType Name="sel_producto_tipo_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="imagen" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="alias" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_tipo" Nullable="false" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_aplicacion_Fil_id_producto_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_composicion_Fil_id_producto_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="formula" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="porcentaje" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="tipo" Nullable="true" />
+          <Property Type="Boolean" Name="usable" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_home_index_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="id_tipo" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_intra_editar_productos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+          <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="show_index" Nullable="true" />
+          <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_intra_ver_productos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+          <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="show_index" Nullable="true" />
+          <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_intra_ver_productos_filtro_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+          <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="show_index" Nullable="true" />
+          <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_producto_buscar_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_para_proteccion_categoria_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="id_tipo" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_sku_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="394" />
+        </ComplexType>
+        <ComplexType Name="sel_productos_tipos_para_intra_ver_productos_Result">
+          <Property Type="Int32" Name="id_tipo" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sel_sku_para_intra_ver_productos_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="17" />
+        </ComplexType>
+        <ComplexType Name="sel_tabla_aplicacion_titulo_por_id_producto_Result">
+          <Property Type="Int32" Name="id_columna" Nullable="false" />
+          <Property Type="String" Name="titulo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sel_tabla_composicion_por_id_producto_Result">
+          <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+          <Property Type="String" Name="nombre_archivo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_temp_buscador_v1_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="usuarioObtTodos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="perfilPuesto" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="website_sp1_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_tipo" Nullable="false" />
+          <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="show_index" Nullable="true" />
+          <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+          <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="String" Name="imagen_tabla_aplicacion" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="website_sp2_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+          <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="website_sp3_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+          <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="website_sp4_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_Producto" Nullable="false" />
+          <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="formula" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="tipo" Nullable="true" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+          <Property Type="String" Name="porcentaje" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="usable" Nullable="false" />
+          <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="website_sp5_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="id_Producto" Nullable="true" />
+          <Property Type="Int32" Name="id_Tipo" Nullable="true" />
+          <Property Type="String" Name="tipo_Documento" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="documento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ruta" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApiFilesVersaV3StoreContainer" CdmEntityContainer="ApiFilesVersaV3Entities" >
+          <FunctionImportMapping FunctionImportName="cms_borrarEstructuraTablaAplicacion" FunctionName="ApiFilesVersaV3.Store.cms_borrarEstructuraTablaAplicacion" />
+          <FunctionImportMapping FunctionImportName="cms_borrarImagenTablaAplicacion" FunctionName="ApiFilesVersaV3.Store.cms_borrarImagenTablaAplicacion" />
+          <FunctionImportMapping FunctionImportName="cms_cmsHomeCarruselNuevo" FunctionName="ApiFilesVersaV3.Store.cms_cmsHomeCarruselNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_documentoEsrActualizar" FunctionName="ApiFilesVersaV3.Store.cms_documentoEsrActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_documentoEsrObtener" FunctionName="ApiFilesVersaV3.Store.cms_documentoEsrObtener" />
+          <FunctionImportMapping FunctionImportName="cms_informacionContactoEmpresaActualizar" FunctionName="ApiFilesVersaV3.Store.cms_informacionContactoEmpresaActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_informacionContactoEmpresaObtener" FunctionName="ApiFilesVersaV3.Store.cms_informacionContactoEmpresaObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_informacionContactoEmpresaObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="telefono_contacto" ColumnName="telefono_contacto" />
+                <ScalarProperty Name="direccion_fisica" ColumnName="direccion_fisica" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_logotipoEmpresaActualizar" FunctionName="ApiFilesVersaV3.Store.cms_logotipoEmpresaActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_logotipoEmpresaObtener" FunctionName="ApiFilesVersaV3.Store.cms_logotipoEmpresaObtener" />
+          <FunctionImportMapping FunctionImportName="cms_modufilesArchivoNuevo" FunctionName="ApiFilesVersaV3.Store.cms_modufilesArchivoNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_modufilesArchivoNuevoId" FunctionName="ApiFilesVersaV3.Store.cms_modufilesArchivoNuevoId" />
+          <FunctionImportMapping FunctionImportName="cms_obtImagenTabla" FunctionName="ApiFilesVersaV3.Store.cms_obtImagenTabla" />
+          <FunctionImportMapping FunctionImportName="cms_obtNombreUsuario" FunctionName="ApiFilesVersaV3.Store.cms_obtNombreUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_obtNombreUsuario_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_productoActualizarTablaAplicacion" FunctionName="ApiFilesVersaV3.Store.cms_productoActualizarTablaAplicacion" />
+          <FunctionImportMapping FunctionImportName="cms_pSkuNuevo" FunctionName="ApiFilesVersaV3.Store.cms_pSkuNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_pSkuObtener" FunctionName="ApiFilesVersaV3.Store.cms_pSkuObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_pSkuObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producto" ColumnName="producto" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="producto_presentacion" ColumnName="producto_presentacion" />
+                <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+                <ScalarProperty Name="plaga_nombre_comun" ColumnName="plaga_nombre_comun" />
+                <ScalarProperty Name="plaga_nombre_cientifico" ColumnName="plaga_nombre_cientifico" />
+                <ScalarProperty Name="nutrientes" ColumnName="nutrientes" />
+                <ScalarProperty Name="resistencia" ColumnName="resistencia" />
+                <ScalarProperty Name="ingrediente_activo" ColumnName="ingrediente_activo" />
+                <ScalarProperty Name="tipo_producto" ColumnName="tipo_producto" />
+                <ScalarProperty Name="numero_aplicaciones" ColumnName="numero_aplicaciones" />
+                <ScalarProperty Name="dosis_minima" ColumnName="dosis_minima" />
+                <ScalarProperty Name="dosis_maxima" ColumnName="dosis_maxima" />
+                <ScalarProperty Name="unidades" ColumnName="unidades" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="tipo_formulacion" ColumnName="tipo_formulacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_pTipoActualizar" FunctionName="ApiFilesVersaV3.Store.cms_pTipoActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_pTipoEliminar" FunctionName="ApiFilesVersaV3.Store.cms_pTipoEliminar" />
+          <FunctionImportMapping FunctionImportName="cms_pTipoNuevo" FunctionName="ApiFilesVersaV3.Store.cms_pTipoNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_pTipoObtenerTodos" FunctionName="ApiFilesVersaV3.Store.cms_pTipoObtenerTodos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_pTipoObtenerTodos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_redesSocialesEmpresaActualizar" FunctionName="ApiFilesVersaV3.Store.cms_redesSocialesEmpresaActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_redesSocialesEmpresaObtener" FunctionName="ApiFilesVersaV3.Store.cms_redesSocialesEmpresaObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_redesSocialesEmpresaObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="url_facebook" ColumnName="url_facebook" />
+                <ScalarProperty Name="url_youtube" ColumnName="url_youtube" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselActualizar" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeNoticiasCarruselActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselDesactivar" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeNoticiasCarruselDesactivar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselNuevo" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeNoticiasCarruselNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeNoticiasCarruselObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionHomeNoticiasCarruselObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+                <ScalarProperty Name="url_redireccion" ColumnName="url_redireccion" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="movil" ColumnName="movil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosActualizar" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeSobreNosotrosActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosActualizarNombreArchivo" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeSobreNosotrosActualizarNombreArchivo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeSobreNosotrosObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionHomeSobreNosotrosObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosActualizar" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosActualizarDescripcion" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosActualizarDescripcion" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosDesactivar" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosDesactivar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosNuevo" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionHomeVideosEventosObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerDescripcion" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosObtenerDescripcion" />
+          <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerUltimoOrden" FunctionName="ApiFilesVersaV3.Store.cms_seccionHomeVideosEventosObtenerUltimoOrden" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasActualizarMovil" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasActualizarMovil" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasActualizarOrden" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasActualizarOrden" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasDesactivar" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasDesactivar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasNuevo" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionNosotrosCarruselPlantasObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="movil" ColumnName="movil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoActualizar" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosLineaTiempoActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoNuevo" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosLineaTiempoNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionNosotrosLineaTiempoObtener" />
+          <FunctionImportMapping FunctionImportName="cms_seccionProductosActualizarImagenTablaAplicacion" FunctionName="ApiFilesVersaV3.Store.cms_seccionProductosActualizarImagenTablaAplicacion" />
+          <FunctionImportMapping FunctionImportName="cms_seccionProductosDocumentosActualizar" FunctionName="ApiFilesVersaV3.Store.cms_seccionProductosDocumentosActualizar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionProductosDocumentosObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionProductosDocumentosObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionProductosDocumentosObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+                <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+                <ScalarProperty Name="tipo_Documento" ColumnName="tipo_Documento" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="ruta" ColumnName="ruta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_seccionProductosEliminar" FunctionName="ApiFilesVersaV3.Store.cms_seccionProductosEliminar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionProductosNuevo" FunctionName="ApiFilesVersaV3.Store.cms_seccionProductosNuevo" />
+          <FunctionImportMapping FunctionImportName="cms_seccionUsuariosEditar" FunctionName="ApiFilesVersaV3.Store.cms_seccionUsuariosEditar" />
+          <FunctionImportMapping FunctionImportName="cms_seccionUsuariosObtener" FunctionName="ApiFilesVersaV3.Store.cms_seccionUsuariosObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_seccionUsuariosObtener_Result">
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="usuario_perfil_id" ColumnName="usuario_perfil_id" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+                <ScalarProperty Name="fecha_borrado" ColumnName="fecha_borrado" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="contexto_mod" ColumnName="contexto_mod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_tablaAplicacionTituloObtener" FunctionName="ApiFilesVersaV3.Store.cms_tablaAplicacionTituloObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_tablaAplicacionTituloObtener_Result">
+                <ScalarProperty Name="id_columna" ColumnName="id_columna" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cms_usuarioBorrar" FunctionName="ApiFilesVersaV3.Store.cms_usuarioBorrar" />
+          <FunctionImportMapping FunctionImportName="cms_websiteMensajeContactoObtener" FunctionName="ApiFilesVersaV3.Store.cms_websiteMensajeContactoObtener">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.cms_websiteMensajeContactoObtener_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fraseguModuloNivelObtenerPorModulo" FunctionName="ApiFilesVersaV3.Store.fraseguModuloNivelObtenerPorModulo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.fraseguModuloNivelObtenerPorModulo_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fraseguModuloObtenerTodos" FunctionName="ApiFilesVersaV3.Store.fraseguModuloObtenerTodos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.fraseguModuloObtenerTodos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilEditar" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilEditar" />
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilEliminar" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilEliminar" />
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilModuloNivelNuevo" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilModuloNivelNuevo" />
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilModuloNivelObtenerTodos" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilModuloNivelObtenerTodos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.fraseguUsuarioPerfilModuloNivelObtenerTodos_Result">
+                <ScalarProperty Name="frasegu_modulo_id" ColumnName="frasegu_modulo_id" />
+                <ScalarProperty Name="modulo" ColumnName="modulo" />
+                <ScalarProperty Name="frasegu_usuario_perfil_id" ColumnName="frasegu_usuario_perfil_id" />
+                <ScalarProperty Name="usuario_perfil" ColumnName="usuario_perfil" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="nivel_descripcion" ColumnName="nivel_descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilNuevo" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilNuevo" />
+          <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilObtenerTodos" FunctionName="ApiFilesVersaV3.Store.fraseguUsuarioPerfilObtenerTodos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.fraseguUsuarioPerfilObtenerTodos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="guardarMensajeContacto" FunctionName="ApiFilesVersaV3.Store.guardarMensajeContacto" />
+          <FunctionImportMapping FunctionImportName="ins_cms_seccion" FunctionName="ApiFilesVersaV3.Store.ins_cms_seccion" />
+          <FunctionImportMapping FunctionImportName="ins_cms_seccion_contenido" FunctionName="ApiFilesVersaV3.Store.ins_cms_seccion_contenido" />
+          <FunctionImportMapping FunctionImportName="ins_cms_website_menu" FunctionName="ApiFilesVersaV3.Store.ins_cms_website_menu" />
+          <FunctionImportMapping FunctionImportName="ins_producto" FunctionName="ApiFilesVersaV3.Store.ins_producto" />
+          <FunctionImportMapping FunctionImportName="ins_productos_aplicacion" FunctionName="ApiFilesVersaV3.Store.ins_productos_aplicacion" />
+          <FunctionImportMapping FunctionImportName="ins_productos_composicion" FunctionName="ApiFilesVersaV3.Store.ins_productos_composicion" />
+          <FunctionImportMapping FunctionImportName="ins_usuario" FunctionName="ApiFilesVersaV3.Store.ins_usuario" />
+          <FunctionImportMapping FunctionImportName="ins_website_seccion" FunctionName="ApiFilesVersaV3.Store.ins_website_seccion" />
+          <FunctionImportMapping FunctionImportName="modutrackNuevoIngresoAplicacion" FunctionName="ApiFilesVersaV3.Store.modutrackNuevoIngresoAplicacion" />
+          <FunctionImportMapping FunctionImportName="modutrackNuevoIngresoFallido" FunctionName="ApiFilesVersaV3.Store.modutrackNuevoIngresoFallido" />
+          <FunctionImportMapping FunctionImportName="nuevoEventoAplicacion" FunctionName="ApiFilesVersaV3.Store.nuevoEventoAplicacion" />
+          <FunctionImportMapping FunctionImportName="search_productos_filtro" FunctionName="ApiFilesVersaV3.Store.search_productos_filtro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.search_productos_filtro_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_cms_seccion_contenido" FunctionName="ApiFilesVersaV3.Store.sel_cms_seccion_contenido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_cms_seccion_contenido_Result">
+                <ScalarProperty Name="cms_seccion_id" ColumnName="cms_seccion_id" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
+                <ScalarProperty Name="cms_seccion_contenido_id" ColumnName="cms_seccion_contenido_id" />
+                <ScalarProperty Name="html_control_id" ColumnName="html_control_id" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_cms_website_menu" FunctionName="ApiFilesVersaV3.Store.sel_cms_website_menu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_cms_website_menu_Result">
+                <ScalarProperty Name="cms_website_menu_id" ColumnName="cms_website_menu_id" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="controlador" ColumnName="controlador" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="texto" ColumnName="texto" />
+                <ScalarProperty Name="html_control_id" ColumnName="html_control_id" />
+                <ScalarProperty Name="cms_website_menu_padre_id" ColumnName="cms_website_menu_padre_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_cultivos_para_filtros" FunctionName="ApiFilesVersaV3.Store.sel_cultivos_para_filtros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_cultivos_para_filtros_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_enfermedades_para_filtro_por_cultivo" FunctionName="ApiFilesVersaV3.Store.sel_enfermedades_para_filtro_por_cultivo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_enfermedades_para_filtro_por_cultivo_Result">
+                <ScalarProperty Name="id_enfermedad" ColumnName="id_enfermedad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_enfermedades_para_filtros" FunctionName="ApiFilesVersaV3.Store.sel_enfermedades_para_filtros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_enfermedades_para_filtros_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_producto_nombre_para_intra_ver_productos" FunctionName="ApiFilesVersaV3.Store.sel_producto_nombre_para_intra_ver_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_producto_nombre_para_intra_ver_productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_producto_tipo" FunctionName="ApiFilesVersaV3.Store.sel_producto_tipo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_producto_tipo_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos" FunctionName="ApiFilesVersaV3.Store.sel_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_aplicacion_Fil_id_producto" FunctionName="ApiFilesVersaV3.Store.sel_productos_aplicacion_Fil_id_producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_aplicacion_Fil_id_producto_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+                <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+                <ScalarProperty Name="dosis" ColumnName="dosis" />
+                <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+                <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+                <ScalarProperty Name="epoca" ColumnName="epoca" />
+                <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+                <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+                <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+                <ScalarProperty Name="estudios" ColumnName="estudios" />
+                <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_composicion_Fil_id_producto" FunctionName="ApiFilesVersaV3.Store.sel_productos_composicion_Fil_id_producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_composicion_Fil_id_producto_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+                <ScalarProperty Name="formula" ColumnName="formula" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="usable" ColumnName="usable" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_home_index" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_home_index">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_home_index_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_intra_editar_productos" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_intra_editar_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_intra_editar_productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+                <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="show_index" ColumnName="show_index" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_intra_ver_productos" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_intra_ver_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_intra_ver_productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+                <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="show_index" ColumnName="show_index" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_intra_ver_productos_filtro" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_intra_ver_productos_filtro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_intra_ver_productos_filtro_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+                <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="show_index" ColumnName="show_index" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_producto_buscar" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_producto_buscar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_producto_buscar_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_para_proteccion_categoria" FunctionName="ApiFilesVersaV3.Store.sel_productos_para_proteccion_categoria">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_para_proteccion_categoria_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_sku" FunctionName="ApiFilesVersaV3.Store.sel_productos_sku">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_sku_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_productos_tipos_para_intra_ver_productos" FunctionName="ApiFilesVersaV3.Store.sel_productos_tipos_para_intra_ver_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_productos_tipos_para_intra_ver_productos_Result">
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_sku_para_intra_ver_productos" FunctionName="ApiFilesVersaV3.Store.sel_sku_para_intra_ver_productos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_sku_para_intra_ver_productos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_tabla_aplicacion_titulo_por_id_producto" FunctionName="ApiFilesVersaV3.Store.sel_tabla_aplicacion_titulo_por_id_producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_tabla_aplicacion_titulo_por_id_producto_Result">
+                <ScalarProperty Name="id_columna" ColumnName="id_columna" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sel_tabla_composicion_por_id_producto" FunctionName="ApiFilesVersaV3.Store.sel_tabla_composicion_por_id_producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sel_tabla_composicion_por_id_producto_Result">
+                <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_temp_buscador_v1" FunctionName="ApiFilesVersaV3.Store.sp_temp_buscador_v1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.sp_temp_buscador_v1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="upd_producto" FunctionName="ApiFilesVersaV3.Store.upd_producto" />
+          <FunctionImportMapping FunctionImportName="upd_productos_aplicacion" FunctionName="ApiFilesVersaV3.Store.upd_productos_aplicacion" />
+          <FunctionImportMapping FunctionImportName="upd_productos_aplicacion_inactive" FunctionName="ApiFilesVersaV3.Store.upd_productos_aplicacion_inactive" />
+          <FunctionImportMapping FunctionImportName="upd_productos_composicion" FunctionName="ApiFilesVersaV3.Store.upd_productos_composicion" />
+          <FunctionImportMapping FunctionImportName="upd_productos_composicion_inactive" FunctionName="ApiFilesVersaV3.Store.upd_productos_composicion_inactive" />
+          <FunctionImportMapping FunctionImportName="upd_productos_imagen_color" FunctionName="ApiFilesVersaV3.Store.upd_productos_imagen_color" />
+          <FunctionImportMapping FunctionImportName="upd_productos_imagen_logo_blanco" FunctionName="ApiFilesVersaV3.Store.upd_productos_imagen_logo_blanco" />
+          <FunctionImportMapping FunctionImportName="upd_productos_imagen_render" FunctionName="ApiFilesVersaV3.Store.upd_productos_imagen_render" />
+          <FunctionImportMapping FunctionImportName="upd_titulo_tabla_aplicacion" FunctionName="ApiFilesVersaV3.Store.upd_titulo_tabla_aplicacion" />
+          <FunctionImportMapping FunctionImportName="usuarioNuevo" FunctionName="ApiFilesVersaV3.Store.usuarioNuevo" />
+          <FunctionImportMapping FunctionImportName="usuarioObtTodos" FunctionName="ApiFilesVersaV3.Store.usuarioObtTodos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.usuarioObtTodos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="perfilPuesto" ColumnName="perfilPuesto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="val_login" FunctionName="ApiFilesVersaV3.Store.val_login" />
+          <FunctionImportMapping FunctionImportName="website_sp1" FunctionName="ApiFilesVersaV3.Store.website_sp1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.website_sp1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+                <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+                <ScalarProperty Name="show_index" ColumnName="show_index" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+                <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+                <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+                <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="imagen_tabla_aplicacion" ColumnName="imagen_tabla_aplicacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="website_sp2" FunctionName="ApiFilesVersaV3.Store.website_sp2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.website_sp2_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+                <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+                <ScalarProperty Name="dosis" ColumnName="dosis" />
+                <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+                <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+                <ScalarProperty Name="epoca" ColumnName="epoca" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+                <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+                <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+                <ScalarProperty Name="estudios" ColumnName="estudios" />
+                <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+                <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="website_sp3" FunctionName="ApiFilesVersaV3.Store.website_sp3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.website_sp3_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+                <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+                <ScalarProperty Name="dosis" ColumnName="dosis" />
+                <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+                <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+                <ScalarProperty Name="epoca" ColumnName="epoca" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+                <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+                <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+                <ScalarProperty Name="estudios" ColumnName="estudios" />
+                <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+                <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="website_sp4" FunctionName="ApiFilesVersaV3.Store.website_sp4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.website_sp4_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+                <ScalarProperty Name="formula" ColumnName="formula" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="usable" ColumnName="usable" />
+                <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="website_sp5" FunctionName="ApiFilesVersaV3.Store.website_sp5">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApiFilesVersaV3.website_sp5_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+                <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+                <ScalarProperty Name="tipo_Documento" ColumnName="tipo_Documento" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="ruta" ColumnName="ruta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="website_sp6" FunctionName="ApiFilesVersaV3.Store.website_sp6" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,73 @@
+﻿@using Versa_Web.ViewModels
+@using Versa_Web.Controllers.General
+@using System.Data.Entity.Core.Objects
+@using Versa_Web.Code.fecades
+
+@{ 
+    ViewBag.data_menu = MenuControl.getDataMenu();
+
+    string logotipoPrincipal = string.Empty;
+    ObjectResult<string> dbresLogotipo = DBFecade.dbObj().cms_logotipoEmpresaObtener();
+    string nombreArchivoLogotipo = string.Empty;
+    foreach (string el in dbresLogotipo)
+    {
+        nombreArchivoLogotipo = el;
+    }
+}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 0; padding-bottom: 0;">
+    <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="height: 100%;">
+        <img id="icono-versa" style="height: 100%;" src="@("http://grupoversa.com/files/storage/" + nombreArchivoLogotipo)" />
+	</a>
+	<style>
+		.navbar-brand img {
+			width: auto !important;
+		}
+	</style>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item nav-separator">
+                <div></div>
+            </li>
+			@{ int i = 0; }
+			@foreach (MenuModel item in ViewBag.data_menu)
+			{
+				if (!item.padre)
+				{
+					if (item.tipo == 1)
+					{
+						<li id="@item.html_control_id" class="menu-option option-@Convert.ToString(i + 1) nav-item">
+							<a class="nav-link" href="@Url.Action(item.controlador, item.accion)"><span>@Html.Raw(item.texto)</span></a>
+						</li>
+					}
+					else if (item.tipo == 2)
+					{
+						<li id="@item.html_control_id" class="menu-option option-@Convert.ToString(i + 1) nav-item">
+							<a class="nav-link" target="_blank" href="@item.link"><span>@Html.Raw(item.texto)</span></a>
+						</li>
+					}
+				}
+				else
+				{
+					<li class="nav-item dropdown menu-option option-5">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							@Html.Raw(item.texto)
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<ul class="scrollable-menu">
+								@foreach (MenuModel item_j in item.hijos)
+								{
+									<li><a class="dropdown-item nav-link" style="font-size: 2vh !important;" target="_blank" href="@item_j.link">@Html.Raw(item_j.texto)</a></li>
+								}
+							</ul>
+						</div>
+					</li>
+				}
+				{ i = i + 1; }
+			}
+        </ul>
+    </div>
+</nav>

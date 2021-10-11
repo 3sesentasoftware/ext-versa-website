@@ -1,0 +1,632 @@
+﻿@model Versa_Web.ViewModels.ProductoDetallesVM
+@using Versa_Web.Controllers.Utils
+@using Versa_Web.Code
+
+@{
+
+	ViewBag.Title = Model.nombre_categoria + " | " + Model.Producto.ToList()[0].nombre;
+}
+
+@section css {
+    <link href="@Utils.getUrlAssets("app/VerProducto.css", this)" rel="stylesheet" />
+}
+
+<div class="container" style="font-family: 'gotham-book'">
+
+	<!-- Información del producto - START -->
+	@foreach (var item in Model.Producto)
+	{
+		<div id="ver-detalles--info-productos" style="position: relative;">
+			<div class="row">
+				<div class="container-fluid" style="padding: 0;">
+					<div class="row">
+						<div class="col-sm-12 col-md-4">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12 col-md-12">
+										<!-- Título de categoría para móviles - START -->
+										<div class="@Model.alias linea-@Model.alias line-container header">
+											<div class="card flex-row flex-wrap banner-line">
+												<div class="border-0" style="background-color: transparent;z-index:10;" id="@Model.alias-toggle">
+													<img style="width: 80px;" src="@Url.Content("~/Public/img/families/icon-" + @Model.alias + ".png")">
+												</div>
+												<div class="card-block px-2 justify-content-center align-self-center banner-@Model.alias banner">
+													<h4 class="card-title" style="color: #FFF; font-size: 24px;padding-left:40px;padding-top: 10px;">@Model.alias</h4>
+												</div>
+											</div>
+										</div>
+										<!-- Título de categoría para móviles - END -->
+									</div>
+									<!-- Imagen producto - START -->
+									<div class="col-sm-12 col-md-12" style="padding-top: 20px;">
+										<!-- Imagen del producto para desktop - START -->
+										<img class="ver-detalles-info-productos-imagen-producto" src="@Utils.getUrlFile(item.imagen)" />
+										<!-- Imagen del producto para desktop - END -->
+									</div>
+									<!-- Imagen producto - END -->
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-8">
+							<div class="container-fluid">
+								<div class="row espacio-div">
+									<div class="col-sm-12 col-md-10" style="padding-left: 20px; padding-right: 20px;">
+										<!-- Título del producto para móviles - START -->
+										<img class="ver-detalles-img-titulo-producto" src="@Utils.getUrlFile(item.imagen_logo)" />
+										<!-- Título del producto para móviles - END -->
+									</div>
+									<div class="col-sm-12 col-md-2">
+										<!-- Ícono de categoría para desktop - START -->
+										<img class="ver-detalles-info-producto-imagen-categoria" src="@Url.Content("~/Public/img/families/icon-" + Model.alias + ".png")">
+										<!-- Ícono de categoría para desktop - END -->
+									</div>
+								</div>
+								<div class="row ver-detalles-info-producto-row-composicion-background">
+									<div class="col-sm-12 col-md-12">
+										<!-- Composición del producto - START -->
+										<div class="col-md-12 col-xs-12">
+											<br>
+											<img src="@Url.Content("~/Public/img/misc/molecula.png")" style="filter: grayscale(100%);width:60px;float:left;margin-right: 16px;margin-bottom:80px;">
+											<div style="font-size: 17px;line-height: 17px;letter-spacing: -1px;">
+												@Html.Raw(item.Cintillo)
+											</div>
+											<div style="font-size: 17px;line-height: 17px;letter-spacing: -1px;">
+												@Html.Raw(item.presentacion)
+											</div>
+											<div style="font-size: 17px;line-height: 17px;letter-spacing: -1px;">
+												Presentación: @Html.Raw(item.contenido)
+											</div>
+										</div>
+										<!-- Composición del producto - END -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row ver-detalles-info-producto-row-background">
+				<div class="row ver-detalles-info-producto-row-top-fondo"></div>
+				<div class="row ver-detalles-info-producto-row-bottom-fondo"></div>
+			</div>
+		</div>
+	}
+	<!-- Información del producto - END -->
+
+	<!-- Detalles del producto y documentos, tabla de composiciones START -->
+	<div class="row mb-4 p-4">
+		<!-- Detalles del producto y documentos - START -->
+		@foreach (var item in Model.Producto)
+		{
+			<div class="col-md-6 text-details">
+
+				@if (!string.IsNullOrWhiteSpace(item.descripcion))
+				{
+					<p class="text-justify" style="font-size:17px;letter-spacing: -1px;line-height: 17px;">
+						@Html.Raw(item.descripcion)
+					</p>
+					<br>
+				}
+
+				@if (!string.IsNullOrWhiteSpace(item.beneficios))
+				{
+					<h1 class="beneficios-@Model.alias" style="font-family: 'gotham-bold';font-size: 22px;letter-spacing: -1px;">Beneficios</h1>
+					<p class="text-justify" style="font-size:17px;letter-spacing: -1px;line-height: 17px;">
+						@Html.Raw(item.beneficios)
+					</p>
+					<br>
+				}
+
+
+				@if (Model.P_Documentos.Count() > 0)
+				{
+					<h1 class="descargas-@Model.alias" style="font-family: 'gotham-bold';font-size: 22px;letter-spacing: -1px;">Descargas</h1>
+				}
+
+				@foreach (var elemento in Model.P_Documentos)
+				{
+					<p class="text-justify" style="font-size:17px;letter-spacing: -1px;line-height: 17px;">@Html.DisplayFor(modelItem => elemento.tipo_Documento): </p>
+                    <a href="@Utils.getUrlFile(elemento.documento)">
+                        <img src="~/Public/img/misc/pdf.png" style="width:40px; margin-bottom: 10px;" />
+                    </a>
+                    <a href="@Utils.getUrlFile(elemento.documento)" download="@Html.DisplayFor(modelItem => elemento.documento)">
+                        <img src="~/Public/img/misc/PDF-download.png" style="width:55px;margin-left: 20px" />
+                    </a>
+				}
+
+			</div>
+		}
+		<!-- Detalles del producto y documentos - END -->
+		<br />
+		
+		@foreach (var item in Model.data_tabla_composicion)
+		{
+			@Html.Partial("~/Views/Componentes/Home/VerProducto/" + item.nombre_archivo, Model);
+		}
+	</div>
+	<!-- Detalles del producto y documentos, tabla de composiciones END -->
+
+    <!-- Producto aplicación (imágenes) START -->
+    @if (!string.IsNullOrEmpty(Model.Producto.ToList()[0].imagen_tabla_aplicacion))
+    {
+        <div class="mb-4 table-container">
+            <table id="AplicacionTable" class="application-table" style="background-color: #EDEEF0;">
+                <img src="@Utils.getUrlFile(Model.Producto.ToList()[0].imagen_tabla_aplicacion)" style="width: 100%;" />
+            </table>
+        </div>
+    }
+    <!-- Producto aplicación (imágenes) END -->
+        
+    <!-- Producto aplicación (tablas) START -->
+    @if (string.IsNullOrEmpty(Model.Producto.ToList()[0].imagen_tabla_aplicacion))
+    {
+        <div class="mb-4 table-container">
+            @{
+                int[] mostrar = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                foreach (var elemento in Model.P_Aplicacion)
+                {
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.cultivo)))
+                    {
+                        mostrar[0] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.enfermedad)))
+                    {
+                        mostrar[1] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.dosis)))
+                    {
+                        mostrar[2] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.intervalo_seguridad)))
+                    {
+                        mostrar[3] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.LMRP)))
+                    {
+                        mostrar[4] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.EPA2)))
+                    {
+                        mostrar[5] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.Tolerancias)))
+                    {
+                        mostrar[6] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.obervaciones)))
+                    {
+                        mostrar[7] = 1;
+                    }
+                    if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.epoca)))
+                    {
+                        mostrar[8] = 1;
+                    }
+                }
+            }
+            <table id="AplicacionTable" class="application-table" style="background-color: #EDEEF0;">
+                <thead style="background-color: #AEADB3;color: #FFF;border-radius: 15px;text-align: center;margin-bottom: 5px;border-bottom: 5px solid #FFF">
+                    <tr>
+                        @{
+                            if (mostrar[0] == 1)
+                            {
+                                <th class="cultivo">@TitulosColumnas.GetTitulo(1, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[1] == 1)
+                            {
+                                <th class="enfermedad">@TitulosColumnas.GetTitulo(2, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[2] == 1)
+                            {
+                                <th class="dosis">@TitulosColumnas.GetTitulo(3, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[3] == 1)
+                            {
+                                <th id="intervalo" class="intervalo" style="font-size:12px;">@TitulosColumnas.GetTitulo(4, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[4] == 1)
+                            {
+                                <th class="lmrepa" style="font-size:12px;">@TitulosColumnas.GetTitulo(7, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[5] == 1)
+                            {
+                                <th class="epa2" style="font-size:12px;">@TitulosColumnas.GetTitulo(8, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[6] == 1)
+                            {
+                                <th class="tolerancias" style="font-size:12px;">@TitulosColumnas.GetTitulo(10, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[7] == 1)
+                            {
+                                <th class="observacion" style="width:33%;">@TitulosColumnas.GetTitulo(5, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                            if (mostrar[8] == 1)
+                            {
+                                <th class="epoca">@TitulosColumnas.GetTitulo(6, Model.data_tabla_aplicacion_titulo)</th>
+                            }
+                        }
+                    </tr>
+                </thead>
+                <tbody style="border-radius: 14px;font-size:14px;letter-spacing: -1px;line-height: 14px;">
+                    @{
+                        bool es_ripper = false;
+                        int contador = 1;
+                    }
+                    @foreach (var item in Model.P_Aplicacion)
+                    {
+                        if (item.id_producto == 74)
+                        {
+                            es_ripper = true;
+                        }
+                        <tr>
+                            @if (mostrar[0] == 1)
+                    {
+                                <td class="cultivo">
+                                    @Html.Raw(item.cultivo)
+                                </td>
+                            }
+                            @if (mostrar[1] == 1)
+                    {
+                                <td class="enfermedad" style="text-align:left !important;vertical-align: middle !important;">
+                                    @{
+                                        if (es_ripper)
+                                        {
+                                            if (contador == 1)
+                                            {
+                                                @Html.Raw(item.enfermedad)
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(item.enfermedad)
+                                        }
+                                    }
+                                </td>
+                                        }
+                            @if (mostrar[2] == 1)
+                    {
+                                <td class="dosis" style="font-size:12px;text-align:center;vertical-align: middle !important;">
+                                    @{
+                                        if (es_ripper)
+                                        {
+                                            if (contador == 1)
+                                            {
+                                                @Html.Raw(item.dosis)
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(item.dosis)
+                                        }
+                                    }
+                                </td>
+                                        }
+                            @if (mostrar[3] == 1)
+                    {
+                                <td class="intervalo" style="font-size:12px;vertical-align: middle !important;text-align:center !important;float: none;">
+                                    @Html.Raw(item.intervalo_seguridad)
+                                </td>
+                            }
+                            @if (mostrar[4] == 1)
+                    {
+                                <td class="lmrepa" style="font-size:12px;text-align:left;">
+                                    @{
+                                        if (es_ripper)
+                                        {
+                                            if (contador == 1)
+                                            {
+                                                @Html.Raw(item.LMRP)
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(item.LMRP)
+                                        }
+                                    }
+                                </td>
+                                        }
+                            @if (mostrar[5] == 1)
+                    {
+                                <td class="epa2" style="font-size:12px;text-align:center;">@Html.Raw(item.EPA2)</td>
+                            }
+                            @if (mostrar[6] == 1)
+                    {
+                                <td class="tolerancias" style="font-size:12px;">@Html.Raw(item.Tolerancias)</td>
+                            }
+                            @if (mostrar[7] == 1)
+                    {
+                                <td class="observacion">
+                                    @{
+                                        if (es_ripper)
+                                        {
+                                            if (contador == 1)
+                                            {
+                                                @Html.Raw(item.obervaciones)
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(item.obervaciones)
+                                        }
+                                    }
+                                </td>
+                                        }
+                            @if (mostrar[8] == 1)
+                    {
+                                <td class="epoca">@Html.Raw(item.epoca)</td>
+                            }
+                        </tr>
+                                            {
+                                                contador = contador + 1;
+                                            }
+                                        }
+                </tbody>
+            </table>
+            <!-- Producto aplicacion agricultura protegida START -->
+            @{
+                if (Model.P_Aplicacion_Agricultura_Protegida.Count() > 0)
+                {
+                    int[] mostrar_ap = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                    foreach (var elemento in Model.P_Aplicacion_Agricultura_Protegida)
+                    {
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.cultivo)))
+                        {
+                            mostrar_ap[0] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.enfermedad)))
+                        {
+                            mostrar_ap[1] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.dosis)))
+                        {
+                            mostrar_ap[2] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.intervalo_seguridad)))
+                        {
+                            mostrar_ap[3] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.LMRP)))
+                        {
+                            mostrar_ap[4] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.EPA2)))
+                        {
+                            mostrar_ap[5] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.Tolerancias)))
+                        {
+                            mostrar_ap[6] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.obervaciones)))
+                        {
+                            mostrar_ap[7] = 1;
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(elemento.epoca)))
+                        {
+                            mostrar_ap[8] = 1;
+                        }
+                    }
+                    <h2 class="beneficios-@Model.alias" style="font-family: 'gotham-bold';font-size: 22px;letter-spacing: -1px; text-transform: uppercase; margin-top: 20px; margin-bottom: 20px;">Cultivos en condiciones de agricultura protegida</h2>
+                    <table id="AplicacionTableAgriculturaProtegida" class="application-table" style="background-color: #EDEEF0;">
+                        <thead style="background-color: #AEADB3;color: #FFF;border-radius: 15px;text-align: center;margin-bottom: 5px;border-bottom: 5px solid #FFF">
+                            <tr>
+                                @{
+                                    if (mostrar_ap[0] == 1)
+                                    {
+                                        <th class="cultivo">@TitulosColumnas.GetTitulo(1, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[1] == 1)
+                                    {
+                                        <th class="enfermedad">@TitulosColumnas.GetTitulo(2, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[2] == 1)
+                                    {
+                                        <th class="dosis">@TitulosColumnas.GetTitulo(3, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[3] == 1)
+                                    {
+                                        <th id="intervalo" class="intervalo" style="font-size:12px;">@TitulosColumnas.GetTitulo(4, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[4] == 1)
+                                    {
+                                        <th class="lmrepa" style="font-size:12px;">@TitulosColumnas.GetTitulo(7, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[5] == 1)
+                                    {
+                                        <th class="epa2" style="font-size:12px;">@TitulosColumnas.GetTitulo(8, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[6] == 1)
+                                    {
+                                        <th class="tolerancias" style="font-size:12px;">@TitulosColumnas.GetTitulo(10, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[7] == 1)
+                                    {
+                                        <th class="observacion" style="width:33%;">@TitulosColumnas.GetTitulo(5, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                    if (mostrar_ap[8] == 1)
+                                    {
+                                        <th class="epoca">@TitulosColumnas.GetTitulo(6, Model.data_tabla_aplicacion_titulo)</th>
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody style="border-radius: 14px;font-size:14px;letter-spacing: -1px;line-height: 14px;">
+                            @{bool es_ripper_ap = false;
+                                int contador_ap = 1;
+                            }
+                            @foreach (var item in Model.P_Aplicacion_Agricultura_Protegida)
+                            {
+                                if (item.id_producto == 74)
+                                {
+                                    es_ripper_ap = true;
+                                }
+                                <tr>
+                                    @if (mostrar_ap[0] == 1)
+                                    {
+                                        <td class="cultivo">
+                                            @Html.Raw(item.cultivo)
+                                        </td>
+                                    }
+                                    @if (mostrar_ap[1] == 1)
+                                    {
+                                        <td class="enfermedad" style="text-align:left !important;vertical-align: middle !important;">
+                                            @{
+                                                if (es_ripper_ap)
+                                                {
+                                                    if (contador_ap == 1)
+                                                    {
+                                                        @Html.Raw(item.enfermedad)
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.enfermedad)
+                                                }
+                                            }
+                                        </td>
+                                                }
+                                    @if (mostrar_ap[2] == 1)
+                                    {
+                                        <td class="dosis" style="font-size:12px;text-align:center;vertical-align: middle !important;">
+                                            @{
+                                                if (es_ripper_ap)
+                                                {
+                                                    if (contador_ap == 1)
+                                                    {
+                                                        @Html.Raw(item.dosis)
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.dosis)
+                                                }
+                                            }
+                                        </td>
+                                                }
+                                    @if (mostrar_ap[3] == 1)
+                                    {
+                                        <td class="intervalo" style="font-size:12px;vertical-align: middle !important;text-align:center !important;float: none;">
+                                            @Html.Raw(item.intervalo_seguridad)
+                                        </td>
+                                    }
+                                    @if (mostrar_ap[4] == 1)
+                                    {
+                                        <td class="lmrepa" style="font-size:12px;text-align:left;">
+                                            @{
+                                                if (es_ripper_ap)
+                                                {
+                                                    if (contador_ap == 1)
+                                                    {
+                                                        @Html.Raw(item.LMRP)
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.LMRP)
+                                                }
+                                            }
+                                        </td>
+                                                }
+                                    @if (mostrar_ap[5] == 1)
+                                    {
+                                        <td class="epa2" style="font-size:12px;text-align:center;">@Html.Raw(item.EPA2)</td>
+                                    }
+                                    @if (mostrar_ap[6] == 1)
+                                    {
+                                        <td class="tolerancias" style="font-size:12px;">@Html.Raw(item.Tolerancias)</td>
+                                    }
+                                    @if (mostrar_ap[7] == 1)
+                                    {
+                                        <td class="observacion">
+                                            @{
+                                                if (es_ripper_ap)
+                                                {
+                                                    if (contador_ap == 1)
+                                                    {
+                                                        @Html.Raw(item.obervaciones)
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.obervaciones)
+                                                }
+                                            }
+                                        </td>
+                                                }
+                                    @if (mostrar_ap[8] == 1)
+                                    {
+                                        <td class="epoca">@Html.Raw(item.epoca)</td>
+                                    }
+                                </tr>{
+                                                        contador_ap = contador_ap + 1;
+                                                    }
+                                                }
+                        </tbody>
+                    </table>}
+            }
+            <!-- Producto aplicacion agricultura protegida END -->
+        </div>
+    }
+    <!-- Producto aplicación (tablas) END -->
+
+    <!-- Producto PIE START -->
+    <div class="mb-4 table-container">
+        @foreach (var item in Model.Producto)
+        {
+        <p style='text-align: right;'>
+            <strong>
+                @Html.Raw(item.pie)
+            </strong>
+        </p>
+        }
+    </div>
+    <!-- Producto PIE END -->
+</div>
+
+<script>
+	$(document).ready(function () {
+		
+        $(".porcentual").each(function () {
+            $(this).val(parseFloat($(this).text()).toFixed(2));
+        });
+
+    });
+
+    $('#bannerBtn').click(function () {
+        $('#bannerIcons').slideToggle("slow", function () {
+        });
+    });
+
+    (function ($) {
+        $.get = function (key) {
+            key = key.replace(/[\[]/, '\\[');
+            key = key.replace(/[\]]/, '\\]');
+            var pattern = "[\\?&]" + key + "=([^&#]*)";
+            var regex = new RegExp(pattern);
+            var url = unescape(window.location.href);
+            var results = regex.exec(url);
+            if (results === null) {
+                return null;
+            } else {
+                return results[1];
+            }
+        }
+    })(jQuery);
+
+    var a = $.get("q");
+
+    switch (a) {
+        case '13':
+        case '67':
+        case '10':
+        case '71':
+        case '11':
+        case '72':
+        case '12':
+            $('#tbl_footer').hide();
+            break;
+        default:
+            $('#tbl_footer').show();
+            break;
+    }
+
+</script>

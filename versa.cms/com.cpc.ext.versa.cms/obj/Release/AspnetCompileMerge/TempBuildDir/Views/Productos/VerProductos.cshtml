@@ -1,0 +1,87 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+
+    List<IEntities> productos = ViewBag.productos;
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h1>Ver productos</h1>
+		</div>
+	</div>
+
+	<form id="form-filtrar-producto" name="form-filtrar-producto" class="form" method="post" action="@Url.Content("~/productos/filtro")">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					<label>Filtrar por tipo producto</label>
+					<select class="form-control" id="form-filtrar-producto-tipo" name="form-filtrar-producto-tipo">
+						@foreach (EProductoTipo item in Utils.EProductoTipo.obtTodos())
+						{
+							<option value="@item.id">@Html.Raw(item.nombre)</option>
+						}
+					</select>
+				</div>
+				<div class="col-sm-12 col-md-2 text-center">
+					<button id="form-filtrar-productos-button" name="form-filtrar-productos-button" type="submit" class="btn btn-info" style="margin-top: 25px; display: inline-block; width: 90%;">Filtrar</button>
+				</div>
+                <div class="col-sm-12 col-md-2 text-center">
+                    <a href="@Url.Action(Utils.Ruta.rutaVistaVerProductos.action, Utils.Ruta.rutaVistaVerProductos.controller)">
+                        <button type="button" class="btn btn-info" style="margin-top: 25px; display: inline-block; width: 90%;">Ver todos</button>
+                    </a>
+                </div>
+			</div>
+		</div>
+	</form>
+	
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<!--Basic Table-->
+			<div class="table-responsive">
+				<table class="table table-bordered u-table--v2">
+					<thead class="text-uppercase g-letter-spacing-1">
+						<tr>
+							<th class="g-font-weight-300 g-color-black">ID</th>
+							<th class="g-font-weight-300 g-color-black">Nombre del producto</th>
+							<th class="g-font-weight-300 g-color-black g-min-width-200">Producto tipo</th>
+							<th class="g-font-weight-300 g-color-black"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@foreach (EProducto item in productos)
+						{
+							<tr>
+								<td class="align-middle text-nowrap">
+									<p>@item.id</p>
+								</td>
+								<td class="align-middle text-nowrap">
+									<p>@(item.nombre + " " + item.subnombre)</p>
+								</td>
+								<td class="align-middle">
+									<p>@item.producto_tipo</p>
+								</td>
+								
+								<td class="align-middle text-nowrap text-center">
+									<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="@(Url.Action(Utils.Ruta.rutaVistaEditarProductos.action, Utils.Ruta.rutaVistaEditarProductos.controller) + "?productoid=" + item.id)" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+										<i class="icon-pencil g-font-size-18 g-mr-7"></i>
+									</a>
+									<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="@(Url.Action(Utils.Ruta.rutaGetEliminarProducto.action, Utils.Ruta.rutaGetEliminarProducto.controller) + "?idProducto=" + item.id)" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+										<i class="icon-trash g-font-size-18 g-mr-7"></i>
+									</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!--End Basic Table-->
+		</div>
+	</div>
+</div>

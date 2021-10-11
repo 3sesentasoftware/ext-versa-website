@@ -1,0 +1,384 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Title -->
+	<title>Grupo Versa - @ViewBag.Title</title>
+	<!-- Required Meta Tags Always Come First -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../../favicon.ico">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+	
+	<!-- CSS Global Compulsory -->
+	<link href="~/AppStorage/unify/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- CSS Global Icons -->
+	<link href="~/AppStorage/unify/icon-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/icon-line/css/simple-line-icons.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/icon-etlinefont/style.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/icon-line-pro/style.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/icon-hs/style.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/hs-admin-icons/hs-admin-icons.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/animate.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/malihu-scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/flatpickr/dist/css/flatpickr.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/chartist-js/chartist.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/chartist-js-tooltip/chartist-plugin-tooltip.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
+	<link href="~/AppStorage/unify/hamburgers/hamburgers.min.css" rel="stylesheet" />
+
+	<!-- CSS Unify -->
+	<link href="~/AppStorage/unify/unify-admin.css" rel="stylesheet" />
+
+	<!-- JS Global Compulsory -->
+	<script src="@Url.Content("~/AppStorage/unify/jquery/jquery.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-migrate/jquery-migrate.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/popper.js/popper.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/bootstrap/bootstrap.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/cookiejs/jquery.cookie.js")"></script>
+
+	<style>
+		.btn-top-margin {
+			margin-top: 26px;
+		}
+		.btn-all-width {
+			width: 100%;
+		}
+		.img-all-width {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<header id="js-header" class="u-header u-header--sticky-top">
+		<div class="u-header__section u-header__section--admin-dark g-min-height-65">
+			<nav class="navbar no-gutters g-pa-0">
+				<div class="col-auto d-flex flex-nowrap u-header-logo-toggler g-py-12">
+					<!-- Logo -->
+					<a href="@Url.Content("~/")" class="navbar-brand d-flex align-self-center g-hidden-xs-down g-line-height-1 py-0 g-mt-5">
+						<img src="@Url.Content(Recursos.obtUrlImagen("logo.png"))" height="80" />
+					</a>
+					<!-- End Logo -->
+					<!-- Sidebar Toggler -->
+					<a class="js-side-nav u-header__nav-toggler d-flex align-self-center ml-auto" href="#!" data-hssm-class="u-side-nav--mini u-sidebar-navigation-v1--mini" data-hssm-body-class="u-side-nav-mini" data-hssm-is-close-all-except-this="true" data-hssm-target="#sideNav">
+						<i class="hs-admin-align-left"></i>
+					</a>
+					<!-- End Sidebar Toggler -->
+				</div>
+
+				<!-- Messages/Notifications/Top Search Bar/Top User -->
+				<div class="col-auto d-flex g-py-12 g-pl-40--lg ml-auto">
+					<!-- Top User -->
+					<div class="col-auto d-flex g-pt-5 g-pt-0--sm g-pl-10 g-pl-20--sm">
+						<div class="g-pos-rel g-px-10--lg">
+							<a id="profileMenuInvoker" class="d-block" href="#!" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-dropdown-event="click" data-dropdown-target="#profileMenu" data-dropdown-type="css-animation" data-dropdown-duration="300"
+							   data-dropdown-animation-in="fadeIn" data-dropdown-animation-out="fadeOut">
+								<span class="g-pos-rel">
+									<span class="u-badge-v2--xs u-badge--top-right g-hidden-sm-up g-bg-secondary g-mr-5"></span>
+									<img class="g-width-30 g-width-40--md g-height-30 g-height-40--md rounded-circle g-mr-10--sm" src="@Url.Content(Recursos.obtUrlImagen("avatar_intra.jpg"))" alt="Image description">
+								</span>
+								<span class="g-pos-rel g-top-2">
+									<span class="g-hidden-sm-down">@EUsuario.obtNombreUsuario(Convert.ToInt32(ViewBag.usuario_id))</span>
+								</span>
+							</a>
+						</div>
+					</div>
+					<!-- End Top User -->
+				</div>
+				<!-- End Messages/Notifications/Top Search Bar/Top User -->
+			</nav>
+			
+		</div>
+	</header>
+	<!-- End Header -->
+
+	<main class="container-fluid px-0 g-pt-65">
+		<div class="row no-gutters g-pos-rel g-overflow-x-hidden">
+
+			<!-- Sidebar Nav -->
+			<div id="sideNav" class="col-auto u-sidebar-navigation-v1 u-sidebar-navigation--dark">
+				<ul id="sideNavMenu" class="u-sidebar-navigation-v1-menu u-side-nav--top-level-menu g-min-height-100vh mb-0">
+					
+					<!-- Sitio web START -->
+					<li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+						<a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenu2">
+							<span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+								<i class="fa fa-desktop"></i>
+							</span>
+							<span class="media-body align-self-center">Secciones sitio web</span>
+							<span class="d-flex align-self-center u-side-nav--control-icon">
+								<i class="hs-admin-angle-right"></i>
+							</span>
+							<span class="u-side-nav--has-sub-menu__indicator"></span>
+						</a>
+						<ul id="subMenu2" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
+							
+
+							<!-- Sección Home START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaSeccionesHome.action, Utils.Ruta.rutaVistaSeccionesHome.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+										<i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Home</span>
+								</a>
+							</li>
+							<!-- Sección Home END -->
+
+							<!-- Sección nosotros START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaSeccionesNosotros.action, Utils.Ruta.rutaVistaSeccionesNosotros.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+										<i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Nosotros</span>
+								</a>
+							</li>
+							<!-- Sección nosotros END -->
+                            
+							<!-- Información general START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaSeccionesInformacionGeneral.action, Utils.Ruta.rutaVistaSeccionesInformacionGeneral.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+										<i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Información general</span>
+								</a>
+							</li>
+							<!-- Información general END -->
+
+							
+						</ul>
+						<!-- End Layouts Settings: Submenu-1 -->
+					</li>
+					<!-- Productos END -->
+
+
+					<!-- Productos START -->
+					<li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+						<a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenuProductos">
+							<span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+								<i class="fa fa-shopping-cart"></i>
+							</span>
+							<span class="media-body align-self-center">Productos</span>
+							<span class="d-flex align-self-center u-side-nav--control-icon">
+								<i class="hs-admin-angle-right"></i>
+							</span>
+							<span class="u-side-nav--has-sub-menu__indicator"></span>
+						</a>
+						<!-- Layouts Settings: Submenu-1 -->
+						<ul id="subMenuProductos" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
+
+							<!-- Ver productos START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaVerProductos.action, Utils.Ruta.rutaVistaVerProductos.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                        <i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Ver productos</span>
+								</a>
+							</li>
+							<!-- Ver productos END -->
+
+							<!-- Nuevo productos START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaNuevoProductos.action, Utils.Ruta.rutaVistaNuevoProductos.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                        <i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Nuevo producto</span>
+								</a>
+							</li>
+							<!-- Nuevo productos END -->
+
+						</ul>
+						<!-- End Layouts Settings: Submenu-1 -->
+					</li>
+					<!-- Productos END -->
+
+
+					<!-- Usuarios START -->
+					<li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+						<a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenuUsuarios">
+							<span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+								<i class="fa fa-user-o"></i>
+							</span>
+							<span class="media-body align-self-center">Usuarios</span>
+							<span class="d-flex align-self-center u-side-nav--control-icon">
+								<i class="hs-admin-angle-right"></i>
+							</span>
+							<span class="u-side-nav--has-sub-menu__indicator"></span>
+						</a>
+						<ul id="subMenuUsuarios" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
+							
+							<!-- Ver usuarios START -->
+							<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaVerUsuarios.action, Utils.Ruta.rutaVistaVerUsuarios.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                        <i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Ver usuarios</span>
+								</a>
+							</li>
+							<!-- Ver usuarios END -->
+							
+							<!-- Perfiles accesos START -->
+							@*<li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+								<a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaVistaPerfilesUsuarios.action, Utils.Ruta.rutaVistaPerfilesUsuarios.controller)">
+									<span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                        <i class="fa fa-circle-o"></i>
+									</span>
+									<span class="media-body align-self-center">Perfiles y accesos</span>
+								</a>
+							</li>*@
+							<!-- Perfiles accesos END -->
+
+						</ul>
+					</li>
+					<!-- Usuarios END -->
+
+
+
+
+					<!-- Cerrar sesión START -->
+					<li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
+						<a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="@Url.Action(Utils.Ruta.rutaGetCerrarSesion.action, Utils.Ruta.rutaGetCerrarSesion.controller)">
+							<span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+								<i class="fa fa-close"></i>
+							</span>
+							<span class="media-body align-self-center">Cerrar sesión</span>
+						</a>
+					</li>
+					<!-- Cerrar sesión END -->
+					
+				</ul>
+			</div>
+			<!-- End Sidebar Nav -->
+
+			<div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
+				<div class="g-pa-20">
+					@RenderBody()
+				</div>
+				
+			</div>
+		</div>
+	</main>
+
+	<!-- jQuery UI Core -->
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/widget.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/version.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/keycode.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/position.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/unique-id.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/safe-active-element.js")"></script>
+
+	<!-- jQuery UI Helpers -->
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/widgets/menu.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/widgets/mouse.js")"></script>
+
+	<!-- jQuery UI Widgets -->
+	<script src="@Url.Content("~/AppStorage/unify/jquery-ui/ui/widgets/datepicker.js")"></script>
+
+	<!-- JS Plugins Init. -->
+	<script src="@Url.Content("~/AppStorage/unify/appear.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/bootstrap-select/js/bootstrap-select.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/flatpickr/dist/js/flatpickr.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/chartist-js/chartist.min.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/chartist-js-tooltip/chartist-plugin-tooltip.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/fancybox/jquery.fancybox.min.js")"></script>
+
+	<!-- JS Unify -->
+	<script src="@Url.Content("~/AppStorage/unify/hs.core.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.side-nav.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.hamburgers.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.range-datepicker.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.datepicker.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.dropdown.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.scrollbar.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.focus-state.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.area-chart.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.donut-chart.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.bar-chart.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.pie-chart.js")"></script>
+	<script src="@Url.Content("~/AppStorage/unify/hs.popup.js")"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+	<script type="text/javascript" src="@Url.Content("~/AppStorage/froala/js/froala_editor.min.js")"></script>
+
+	<!-- JS Plugins Init. -->
+	<script>
+    $(document).on('ready', function () {
+      // initialization of custom select
+      $('.js-select').selectpicker();
+
+      // initialization of hamburger
+      $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+      // initialization of charts
+      $.HSCore.components.HSAreaChart.init('.js-area-chart');
+      $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+      $.HSCore.components.HSBarChart.init('.js-bar-chart');
+      $.HSCore.components.HSPieChart.init('.js-pie-chart');
+
+      // initialization of sidebar navigation component
+      $.HSCore.components.HSSideNav.init('.js-side-nav', {
+        afterOpen: function() {
+          setTimeout(function() {
+            $.HSCore.components.HSAreaChart.init('.js-area-chart');
+            $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+            $.HSCore.components.HSBarChart.init('.js-bar-chart');
+            $.HSCore.components.HSPieChart.init('.js-pie-chart');
+          }, 400);
+        },
+        afterClose: function() {
+          setTimeout(function() {
+            $.HSCore.components.HSAreaChart.init('.js-area-chart');
+            $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+            $.HSCore.components.HSBarChart.init('.js-bar-chart');
+            $.HSCore.components.HSPieChart.init('.js-pie-chart');
+          }, 400);
+        }
+      });
+
+      // initialization of range datepicker
+      $.HSCore.components.HSRangeDatepicker.init('#rangeDatepicker, #rangeDatepicker2, #rangeDatepicker3');
+
+      // initialization of datepicker
+      $.HSCore.components.HSDatepicker.init('#datepicker', {
+        dayNamesMin: [
+          'SU',
+          'MO',
+          'TU',
+          'WE',
+          'TH',
+          'FR',
+          'SA'
+        ]
+      });
+
+      // initialization of HSDropdown component
+      $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {dropdownHideOnScroll: false});
+
+      // initialization of custom scrollbar
+      $.HSCore.components.HSScrollBar.init($('.js-custom-scroll'));
+
+      // initialization of popups
+      $.HSCore.components.HSPopup.init('.js-fancybox', {
+        btnTpl: {
+          smallBtn: '<button data-fancybox-close class="btn g-pos-abs g-top-25 g-right-30 g-line-height-1 g-bg-transparent g-font-size-16 g-color-gray-light-v3 g-brd-none p-0" title=""><i class="hs-admin-close"></i></button>'
+        }
+      });
+    });
+	</script>
+</body>
+</html>

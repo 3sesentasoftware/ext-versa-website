@@ -1,0 +1,35 @@
+﻿@using Versa_Web.Models
+@using System.Collections.Generic;
+@model Versa_Web.ViewModels.ProductoDetallesVM
+
+<div class="col-md-6 table-container2">
+	<div class="row">
+		<div class="col-md-12 pt-1 pb-1 text-center header-@Model.alias" style="color: #FFF; border-radius: 5px;">
+			<strong>COMPOSICIÓN PORCENTUAL:</strong>
+		</div>
+		<div class="col-md-12 mt-2 pb-5 pt-4" style="background-color:#EDEEF0; border-radius: 5px;">
+			<div class="container-fluid">
+				@foreach (var item in Model.P_Composicion)
+				{
+					<div class="row">
+						<div class="w-75">
+							<p style="font-size:15px;line-height: 15px;">
+								<span style="font-size:15px;">
+									@Html.Raw(item.ingrediente)
+								</span>
+								@Html.Raw(item.formula)
+							</p>
+						</div>
+						<div class="ver-det-tab-com-2-col-cell">
+							<p>
+								@Html.Raw(item.porcentaje)
+							</p>
+						</div>
+					</div>
+				}
+
+			</div>
+		</div>
+	</div>
+
+</div>

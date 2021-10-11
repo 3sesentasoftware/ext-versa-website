@@ -1,0 +1,46 @@
+﻿@using Versa_Web.Code
+
+@{
+    ViewBag.Title = "Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="@Utils.getUrlAssets("app/Contacto.css", this)" rel="stylesheet" />
+}
+
+<script>
+    $('#contacto').addClass("active");
+</script>
+
+<div class="main-container" style="margin-top:-3.5vh">
+    <div class="row" style="margin-left:auto;margin-right:auto; padding-top: 25vh; padding-bottom: 10vh;background-color: #EBEBEB;background-image: url('@Url.Content("~/Public/img/misc/versa-contacto.jpg")');background-size: cover;">
+        <div class="col-md-4 contact-form mx-auto">
+            <h4><strong>Contáctanos</strong></h4>
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" id="txt_nombre">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="E-mail" id="txt_mail">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Asunto" id="txt_asunto">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="" rows="6" placeholder="Mensaje" draggable="false" id="txta_mensaje"></textarea>
+                </div>
+                <button class="btn btn-default" type="button" name="button" id="btn_enviar" style="float:right;color: #FFF;background-color: #8AC746;">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Enviar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="map-container row mt-5 pb-5">
+        <div class="col-md-10 mx-auto">
+            <h4><strong>Ubicación</strong></h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28788.477426565903!2d-103.4006187!3d25.5863122!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fda92ace01521%3A0x298cbe7d5301b40f!2sGrupo+Versa!5e0!3m2!1ses-419!2smx!4v1553752789170" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

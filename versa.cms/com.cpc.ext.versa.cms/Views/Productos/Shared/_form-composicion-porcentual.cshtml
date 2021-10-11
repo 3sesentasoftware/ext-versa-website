@@ -1,0 +1,311 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+
+@{
+	EProducto productos_data = @Model;
+}
+
+<div class="row">
+	<div class="col-sm-12 col-md-12 text-center">
+		<h1>Composición porcentual</h1>
+	</div>
+</div>
+<form id="ver-intra-prod-edit-comp-porcen-form" name="ver-intra-prod-edit-comp-porcen-form" method="post" action="@Url.Content("~/intra/productos/editar/update/composicion-porcentual")">
+	<input type="hidden" id="ver-intra-prod-edit-comp-porcen-prod-id" name="ver-intra-prod-edit-comp-porcen-prod-id" value="@productos_data.id" />
+	<div class="container-fluid">
+
+
+
+		
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<h3>Ingredientes activos</h3>
+			</div>
+		</div>
+		<div id="ver-intra-prod-edit-comp-porcen-ingred-activos-container" class="form-group">
+			
+			<!-- INGREDIENTES ACTIVOS START -->
+			<!-- INGREDIENTES ACTIVOS START -->
+			<!-- INGREDIENTES ACTIVOS START -->
+			@{
+				int cantidad = productos_data.composicion.Count;
+				int contador = 1;
+				if (cantidad == 0)
+				{
+					<div class="row" data-id-contador="@contador">
+						<div class="col-sm-12 col-md-1">
+							<i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>
+							<input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="0" />
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<label>Ingrediente</label>
+							<div id="ver-intra-prod-edit-comp-porcen-ingrediente-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingrediente" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingrediente-div', 'ver-intra-prod-edit-comp-porcen-ingrediente'); </script>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<label>Formula</label>
+							<div id="ver-intra-prod-edit-comp-porcen-formula-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-formula" name="ver-intra-prod-edit-comp-porcen-formula" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-formula-div', 'ver-intra-prod-edit-comp-porcen-formula'); </script>
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label>Porcentaje</label>
+							<div id="ver-intra-prod-edit-comp-porcen-porcentaje-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-porcentaje" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-porcentaje-div', 'ver-intra-prod-edit-comp-porcen-porcentaje'); </script>
+						</div>
+					</div>
+				}
+				else
+				{
+					foreach (sel_productos_composicion_Fil_id_producto_Result elemento in productos_data.composicion)
+					{
+						bool tipo = Convert.ToBoolean(elemento.tipo);
+						if (tipo)
+						{
+							<div class="row" data-id-contador="@contador">
+								<div class="col-sm-12 col-md-1">
+									<i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>
+									<input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="@elemento.id" />
+								</div>
+								<div class="col-sm-12 col-md-4">
+									<label>Ingrediente</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-ingrediente-div" + Convert.ToString(contador))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingrediente" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="@elemento.ingrediente" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingrediente-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-ingrediente" + Convert.ToString(contador))'); </script>
+								</div>
+								<div class="col-sm-12 col-md-4">
+									<label>Formula</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-formula-div" + Convert.ToString(contador))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-formula" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-formula" value="@elemento.formula" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-formula-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-formula" + Convert.ToString(contador))'); </script>
+								</div>
+								<div class="col-sm-12 col-md-3">
+									<label>Porcentaje</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-porcentaje-div" + Convert.ToString(contador))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-porcentaje" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="@elemento.porcentaje" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-porcentaje-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-porcentaje" + Convert.ToString(contador))'); </script>
+								</div>
+							</div>
+
+							contador = contador + 1;
+						}
+					}
+				}
+			}
+			<!-- INGREDIENTES ACTIVOS END -->
+			<!-- INGREDIENTES ACTIVOS END -->
+			<!-- INGREDIENTES ACTIVOS END -->
+
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 text-right">
+					<button type="button" id="ver-intra-prod-edit-comp-porcen-button-add" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+					<script> document.getElementById("ver-intra-prod-edit-comp-porcen-button-add").addEventListener("click", function () { AgregarIngrediente('', '', ''); }); </script>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<h3>Ingredientes inertes</h3>
+			</div>
+		</div>
+		<div id="ver-intra-prod-edit-comp-porcen-ingred-inertes-container" class="form-group">
+
+			<!-- INGREDIENTES INERTES START -->
+			<!-- INGREDIENTES INERTES START -->
+			<!-- INGREDIENTES INERTES START -->
+			@{
+				int contador_ingredientes_inertes = 1;
+				if (cantidad == 0)
+				{
+					<div class="row" data-id-contador="@contador_ingredientes_inertes">
+						<div class="col-sm-12 col-md-1">
+							<i class="fa fa-close" data-id-contador="@contador_ingredientes_inertes" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="0" />
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<label>Ingrediente</label>
+							<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente'); </script>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<label>Formula</label>
+							<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-formula'); </script>
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label>Porcentaje</label>
+							<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="" />
+							<script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje'); </script>
+						</div>
+					</div>
+				}
+				else
+				{
+					foreach (sel_productos_composicion_Fil_id_producto_Result elemento in productos_data.composicion)
+					{
+						bool tipo = Convert.ToBoolean(elemento.tipo);
+						if (!tipo)
+						{
+							<div class="row" data-id-contador="@contador_ingredientes_inertes">
+								<div class="col-sm-12 col-md-1">
+									<i class="fa fa-close" data-id-contador="@contador_ingredientes_inertes" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>
+									<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="@elemento.id" />
+								</div>
+								<div class="col-sm-12 col-md-4">
+									<label>Ingrediente</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="@elemento.ingrediente" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+								</div>
+								<div class="col-sm-12 col-md-4">
+									<label>Formula</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="@elemento.formula" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+								</div>
+								<div class="col-sm-12 col-md-3">
+									<label>Porcentaje</label>
+									<div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+									<input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="@elemento.porcentaje" />
+									<script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+								</div>
+							</div>
+
+							contador_ingredientes_inertes = contador_ingredientes_inertes + 1;
+						}
+
+					}
+				}
+			}
+			<!-- INGREDIENTES INERTES END -->
+			<!-- INGREDIENTES INERTES END -->
+			<!-- INGREDIENTES INERTES END -->
+
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 text-right">
+					<button type="button" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-button-add" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+					<script> document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-intertes-button-add").addEventListener("click", function () { AgregarIngredienteInerte('', '', ''); }); </script>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 text-right">
+					<button type="submit" class="btn btn-info btn-sm" style="display: inline-block;">Enviar</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</form>
+<script>
+
+	// Borra un elemento de la fila del formulario
+	function BorrarElemento(e) {
+		var id_contador = e.dataset.idContador;
+		var container = document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-container");
+		var nodos = container.children;
+		var elemento_borrar = null;
+		for (i = 0; i < nodos.length; i++) {
+			if (nodos[i].dataset.idContador == id_contador) {
+				console.log(nodos[i]);
+				elemento_borrar = nodos[i];
+			}
+		}
+		container.removeChild(elemento_borrar);
+	}
+	// Agrega un elemento de la fila del formulario
+	a = @(contador + 1);
+	function AgregarIngrediente(ingrediente, formula, porcentaje) {
+		var div = document.createElement('div');
+		div.setAttribute('class', 'row');
+		div.setAttribute("data-id-contador", a);
+		div.innerHTML =
+			'<div class="col-sm-12 col-md-1">' +
+				'<i class="fa fa-close" data-id-contador="' + a + '" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="0" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-4">' +
+				'<label>Ingrediente</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-ingrediente-div' + a + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingrediente' + a + '" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="' + ingrediente + '" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-4">' +
+				'<label>Formula</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-formula-div' + a + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-formula' + a + '" name="ver-intra-prod-edit-comp-porcen-formula" value="' + formula + '" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-3">' +
+				'<label>Porcentaje</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-porcentaje-div' + a + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-porcentaje' + a + '" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="' + porcentaje + '" />' +
+			'</div>';
+		document.getElementById('ver-intra-prod-edit-comp-porcen-ingred-activos-container').appendChild(div);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-ingrediente-div' + a, 'ver-intra-prod-edit-comp-porcen-ingrediente' + a);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-formula-div' + a, 'ver-intra-prod-edit-comp-porcen-formula' + a);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-porcentaje-div' + a, 'ver-intra-prod-edit-comp-porcen-porcentaje' + a);
+		a++;
+	}
+
+
+
+	// Borra un ingrediente inerte del formulario
+	function BorrarElementoIngredienteInerte(e) {
+		var id_contador = e.dataset.idContador;
+		var container = document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-inertes-container");
+		var nodos = container.children;
+		var elemento_borrar = null;
+		for (i = 0; i < nodos.length; i++) {
+			if (nodos[i].dataset.idContador == id_contador) {
+				console.log(nodos[i]);
+				elemento_borrar = nodos[i];
+			}
+		}
+		container.removeChild(elemento_borrar);
+	}
+	// Agrega un ingrediente inerte del formulario
+	b = @(contador_ingredientes_inertes + 1);
+	function AgregarIngredienteInerte(ingrediente, formula, porcentaje) {
+		var div = document.createElement('div');
+		div.setAttribute('class', 'row');
+		div.setAttribute("data-id-contador", b);
+		div.innerHTML =
+			'<div class="col-sm-12 col-md-1">' +
+				'<i class="fa fa-close" data-id-contador="' + b + '" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="0" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-4">' +
+				'<label>Ingrediente</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div' + b + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="' + ingrediente + '" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-4">' +
+				'<label>Formula</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div' + b + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="' + formula + '" />' +
+			'</div>' +
+			'<div class="col-sm-12 col-md-3">' +
+				'<label>Porcentaje</label>' +
+				'<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div' + b + '" class="pell-container"></div>' +
+				'<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="' + porcentaje + '" />' +
+			'</div>';
+		document.getElementById('ver-intra-prod-edit-comp-porcen-ingred-inertes-container').appendChild(div);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente' + b);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-formula' + b);
+		InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje' + b);
+		b++;
+	}
+
+</script>

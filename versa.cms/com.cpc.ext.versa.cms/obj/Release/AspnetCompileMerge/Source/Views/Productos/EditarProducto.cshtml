@@ -1,0 +1,1055 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+@using System.Data.Entity.Core.Objects
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+    EProducto producto = ViewBag.producto_data;
+    EProductoTipo productoTipo = new EProductoTipo();
+    EProductoSKU productoSku = new EProductoSKU();
+    List<sel_productos_composicion_Fil_id_producto_Result> productos_composicion_data = ViewBag.productos_composicion_data;
+    ObjectResult<String> dbresImagenTablaAplicacion = ViewBag.imagenTablaAplicacion;
+    string imagenTablaAplicacion = string.Empty;
+    foreach (var el in dbresImagenTablaAplicacion)
+    {
+        imagenTablaAplicacion = el;
+    }
+    ObjectResult <cms_seccionProductosDocumentosObtener_Result> productosDocumentos = BDFecade.db().cms_seccionProductosDocumentosObtener(producto.id);
+    ViewBag.titulo_pagina = "Editar" + " | " + producto.nombre + " | " + producto.producto_tipo;
+}
+
+
+<!-- Pell START -->
+<link rel="stylesheet" href="@Url.Content("~/AppStorage/pell/pell.min.css")" />
+<script src="@Url.Content("~/AppStorage/pell/pell.min.js")"></script>
+<script>
+	// Inicializa un control
+	function InicializarControl(nombre_elemento, nombre_input) {
+		// Initialize pell on an HTMLElement
+		pell.init({
+			// <HTMLElement>, required
+			element: document.getElementById(nombre_elemento),
+			// <Function>, required
+			// Use the output html, triggered by element's `oninput` event
+			onChange: html => document.getElementById(nombre_input).value = html,
+			// <string>, optional, default = 'div'
+			// Instructs the editor which element to inject via the return key
+			defaultParagraphSeparator: 'br',
+			// <boolean>, optional, default = false
+			// Outputs <span style="font-weight: bold;"></span> instead of <b></b>
+			styleWithCSS: false,
+			// <Array[string | Object]>, string if overwriting, object if customizing/creating
+			// action.name<string> (only required if overwriting)
+			// action.icon<string> (optional if overwriting, required if custom action)
+			// action.title<string> (optional)
+			// action.result<Function> (required)
+			// Specify the actions you specifically want (in order)
+			actions: [
+			  'bold',
+			  'underline',
+			  'italic',
+			  {
+			  	name: 'custom',
+			  	icon: 'C',
+			  	title: 'Subindice',
+			  	result: () => document.execCommand('subscript', false, null)
+			  }
+			],
+			// classes<Array[string]> (optional)
+			// Choose your custom class names
+			classes: {
+				actionbar: 'pell-actionbar',
+				button: 'pell-button',
+				content: 'pell-content',
+				selected: 'pell-button-selected'
+			}
+		}).content.innerHTML = document.getElementById(nombre_input).value;
+
+		// editor.content.innerHTML = document.getElementById(nombre_input).value;
+	}
+</script>
+<style>
+	/* override styles here */
+	.pell-container {
+		
+		border: 1px solid black;
+	}
+</style>
+<!-- Pell END -->
+
+<!-- Tipos de logotipos START -->
+<style>
+	.img-logotipos-productos-container {
+		height: 200px;
+		text-align: center;
+	}
+	.img-logotipos-productos-container img {
+		display: inline-block;
+		max-width: 100%;
+		max-height: 100%;
+	}
+    .btn-imagenes-documentos {
+        display: inline-block;
+        width: 95%;
+        margin-top: 10px;
+    }
+</style>
+<!-- Tipos de logotipos END -->
+
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h1>Editar producto</h1>
+		</div>
+	</div>
+	
+	<hr />
+
+	<!-- Botonera START -->
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<button type="button" class="btn btn-sm btn-success pull-right" onclick="window.open('@Url.Action("VerProducto", "Home", new { q = "" + producto.id + "" })', '_blank');">
+				Ver en sitio web
+			</button>
+		</div>
+	</div>
+	<!-- Botonera END -->
+
+	<hr />
+
+
+	<!-- Pestañas START -->
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#tab-pane--informacion-general">Información general</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#tab-pane--imagenes-documentos">Imágenes y documentos</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#tab-pane--composicion">Composición</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#tab-pane--aplicaciones">Aplicaciones</a>
+		</li>
+	</ul>
+    <!-- Pestañas END -->
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+
+		<!-- TAB Información general START -->
+		<div class="tab-pane container active" id="tab-pane--informacion-general">
+			<form id="form-update-data-producto" name="form-update-data-producto" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarProducto.getRedirect())">
+				<input type="hidden" id="ver-intra-nuevo-producto-id" name="ver-intra-nuevo-producto-id" value="@producto.id" />
+
+				<!-- Nombre, subnombre y tipo de producto START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						<h3><label for="ver-intra-nuevo-producto-nombre-producto">Nombre del producto</label></h3>
+						<input type="text" class="form-control" id="ver-intra-nuevo-producto-nombre-producto" name="ver-intra-nuevo-producto-nombre-producto" value="@producto.nombre" />
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<h3><label for="ver-intra-nuevo-producto-subnombre-producto">Subnombre</label></h3>
+						<input type="text" class="form-control" id="ver-intra-nuevo-producto-subnombre-producto" name="ver-intra-nuevo-producto-subnombre-producto" value="@producto.subnombre" />
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<h3><label for="ver-intra-tipo-producto">Tipo de producto</label></h3>
+						<select class="form-control" id="ver-intra-tipo-producto" name="ver-intra-tipo-producto">
+							@foreach (EProductoTipo elemento in productoTipo.obtTodos())
+							{
+								if (elemento.id == producto.producto_tipo_id)
+								{
+									<option value="@elemento.id" selected>@Html.Raw(elemento.nombre)</option>
+								}
+								else
+								{
+									<option value="@elemento.id">@Html.Raw(elemento.nombre)</option>
+								}
+							}
+						</select>
+
+					</div>
+				</div>
+				<!-- Nombre, subnombre y tipo de producto END -->
+				<!-- SKU START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<h3><label for="ver-intra-nuevo-producto-sku">SKU</label></h3>
+						<select class="form-control" id="ver-intra-nuevo-producto-sku" name="ver-intra-nuevo-producto-sku">
+							@foreach (EProductoSKU elemento in productoSku.obtTodos())
+							{
+								if (elemento.sku == producto.sku)
+								{
+									<option value="@elemento.id" selected>@Html.Raw(elemento.sku)</option>
+								}
+								else
+								{
+									<option value="@elemento.id">@Html.Raw(elemento.sku)</option>
+								}
+							}
+						</select>
+					</div>
+				</div>
+				<!-- SKU END -->
+				<!-- Cintillo START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<h3><label for="ver-intra-nuevo-producto-cintillo">Cintillo</label></h3>
+						<div id="ver-intra-nuevo-producto-cintillo-div" class="pell-container"></div>
+						<input type="hidden" id="ver-intra-nuevo-producto-cintillo" name="ver-intra-nuevo-producto-cintillo" value="@Html.Raw(producto.Cintillo)" />
+						<script> InicializarControl('ver-intra-nuevo-producto-cintillo-div', 'ver-intra-nuevo-producto-cintillo'); </script>
+					</div>
+				</div>
+				<!-- Cintillo END -->
+				<!-- Presentación y contenido START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<h3><label for="ver-intra-nuevo-producto-presentacion">Contenido</label></h3>
+						<div id="ver-intra-nuevo-producto-presentacion-div" class="pell-container"></div>
+						<input type="hidden" id="ver-intra-nuevo-producto-presentacion" name="ver-intra-nuevo-producto-presentacion" value="@Html.Raw(producto.presentacion)" />
+						<script> InicializarControl('ver-intra-nuevo-producto-presentacion-div', 'ver-intra-nuevo-producto-presentacion'); </script>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<h3><label for="ver-intra-nuevo-producto-contenido">Presentación</label></h3>
+						<div id="ver-intra-nuevo-producto-contenido-div" class="pell-container"></div>
+						<input type="hidden" id="ver-intra-nuevo-producto-contenido" name="ver-intra-nuevo-producto-contenido" value="@Html.Raw(producto.contenido)" />
+						<script> InicializarControl('ver-intra-nuevo-producto-contenido-div', 'ver-intra-nuevo-producto-contenido'); </script>
+					</div>
+				</div>
+				<!-- Presentación y contenido END -->
+				<!-- Descripción producto START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<h3><label for="ver-intra-nuevo-producto-descripcion">Descripción producto</label></h3>
+						<div id="ver-intra-nuevo-producto-descripcion-div" class="pell-container"></div>
+						<input type="hidden" id="ver-intra-nuevo-producto-descripcion" name="ver-intra-nuevo-producto-descripcion" value="@Html.Raw(producto.descripcion)" />
+						<script> InicializarControl('ver-intra-nuevo-producto-descripcion-div', 'ver-intra-nuevo-producto-descripcion'); </script>
+					</div>
+				</div>
+				<!-- Descripción producto END -->
+				<!-- Beneficios START -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<h3><label for="ver-intra-nuevo-producto-beneficios">Beneficios</label></h3>
+						<div id="ver-intra-nuevo-producto-beneficios-div" class="pell-container"></div>
+						<input type="hidden" id="ver-intra-nuevo-producto-beneficios" name="ver-intra-nuevo-producto-beneficios" value="@Html.Raw(producto.beneficios)" />
+						<script> InicializarControl('ver-intra-nuevo-producto-beneficios-div', 'ver-intra-nuevo-producto-beneficios'); </script>
+					</div>
+				</div>
+				<!-- Beneficios END -->
+
+
+
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<h3><label for="ver-intra-nuevo-producto-pie">Pie</label></h3>
+							<div id="ver-intra-nuevo-producto-pie-div" class="pell-container"></div>
+							<input type="hidden" id="ver-intra-nuevo-producto-pie" name="ver-intra-nuevo-producto-pie" value="@Html.Raw(producto.pie)" />
+							<script> InicializarControl('ver-intra-nuevo-producto-pie-div', 'ver-intra-nuevo-producto-pie'); </script>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group text-right">
+							<button type="submit" class="btn btn-info" style="display: inline-block;">Guardar</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- TAB Información general END -->
+
+		<!-- TAB Imágenes y documentos START -->
+		<div class="tab-pane container fade" id="tab-pane--imagenes-documentos">
+			<!-- Diversos tipos de logotipos START -->
+			<div class="row">
+				<!-- Subir imagen del render START -->
+                <div class="col-sm-12 col-md-4" style="border-left: 1px solid black;">
+                    <h2>Render</h2>
+                    <hr />
+                    <div class="img-logotipos-productos-container">
+                        <img src="http://grupoversa.com/files/storage/@(producto.imagen)" />
+                    </div>
+                    <hr />
+                    <form id="form-files-upload-render" class="text-center" name="form-files-upload-render" method="post" action="@Url.Content(Utils.Ruta.rutaPostActualizarRender.getRedirect())" enctype="multipart/form-data">
+                        <input type="hidden" id="form-files-upload-render-id" name="form-files-upload-render-id" value="@producto.id" />
+                        <input type="file" name="fichero" size="40" accept="image/png, image/jpeg" class="form-control">
+                        <input type="submit" value="Guardar" class="btn btn-info btn-sm btn-imagenes-documentos" />
+                    </form>
+                </div>
+				<!-- Subir imagen del render END -->
+				<!-- Subir imagen de logotipo a color START -->
+                <div class="col-sm-12 col-md-4" style="border-left: 1px solid black;">
+                    <h2>Logotipo a color</h2>
+                    <hr />
+                    <div class="img-logotipos-productos-container">
+                        <img src="http://grupoversa.com/files/storage/@(producto.imagen_logo)" />
+                    </div>
+                    <hr />
+                    <form id="form-files-upload-logo-color" class="text-center" name="form-files-upload-logo-color" method="post" action="@Url.Content(Utils.Ruta.rutaPostActualizarLogotipoColor.getRedirect())" enctype="multipart/form-data">
+                        <input type="hidden" id="form-files-upload-logo-color-id" name="form-files-upload-logo-color-id" value="@producto.id" />
+                        <input type="file" name="fichero" size="40" accept="image/png, image/jpeg" class="form-control">
+                        <input type="submit" value="Guardar" class="btn btn-info btn-sm btn-imagenes-documentos" />
+                    </form>
+                </div>
+				<!-- Subir imagen de logotipo a color END -->
+				<!-- Subir imagen de logotipo blanco START -->
+                <div class="col-sm-12 col-md-4" style="border-left: 1px solid black;">
+                    <h2>Logotipo a blanco</h2>
+                    <hr />
+                    <div class="img-logotipos-productos-container">
+                        <img src="http://grupoversa.com/files/storage/@(producto.imagen_logo_blanco)" style="background-color: black;" />
+                    </div>
+                    <hr />
+                    <form id="form-files-upload-logo-blanco" class="text-center" name="form-files-upload-logo-blanco" method="post" action="@Url.Content("~/intra/productos/editar/subir/logotipo-blanco")" enctype="multipart/form-data">
+                        <input type="hidden" id="form-files-upload-logotipo-blanco-id" name="form-files-upload-logotipo-blanco-id" value="@producto.id" />
+                        <input type="file" name="fichero" size="40" accept="image/png, image/jpeg" class="form-control">
+                        <input type="submit" value="Guardar" class="btn btn-info btn-sm btn-imagenes-documentos" />
+                    </form>
+                </div>
+				<!-- Subir imagen de logotipo blanco END -->
+			</div>
+			<!-- Diversos tipos de logotipos END -->
+            <!-- Documentos del producto START -->
+            <div class="row">
+                @foreach (var el in productosDocumentos)
+                {
+                    if (el.tipo_Documento == "FICHAS TECNICAS")
+                    {
+                        <!-- Subir ficha tecnica START -->
+                        <div class="col-sm-12 col-md-4" style="border-left: 1px solid black;">
+                            <h2>Ficha técnica</h2>
+                            <hr />
+                            <a href="http://grupoversa.com/files/storage/@(el.documento)" target="_blank">
+                                <img src="http://grupoversa.com/Public/img/misc/pdf.png" style="width:40px; margin-bottom: 10px;" />
+                            </a>
+                            <hr />
+                            <form id="form-files-upload-render" class="text-center" name="form-files-upload-render" method="post" action="@Url.Action(Utils.Ruta.rutaPostActualizarFichaTecnica.action, Utils.Ruta.rutaPostActualizarFichaTecnica.controller)" enctype="multipart/form-data">
+                                <input type="hidden" name="ficha-tecnica-producto-id" value="@el.id" />
+                                <input type="hidden" name="producto-id" value="@producto.id" />
+                                <input type="file" name="fichero" size="40" class="form-control">
+                                <input type="submit" value="Guardar" class="btn btn-info btn-sm btn-imagenes-documentos" />
+                            </form>
+                        </div>
+                        <!-- Subir ficha tecnica END -->
+                    }
+                    else
+                    {
+                        <!-- Subir hoja de seguridad START -->
+                        <div class="col-sm-12 col-md-4" style="border-left: 1px solid black;">
+                            <h2>Hoja de seguridad</h2>
+                            <hr />
+                            <a href="http://grupoversa.com/files/storage/@(el.documento)" target="_blank">
+                                <img src="http://grupoversa.com/Public/img/misc/pdf.png" style="width:40px; margin-bottom: 10px;" />
+                            </a>
+                            <hr />
+                            <form id="form-files-upload-render" class="text-center" name="form-files-upload-render" method="post" action="@Url.Action(Utils.Ruta.rutaPostActualizarHojaSeguridad.action, Utils.Ruta.rutaPostActualizarHojaSeguridad.controller)" enctype="multipart/form-data">
+                                <input type="hidden" name="hoja-seguridad-producto-id" value="@el.id" />
+                                <input type="hidden" name="producto-id" value="@producto.id" />
+                                <input type="file" name="fichero" size="40" class="form-control">
+                                <input type="submit" value="Guardar" class="btn btn-info btn-sm btn-imagenes-documentos" />
+                            </form>
+                        </div>
+                        <!-- Subir hoja de seguridad END -->
+                    }
+                }
+            </div>
+            <!-- Documentos del producto END -->
+		</div>
+		<!-- TAB Imágenes y documentos END -->
+
+        <!-- TAB Composición porcentual START -->
+		<div class="tab-pane container fade" id="tab-pane--composicion">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 text-center">
+                    <h1>Composición porcentual</h1>
+                </div>
+            </div>
+            <form id="ver-intra-prod-edit-comp-porcen-form" name="ver-intra-prod-edit-comp-porcen-form" method="post" action="@Url.Content(Utils.Ruta.rutaPostActualizarComposicion.getRedirect())">
+                <input type="hidden" id="ver-intra-prod-edit-comp-porcen-prod-id" name="ver-intra-prod-edit-comp-porcen-prod-id" value="@producto.id" />
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <h3>Ingredientes activos</h3>
+                        </div>
+                    </div>
+                    <div id="ver-intra-prod-edit-comp-porcen-ingred-activos-container" class="form-group">
+
+                        <!-- INGREDIENTES ACTIVOS START -->
+                        <!-- INGREDIENTES ACTIVOS START -->
+                        <!-- INGREDIENTES ACTIVOS START -->
+                        @{
+                            int cantidad = producto.composicion.Count;
+                            int contador = 1;
+                            if (cantidad == 0)
+                            {
+                                <div class="row" data-id-contador="@contador">
+                                    <div class="col-sm-12 col-md-1">
+                                        <i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="0" />
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <label>Ingrediente</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-ingrediente-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingrediente" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingrediente-div', 'ver-intra-prod-edit-comp-porcen-ingrediente'); </script>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <label>Formula</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-formula-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-formula" name="ver-intra-prod-edit-comp-porcen-formula" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-formula-div', 'ver-intra-prod-edit-comp-porcen-formula'); </script>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <label>Porcentaje</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-porcentaje-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-porcentaje" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-porcentaje-div', 'ver-intra-prod-edit-comp-porcen-porcentaje'); </script>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                foreach (sel_productos_composicion_Fil_id_producto_Result elemento in producto.composicion)
+                                {
+                                    bool tipo = Convert.ToBoolean(elemento.tipo);
+                                    if (tipo)
+                                    {
+                                        <div class="row" data-id-contador="@contador">
+                                            <div class="col-sm-12 col-md-1">
+                                                <i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>
+                                                <input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="@elemento.id" />
+                                            </div>
+                                            <div class="col-sm-12 col-md-4">
+                                                <label>Ingrediente</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-ingrediente-div" + Convert.ToString(contador))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingrediente" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="@elemento.ingrediente" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingrediente-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-ingrediente" + Convert.ToString(contador))'); </script>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4">
+                                                <label>Formula</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-formula-div" + Convert.ToString(contador))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-formula" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-formula" value="@elemento.formula" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-formula-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-formula" + Convert.ToString(contador))'); </script>
+                                            </div>
+                                            <div class="col-sm-12 col-md-3">
+                                                <label>Porcentaje</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-porcentaje-div" + Convert.ToString(contador))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-porcentaje" + Convert.ToString(contador))" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="@elemento.porcentaje" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-porcentaje-div" + Convert.ToString(contador))', '@("ver-intra-prod-edit-comp-porcen-porcentaje" + Convert.ToString(contador))'); </script>
+                                            </div>
+                                        </div>
+                                        contador = contador + 1;
+                                    }
+                                }
+                            }
+                        }
+                        <!-- INGREDIENTES ACTIVOS END -->
+                        <!-- INGREDIENTES ACTIVOS END -->
+                        <!-- INGREDIENTES ACTIVOS END -->
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 text-right">
+                                <button type="button" id="ver-intra-prod-edit-comp-porcen-button-add" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+                                <script> document.getElementById("ver-intra-prod-edit-comp-porcen-button-add").addEventListener("click", function () { AgregarIngrediente('', '', ''); }); </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <h3>Ingredientes inertes</h3>
+                        </div>
+                    </div>
+                    <div id="ver-intra-prod-edit-comp-porcen-ingred-inertes-container" class="form-group">
+
+                        <!-- INGREDIENTES INERTES START -->
+                        <!-- INGREDIENTES INERTES START -->
+                        <!-- INGREDIENTES INERTES START -->
+                        @{
+                            int contador_ingredientes_inertes = 1;
+                            if (cantidad == 0)
+                            {
+                                <div class="row" data-id-contador="@contador_ingredientes_inertes">
+                                    <div class="col-sm-12 col-md-1">
+                                        <i class="fa fa-close" data-id-contador="@contador_ingredientes_inertes" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="0" />
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <label>Ingrediente</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente'); </script>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <label>Formula</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-formula'); </script>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <label>Porcentaje</label>
+                                        <div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" class="pell-container"></div>
+                                        <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="" />
+                                        <script> InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div', 'ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje'); </script>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                foreach (sel_productos_composicion_Fil_id_producto_Result elemento in producto.composicion)
+                                {
+                                    bool tipo = Convert.ToBoolean(elemento.tipo);
+                                    if (!tipo)
+                                    {
+                                        <div class="row" data-id-contador="@contador_ingredientes_inertes">
+                                            <div class="col-sm-12 col-md-1">
+                                                <i class="fa fa-close" data-id-contador="@contador_ingredientes_inertes" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>
+                                                <input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="@elemento.id" />
+                                            </div>
+                                            <div class="col-sm-12 col-md-4">
+                                                <label>Ingrediente</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="@elemento.ingrediente" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4">
+                                                <label>Formula</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="@elemento.formula" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+                                            </div>
+                                            <div class="col-sm-12 col-md-3">
+                                                <label>Porcentaje</label>
+                                                <div id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" + Convert.ToString(contador_ingredientes_inertes))" class="pell-container"></div>
+                                                <input type="hidden" id="@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" + Convert.ToString(contador_ingredientes_inertes))" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="@elemento.porcentaje" />
+                                                <script> InicializarControl('@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div" + Convert.ToString(contador_ingredientes_inertes))', '@("ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" + Convert.ToString(contador_ingredientes_inertes))'); </script>
+                                            </div>
+                                        </div>
+                                        contador_ingredientes_inertes = contador_ingredientes_inertes + 1;
+                                    }
+
+                                }
+                            }
+                        }
+                        <!-- INGREDIENTES INERTES END -->
+                        <!-- INGREDIENTES INERTES END -->
+                        <!-- INGREDIENTES INERTES END -->
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 text-right">
+                                <button type="button" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-button-add" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+                                <script> document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-intertes-button-add").addEventListener("click", function () { AgregarIngredienteInerte('', '', ''); }); </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 text-right">
+                                <button type="submit" class="btn btn-info btn-sm" style="display: inline-block;">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <script>
+
+	            // Borra un elemento de la fila del formulario
+	            function BorrarElemento(e) {
+		            var id_contador = e.dataset.idContador;
+		            var container = document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-container");
+		            var nodos = container.children;
+		            var elemento_borrar = null;
+		            for (i = 0; i < nodos.length; i++) {
+			            if (nodos[i].dataset.idContador == id_contador) {
+				            console.log(nodos[i]);
+				            elemento_borrar = nodos[i];
+			            }
+		            }
+		            container.removeChild(elemento_borrar);
+	            }
+	            // Agrega un elemento de la fila del formulario
+	            a = @(contador + 1);
+	            function AgregarIngrediente(ingrediente, formula, porcentaje) {
+		            var div = document.createElement('div');
+		            div.setAttribute('class', 'row');
+		            div.setAttribute("data-id-contador", a);
+		            div.innerHTML =
+			            '<div class="col-sm-12 col-md-1">' +
+				            '<i class="fa fa-close" data-id-contador="' + a + '" style="cursor: pointer;" onclick="BorrarElemento(this)"></i>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-id" name="ver-intra-prod-edit-comp-id" value="0" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-4">' +
+				            '<label>Ingrediente</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-ingrediente-div' + a + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingrediente' + a + '" name="ver-intra-prod-edit-comp-porcen-ingrediente" value="' + ingrediente + '" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-4">' +
+				            '<label>Formula</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-formula-div' + a + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-formula' + a + '" name="ver-intra-prod-edit-comp-porcen-formula" value="' + formula + '" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-3">' +
+				            '<label>Porcentaje</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-porcentaje-div' + a + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-porcentaje' + a + '" name="ver-intra-prod-edit-comp-porcen-porcentaje" value="' + porcentaje + '" />' +
+			            '</div>';
+		            document.getElementById('ver-intra-prod-edit-comp-porcen-ingred-activos-container').appendChild(div);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-ingrediente-div' + a, 'ver-intra-prod-edit-comp-porcen-ingrediente' + a);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-formula-div' + a, 'ver-intra-prod-edit-comp-porcen-formula' + a);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-porcentaje-div' + a, 'ver-intra-prod-edit-comp-porcen-porcentaje' + a);
+		            a++;
+	            }
+
+
+
+	            // Borra un ingrediente inerte del formulario
+	            function BorrarElementoIngredienteInerte(e) {
+		            var id_contador = e.dataset.idContador;
+		            var container = document.getElementById("ver-intra-prod-edit-comp-porcen-ingred-inertes-container");
+		            var nodos = container.children;
+		            var elemento_borrar = null;
+		            for (i = 0; i < nodos.length; i++) {
+			            if (nodos[i].dataset.idContador == id_contador) {
+				            console.log(nodos[i]);
+				            elemento_borrar = nodos[i];
+			            }
+		            }
+		            container.removeChild(elemento_borrar);
+	            }
+	            // Agrega un ingrediente inerte del formulario
+	            b = @(contador_ingredientes_inertes + 1);
+	            function AgregarIngredienteInerte(ingrediente, formula, porcentaje) {
+		            var div = document.createElement('div');
+		            div.setAttribute('class', 'row');
+		            div.setAttribute("data-id-contador", b);
+		            div.innerHTML =
+			            '<div class="col-sm-12 col-md-1">' +
+				            '<i class="fa fa-close" data-id-contador="' + b + '" style="cursor: pointer;" onclick="BorrarElementoIngredienteInerte(this)"></i>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-id" value="0" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-4">' +
+				            '<label>Ingrediente</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div' + b + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente" value="' + ingrediente + '" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-4">' +
+				            '<label>Formula</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div' + b + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-formula" value="' + formula + '" />' +
+			            '</div>' +
+			            '<div class="col-sm-12 col-md-3">' +
+				            '<label>Porcentaje</label>' +
+				            '<div id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div' + b + '" class="pell-container"></div>' +
+				            '<input type="hidden" id="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje' + b + '" name="ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje" value="' + porcentaje + '" />' +
+			            '</div>';
+		            document.getElementById('ver-intra-prod-edit-comp-porcen-ingred-inertes-container').appendChild(div);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-ingrediente' + b);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-formula-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-formula' + b);
+		            InicializarControl('ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje-div' + b, 'ver-intra-prod-edit-comp-porcen-ingred-intertes-porcentaje' + b);
+		            b++;
+	            }
+
+            </script>
+		</div>
+        <!-- TAB Composición porcentual END -->
+
+        <!-- TAB Aplicación producto START -->
+		<div class="tab-pane container fade" id="tab-pane--aplicaciones">
+            <style>
+                .apli-prod-table--td-ancho {
+                    width: 300px;
+                }
+
+                .apli-prod-table--td-id-ancho {
+                    width: 70px;
+                }
+
+                .apli-prod-table--td-enfermedad {
+                    width: 400px;
+                }
+            </style>
+
+            <script>
+	            function OnChecked(id_checkbox, id_input)
+	            {
+		            if (document.getElementById(id_checkbox).checked)
+		            {
+			            document.getElementById(id_input).value = "true";
+		            } else {
+			            document.getElementById(id_input).value = "false";
+		            }
+	            }
+            </script>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 text-center">
+                    <h1>Aplicaciones</h1>
+                </div>
+            </div>
+
+            <form method="post" action="@Url.Content(Utils.Ruta.rutaPostActualizarAplicaciones.getRedirect())" enctype="multipart/form-data">
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            @if (string.IsNullOrEmpty(imagenTablaAplicacion))
+                        {
+                                <input type="radio" id="tabla" name="opcion-tabla" value="tabla" checked>
+                                <label for="tabla">Mostrar tabla construida</label><br>
+                                <input type="radio" id="imagen" name="opcion-tabla" value="imagen">
+                                <label for="imagen">Mostrar imagen de tabla</label><br>
+                        }
+                        else
+                        {
+                                <input type="radio" id="tabla" name="opcion-tabla" value="tabla">
+                                <label for="tabla">Mostrar tabla construida</label><br>
+                                <input type="radio" id="imagen" name="opcion-tabla" value="imagen" checked>
+                                <label for="imagen">Mostrar imagen de tabla</label><br>
+                        }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <label>Seleccione imagen</label>
+                            <input type="file" class="form-control" name="tablaAplicacion" />
+                            @if (!string.IsNullOrEmpty(imagenTablaAplicacion))
+                            {
+                                <a href="http://grupoversa.com/files/storage/@(imagenTablaAplicacion)" target="_blank">Ver imagen</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div id="ver-intra-prod-edit-comp-porcen-form" name="ver-intra-prod-edit-comp-porcen-form">
+                                <input type="hidden" id="apli-prod--prod-id" name="apli-prod--prod-id" value="@producto.id" />
+                                <div style="width: 100%; overflow-x: scroll; position: relative; height: 500px;">
+                                    <table style="position: absolute; top: 0; left: 0; table-layout: fixed !important; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th class="apli-prod-table--td-id-ancho">Acciones</th>
+                                                <th class="apli-prod-table--td-ancho">Cultivo</th>
+                                                <th class="apli-prod-table--td-enfermedad">Enfermedad</th>
+                                                <th class="apli-prod-table--td-ancho">Dósis</th>
+                                                <th class="apli-prod-table--td-ancho">Intérvalo de seguridad</th>
+                                                <th class="apli-prod-table--td-ancho">LMREPA</th>
+                                                <th class="apli-prod-table--td-ancho">EPA</th>
+                                                <th class="apli-prod-table--td-ancho">Observaciones</th>
+                                                <th class="apli-prod-table--td-ancho">Estudio</th>
+                                                <th class="apli-prod-table--td-ancho">Época</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="apli-prod--tbody">
+                                            @{
+                                            cantidad = producto.aplicacion.Count;
+                                            contador = 1;
+                                            if (cantidad == 0)
+                                            {
+                                                    <tr data-id-contador="@contador">
+                                                        <td class="apli-prod-table--td-id-ancho">
+                                                            <i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>
+                                                            <input type="checkbox" id="apli-prod--checkbox-agricultura-protegida" onclick="OnChecked('apli-prod--checkbox-agricultura-protegida', 'apli-prod--input-agricultura-protegida');">
+                                                            <input type="hidden" id="apli-prod--input-agricultura-protegida" name="apli-prod--agricultura-protegida" value="false" />
+                                                            <input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="0" />
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--cultivo" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--cultivo" name="apli-prod-input--cultivo" value="" />
+                                                            <script> InicializarControl('apli-prod-div--cultivo', 'apli-prod-input--cultivo'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-enfermedad">
+                                                            <div id="apli-prod-div--enfermedad" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--enfermedad" name="apli-prod-input--enfermedad" value="" />
+                                                            <script> InicializarControl('apli-prod-div--enfermedad', 'apli-prod-input--enfermedad'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--dosis" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--dosis" name="apli-prod-input--dosis" value="" />
+                                                            <script> InicializarControl('apli-prod-div--dosis', 'apli-prod-input--dosis'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--inter-seg" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--inter-seg" name="apli-prod-input--inter-seg" value="" />
+                                                            <script> InicializarControl('apli-prod-div--inter-seg', 'apli-prod-input--inter-seg'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--lmrepa" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--lmrepa" name="apli-prod-input--lmrepa" value="" />
+                                                            <script> InicializarControl('apli-prod-div--lmrepa', 'apli-prod-input--lmrepa'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--epa" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--epa" name="apli-prod-input--epa" value="" />
+                                                            <script> InicializarControl('apli-prod-div--epa', 'apli-prod-input--epa'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--observaciones" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--observaciones" name="apli-prod-input--observaciones" value="" />
+                                                            <script> InicializarControl('apli-prod-div--observaciones', 'apli-prod-input--observaciones'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--estudio" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--estudio" name="apli-prod-input--estudio" value="" />
+                                                            <script> InicializarControl('apli-prod-div--estudio', 'apli-prod-input--estudio'); </script>
+                                                        </td>
+                                                        <td class="apli-prod-table--td-ancho">
+                                                            <div id="apli-prod-div--epoca" class="pell-container"></div>
+                                                            <input type="hidden" id="apli-prod-input--epoca" name="apli-prod-input--epoca" value="" />
+                                                            <script> InicializarControl('apli-prod-div--epoca', 'apli-prod-input--epoca'); </script>
+                                                        </td>
+                                                    </tr>
+                                            }
+                                            else
+                                            {
+                                                foreach (sel_productos_aplicacion_Fil_id_producto_Result elemento in producto.aplicacion)
+                                                {
+                                                        <tr data-id-contador="@contador">
+                                                            <td class="apli-prod-table--td-id-ancho">
+                                                                <i class="fa fa-close" data-id-contador="@contador" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>
+                                                                @if (Convert.ToBoolean(elemento.agricultura_protegida))
+                                                            {
+                                                                    <input type="checkbox" id="@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))" onclick="OnChecked('@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))', '@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))');" checked>
+                                                                    <input type="hidden" id="@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))" name="apli-prod--agricultura-protegida" value="true" />
+                                                            }
+                                                            else
+                                                            {
+                                                                    <input type="checkbox" id="@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))" onclick="OnChecked('@("apli-prod--checkbox-agricultura-protegida" + Convert.ToString(contador))', '@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))');">
+                                                                    <input type="hidden" id="@("apli-prod--input-agricultura-protegida" + Convert.ToString(contador))" name="apli-prod--agricultura-protegida" value="false" />
+                                                            }
+                                                                <input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="@elemento.id" />
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--cultivo" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--cultivo" + Convert.ToString(contador))" name="apli-prod-input--cultivo" value="@elemento.cultivo" />
+                                                                <script> InicializarControl('@("apli-prod-div--cultivo" + Convert.ToString(contador))', '@("apli-prod-input--cultivo" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-enfermedad">
+                                                                <div id="@("apli-prod-div--enfermedad" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--enfermedad" + Convert.ToString(contador))" name="apli-prod-input--enfermedad" value="@elemento.enfermedad" />
+                                                                <script> InicializarControl('@("apli-prod-div--enfermedad" + Convert.ToString(contador))', '@("apli-prod-input--enfermedad" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--dosis" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--dosis" + Convert.ToString(contador))" name="apli-prod-input--dosis" value="@elemento.dosis" />
+                                                                <script> InicializarControl('@("apli-prod-div--dosis" + Convert.ToString(contador))', '@("apli-prod-input--dosis" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--inter-seg" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--inter-seg" + Convert.ToString(contador))" name="apli-prod-input--inter-seg" value="@elemento.intervalo_seguridad" />
+                                                                <script> InicializarControl('@("apli-prod-div--inter-seg" + Convert.ToString(contador))', '@("apli-prod-input--inter-seg" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--lmrepa" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--lmrepa" + Convert.ToString(contador))" name="apli-prod-input--lmrepa" value="@elemento.LMRP" />
+                                                                <script> InicializarControl('@("apli-prod-div--lmrepa" + Convert.ToString(contador))', '@("apli-prod-input--lmrepa" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--epa" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--epa" + Convert.ToString(contador))" name="apli-prod-input--epa" value="@elemento.EPA2" />
+                                                                <script> InicializarControl('@("apli-prod-div--epa" + Convert.ToString(contador))', '@("apli-prod-input--epa" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--observaciones" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--observaciones" + Convert.ToString(contador))" name="apli-prod-input--observaciones" value="@elemento.obervaciones" />
+                                                                <script> InicializarControl('@("apli-prod-div--observaciones" + Convert.ToString(contador))', '@("apli-prod-input--observaciones" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--estudio" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--estudio" + Convert.ToString(contador))" name="apli-prod-input--estudio" value="@elemento.estudios" />
+                                                                <script> InicializarControl('@("apli-prod-div--estudio" + Convert.ToString(contador))', '@("apli-prod-input--estudio" + Convert.ToString(contador))'); </script>
+                                                            </td>
+
+                                                            <td class="apli-prod-table--td-ancho">
+                                                                <div id="@("apli-prod-div--epoca" + Convert.ToString(contador))" class="pell-container"></div>
+                                                                <input type="hidden" id="@("apli-prod-input--epoca" + Convert.ToString(contador))" name="apli-prod-input--epoca" value="@elemento.epoca" />
+                                                                <script> InicializarControl('@("apli-prod-div--epoca" + Convert.ToString(contador))', '@("apli-prod-input--epoca" + Convert.ToString(contador))'); </script>
+                                                            </td>
+                                                        </tr>
+                                                    contador = contador + 1;
+                                                }
+                                            }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="text-right">
+                                    <button type="button" id="apli-prod--button-agregar" class="btn btn-info btn-sm" style="display: inline-block;">Agregar</button>
+                                    <script>document.getElementById("apli-prod--button-agregar").addEventListener("click", function () { AgregarAplicacionProducto(); });</script>
+                                    <button type="submit" id="apli-prod--button-enviar" class="btn btn-info btn-sm" style="display: inline-block;">Enviar</button>
+                                </div>
+
+                                @{
+                                ObjectResult<cms_tablaAplicacionTituloObtener_Result> dbres = BDFecade.db().cms_tablaAplicacionTituloObtener(producto.id);
+                                List<cms_tablaAplicacionTituloObtener_Result> lista = new List<cms_tablaAplicacionTituloObtener_Result>();
+                                foreach (var el in dbres)
+                                {
+                                    lista.Add(el);
+                                }
+                                }
+
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título cultivo</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--cultivo" name="apli-prod--titulo-columna--cultivo" value="@(lista.Find(e => e.id_columna == 1) == null ? "" : lista.Find(e => e.id_columna == 1).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título enfermedad</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--enfermedad" name="apli-prod--titulo-columna--enfermedad" value="@(lista.Find(e => e.id_columna == 2) == null ? "" : lista.Find(e => e.id_columna == 2).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título dósis</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--dosis" name="apli-prod--titulo-columna--dosis" value="@(lista.Find(e => e.id_columna == 3) == null ? "" : lista.Find(e => e.id_columna == 3).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título intérvalo de seguridad</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--intseg" name="apli-prod--titulo-columna--intseg" value="@(lista.Find(e => e.id_columna == 4) == null ? "" : lista.Find(e => e.id_columna == 4).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título observaciones</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--observaciones" name="apli-prod--titulo-columna--observaciones" value="@(lista.Find(e => e.id_columna == 5) == null ? "" : lista.Find(e => e.id_columna == 5).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título época</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--epoca" name="apli-prod--titulo-columna--epoca" value="@(lista.Find(e => e.id_columna == 6) == null ? "" : lista.Find(e => e.id_columna == 6).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título LMRP</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--lmrp" name="apli-prod--titulo-columna--lmrp" value="@(lista.Find(e => e.id_columna == 7) == null ? "" : lista.Find(e => e.id_columna == 7).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título EPA</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--epa" name="apli-prod--titulo-columna--epa" value="@(lista.Find(e => e.id_columna == 8) == null ? "" : lista.Find(e => e.id_columna == 8).titulo)" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label><strong>Título estudios</strong></label>
+                                        <input type="text" class="form-control" id="apli-prod--titulo-columna--estudios" name="apli-prod--titulo-columna--estudios" value="@(lista.Find(e => e.id_columna == 9) == null ? "" : lista.Find(e => e.id_columna == 9).titulo)" />
+                                    </div>
+                                </div>
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info btn-sm" style="display: inline-block;">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </form>
+            <script>
+	            cant_aplic_prod = @(contador + 1);
+	            function AgregarAplicacionProducto() {
+		            var tr = document.createElement('tr');
+		            tr.setAttribute("data-id-contador", cant_aplic_prod);
+		            tr.innerHTML =
+		            '<td class="apli-prod-table--td-id-ancho">' +
+			            '<i class="fa fa-close" data-id-contador="' + cant_aplic_prod + '" style="cursor: pointer;" onclick="BorrarAplicacionProducto(this)"></i>' +
+			            '<input type="checkbox" id="apli-prod--checkbox-agricultura-protegida' + cant_aplic_prod + '" onclick="OnChecked(\'apli-prod--checkbox-agricultura-protegida' + cant_aplic_prod + '\', \'apli-prod--input-agricultura-protegida' + cant_aplic_prod + '\');">' +
+			            '<input type="hidden" id="apli-prod--input-agricultura-protegida' + cant_aplic_prod + '" name="apli-prod--agricultura-protegida" value="false" />' +
+			            '<input type="hidden" id="apli-prod--registro-id" name="apli-prod--registro-id" value="0" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--cultivo' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--cultivo' + cant_aplic_prod + '" name="apli-prod-input--cultivo" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-enfermedad">' +
+			            '<div id="apli-prod-div--enfermedad' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--enfermedad' + cant_aplic_prod + '" name="apli-prod-input--enfermedad" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--dosis' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--dosis' + cant_aplic_prod + '" name="apli-prod-input--dosis" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--inter-seg' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--inter-seg' + cant_aplic_prod + '" name="apli-prod-input--inter-seg" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--lmrepa' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--lmrepa' + cant_aplic_prod + '" name="apli-prod-input--lmrepa" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--epa' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--epa' + cant_aplic_prod + '" name="apli-prod-input--epa" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--observaciones' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--observaciones' + cant_aplic_prod + '" name="apli-prod-input--observaciones" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--estudio' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--estudio' + cant_aplic_prod + '" name="apli-prod-input--estudio" value="" />' +
+		            '</td>' +
+		            '<td class="apli-prod-table--td-ancho">' +
+			            '<div id="apli-prod-div--epoca' + cant_aplic_prod + '" class="pell-container"></div>' +
+			            '<input type="hidden" id="apli-prod-input--epoca' + cant_aplic_prod + '" name="apli-prod-input--epoca" value="" />' +
+		            '</td>';
+		            document.getElementById('apli-prod--tbody').appendChild(tr);
+		            InicializarControl('apli-prod-div--cultivo' + cant_aplic_prod, 'apli-prod-input--cultivo' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--enfermedad' + cant_aplic_prod, 'apli-prod-input--enfermedad' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--dosis' + cant_aplic_prod, 'apli-prod-input--dosis' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--inter-seg' + cant_aplic_prod, 'apli-prod-input--inter-seg' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--lmrepa' + cant_aplic_prod, 'apli-prod-input--lmrepa' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--epa' + cant_aplic_prod, 'apli-prod-input--epa' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--observaciones' + cant_aplic_prod, 'apli-prod-input--observaciones' + cant_aplic_prod);
+		            InicializarControl('apli-prod-div--estudio' + cant_aplic_prod, 'apli-prod-input--estudio' + cant_aplic_prod);
+		            cant_aplic_prod++;
+	            }
+
+	            function BorrarAplicacionProducto(e) {
+		            var id_contador = e.dataset.idContador;
+		            var container = document.getElementById("apli-prod--tbody");
+		            var nodos = container.children;
+		            var elemento_borrar = null;
+		            for (i = 0; i < nodos.length; i++) {
+			            if (nodos[i].dataset.idContador == id_contador) {
+				            console.log(nodos[i]);
+				            elemento_borrar = nodos[i];
+			            }
+		            }
+		            container.removeChild(elemento_borrar);
+	            }
+            </script>
+		</div>
+        <!-- TAB Aplicación producto END -->
+
+	</div>
+</div>

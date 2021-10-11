@@ -1,0 +1,258 @@
+﻿@using Versa_Web.Code.objetos;
+@using Versa_Web.Code
+
+@model IEnumerable<Versa_Web.Code.objetos.OProducto>
+
+@{
+	ViewBag.Title = "Productos";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="@Utils.getUrlAssets("app/VerCategoria.css", this)" rel="stylesheet" />
+}
+
+<div>
+	<div id="versaSliderProductos" class="carousel slide carousel-fade" data-ride="carousel" style="padding-bottom:0 !important;">
+		<div class="carousel-inner" style="overflow: visible;">
+			@{int i = 0;}
+			@foreach (OProducto item in Model)
+			{
+				<div class="carousel-item @(i == 0 ? "active" : "")">
+					<img class="carousel-img img-@item.classname btn-@item.classname">
+
+					<div class="carousel-caption">
+						<div class="caption-information">
+							<div class="row mb-5 mt-2 @item.classname linea-@item.classname line-container banner-rp">
+								<div class="col-xs-12 pl-4">
+									<!-- Logotipo en blanco START -->
+									<h4 style="color: #FFF; font-size: 28px;padding-top: 10px;text-transform: uppercase;">
+										<img style="width: 80px;height: 80px;" src="@Url.Content("~/Public/img/families/icon-line-" + @Html.DisplayFor(modelItem => item.idTipo) + ".png")">
+										@Html.DisplayFor(modelItem => item.categoria)
+									</h4>
+									<!-- Logotipo en blanco END-->
+								</div>
+							</div>
+							<div class="caption-family">
+								<div>
+									<!-- Icono de la categoria START -->
+									<img class="caption-icon" src="@Url.Content("~/Public/img/families/icon-line-"+ item.idTipo +".png")">
+									<h3 style="text-transform: uppercase;">@Html.DisplayFor(modelItem => item.categoria)</h3>
+									<!-- Icono de la categoria END-->
+								</div>
+							</div>
+							<div class="caption-product row">
+								<div class="product-name">
+									<img src="@Utils.getUrlFile(item.imagenLogoBlanco)" style="max-height: 65px; margin-bottom: 10px; margin-top: 10px; max-width: 100%;" />
+									<br />
+									<p style="font-size:14px;" id="slogan-@Html.DisplayFor(modelItem => item.nombre)"></p>
+								</div>
+
+								<div class="a">
+									<div style="overflow-y:hidden;">
+										<div class="product-name-rp">
+											<img src="@Utils.getUrlFile(item.imagenLogoBlanco)" style="max-height: 65px; margin-bottom: 10px; margin-top: 10px; max-width: 100%;" />
+										</div>
+										<div style="font-size: 16px !important; line-height:16px; text-align: justify !important; width: 100%;" class="descripcion-text">
+											@Html.Raw(item.descripcion)
+										</div>
+										<p >
+											
+										</p>
+									</div>
+									<a href="@Url.Action("VerProducto", "Home", new { q = "" + Html.DisplayFor(modelItem => item.id) + "" })">
+										<button type="button" class="btn btn-sm btn-@item.classname more-info" style="color: white;">
+											Ver más
+										</button>
+									</a>
+								</div>
+								<div class="b">
+									<img src="@Url.Content("~/Public/img/misc/molecula-bco.png")" style="width:60px;float:left;margin-left: 16px;margin-right: 16px;margin-bottom:80px;">
+									<div class="ver-slider-productos-cintillo-container" style="text-align: left !important;font-size:14px;width:100%">
+										@Html.Raw(item.cintillo)
+									</div>
+									<div style="font-size: 14px;line-height: 17px;letter-spacing: -1px;">
+										@Html.Raw(item.presentacion)
+									</div>
+									<div style="font-size: 14px;line-height: 17px;letter-spacing: -1px;">
+										Presentación: @Html.Raw(item.contenido)
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+						<!-- Render START -->
+						<a href="@Url.Action("VerProducto", "Home", new { q = "" + Html.DisplayFor(modelItem => item.id) + "" })">
+							<img class="product-img" src="@Utils.getUrlFile(item.imagen)">
+						</a>
+						<!-- Render END -->
+					</div>
+					<a class="carousel-control-prev" href="#versaSliderProductos" data-slide="prev" style="z-index:9999;">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#versaSliderProductos" data-slide="next" style="z-index:9999;">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+				{ i++;  }
+			}
+		</div>
+	</div>
+
+	<!-- Slider productos - Mobile START -->
+	<div>
+		@Html.Partial("~/Views/Componentes/Home/_slider-productos.cshtml", Model)
+	</div>
+	<!-- Slider productos - Mobile END -->
+
+	<div id="ver-indicators-container-desktop" class="indicators-container">
+		<div class="products-indicators">
+			<ul style="padding-bottom:20px !important;padding-top:10px !important;">
+				@{i = 0;}
+				@foreach (var item in Model)
+				{
+					<li data-target="#versaSliderProductos" data-slide-to="@i" class="indicator indicator-@item.classname @(i == 0 ? "active-"+ @item.classname : "")">
+						<span style="font-family: 'gotham-black';font-size:26px;letter-spacing: -2px;">@Html.DisplayFor(modelItem => item.nombre) <sup style="font-size:15px;">&reg;</sup></span>&nbsp;<span style="font-family: 'gotham-book';font-size:24px;letter-spacing: -2px;">@Html.DisplayFor(modelItem => item.subnombre)</span>
+					</li>
+					{ i++; }
+				}
+			</ul>
+		</div>
+	</div>
+
+	@{int j = 0;}
+	@foreach (var item in Model)
+    {
+        if (j == 0)
+        {
+            <div class="primary-banner banner-@item.classname ver-primary-banner-desktop">
+                <div class="row">
+                    <div class="col-md-4 primary-icon" style="margin-top: -0.5%;">
+                        <img class="icon" src="@Url.Content("~/Public/img/icon-1.png")"><br />
+                        <span class="line-title">
+                            <br />
+                            PROTECCIÓN DE CULTIVOS
+                        </span>
+                    </div>
+                    <div class="col-md-8 pt-5 my-auto banner-icons-container">
+                        <div class="row banner-icons" style="margin-top: -2%;">
+                            @if (Convert.ToInt32(@item.idTipo) != 1)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="insecticida" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-1.png")"><br />
+                                        <span>INSECTICIDAS</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 2)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="coadyuvante" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-2.png")" /><br />
+                                        <span>OTROS</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 3)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="herbicida" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-3.png")"><br />
+                                        <span>HERBICIDAS</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 4)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="biorracional" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-4.png")"><br />
+                                        <span>BIORRACIONAL</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 5)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="nutricion" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-5.png")"><br />
+                                        <span>NUTRICIÓN</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 6)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="fungicida" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-6.png")"><br />
+                                        <span>FUNGICIDAS</span>
+                                    </a>
+                                </div>
+                            }
+                            @if (Convert.ToInt32(@item.idTipo) != 7)
+                            {
+                                <div class="col banner-icon-container">
+                                    <a href="@Url.Action("VerCategoria", "Home", new { q="bactericida" })" style="text-decoration:none; color:#FFF;">
+                                        <img class="banner-icon" src="@Url.Content("~/Public/img/families/icon-fill-7.png")"><br />
+                                        <span>BACTERICIDAS</span>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        }
+
+
+        { j++; }
+    }
+</div>
+
+<script>
+    //$('.descripcion-text').each(function () {
+    //    var texto = $(this).text();
+    //    //var trim = texto.split('.')[0];
+    //    var trim = texto.substring(0, 200);
+    //    trim += ' . . .';
+    //    $(this).text(trim);
+    //});
+
+    $('.indicator-bactericida').click(function () {
+        $('.indicator').removeClass("active-bactericida");
+        $(this).addClass("active-bactericida");
+    });
+
+    $('.indicator-fungicida').click(function () {
+        $('.indicator').removeClass("active-fungicida");
+        $(this).addClass("active-fungicida");
+    });
+
+    $('.indicator-nutricion').click(function () {
+        $('.indicator').removeClass("active-nutricion");
+        $(this).addClass("active-nutricion");
+    });
+
+    $('.indicator-insecticida').click(function () {
+        $('.indicator').removeClass("active-insecticida");
+        $(this).addClass("active-insecticida");
+    });
+
+    $('.indicator-biorracional').click(function () {
+        $('.indicator').removeClass("active-biorracional");
+        $(this).addClass("active-biorracional");
+    });
+
+    $('.indicator-coadyuvante').click(function () {
+        $('.indicator').removeClass("active-coadyuvante");
+        $(this).addClass("active-coadyuvante");
+    });
+
+    $('.indicator-herbicida').click(function () {
+        $('.indicator').removeClass("active-herbicida");
+        $(this).addClass("active-herbicida");
+    });
+
+</script>

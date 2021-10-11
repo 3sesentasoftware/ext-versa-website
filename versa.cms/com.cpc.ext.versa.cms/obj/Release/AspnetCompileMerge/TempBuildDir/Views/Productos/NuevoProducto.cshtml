@@ -1,0 +1,192 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+@using System.Data.Entity.Core.Objects
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+
+    EProductoSKU productoSku = new EProductoSKU();
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="@Url.Content("~/AppStorage/froala/css/froala_editor.css")" />
+<link rel="stylesheet" href="@Url.Content("~/AppStorage/froala/css/froala_style.css")" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+<style>
+	div#editor {
+		width: 100%;
+		margin: auto;
+		text-align: left;
+	}
+</style>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h1>Nuevo producto</h1>
+		</div>
+	</div>
+
+
+    <!-- Pestañas START -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#tab-pane--nuevo-producto">Nuevo producto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tab-pane--nuevo-sku">Nuevo SKU</a>
+        </li>
+    </ul>
+    <!-- Pestañas END -->
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- TAB Nuevo Producto START -->
+        <div class="tab-pane container active" id="tab-pane--nuevo-producto">
+            <form method="post" action="@Url.Action(Utils.Ruta.rutaPostNuevoProducto.action, Utils.Ruta.rutaPostNuevoProducto.controller)">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for="ver-intra-nuevo-producto-tipo-producto">Tipo de producto</label>
+                            <select class="form-control" id="ver-intra-nuevo-producto-tipo-producto" name="tipo-producto">
+                                @foreach (EProductoTipo item in ViewBag.data_producto_tipo)
+                                {
+                                    <option value="@item.id">@Html.Raw(item.nombre)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <label for="ver-intra-nuevo-producto-sku">SKU</label>
+                            <select class="form-control" id="ver-intra-nuevo-producto-sku" name="sku-producto">
+                                @foreach (cms_pSkuObtener_Result elemento in BDFecade.db().cms_pSkuObtener())
+                                {
+                                    <option value="@elemento.id">@Html.Raw(elemento.sku)</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <label for="ver-intra-nuevo-producto-nombre-producto">Nombre del producto</label>
+                            <input type="text" class="form-control" id="ver-intra-nuevo-producto-nombre-producto" name="nombre-producto" />
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <label for="ver-intra-nuevo-producto-subnombre-producto">Subnombre</label>
+                            <input type="text" class="form-control" id="ver-intra-nuevo-producto-subnombre-producto" name="subnombre-producto" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 text-right">
+                        <button type="submit" class="btn btn-info" style="margin-top: 25px;">Guardar y continuar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- TAB Nuevo Producto END -->
+        <!-- TAB Nuevo SKU START -->
+        <div class="tab-pane container fade" id="tab-pane--nuevo-sku">
+            <form method="post" action="@Url.Action(Utils.Ruta.rutaPostNuevoSKU.action, Utils.Ruta.rutaPostNuevoSKU.controller)">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <label>SKU</label>
+                        <input type="text" class="form-control" id="sku" name="sku" maxlength="300" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <button type="submit" class="btn btn-info pull-right" style="margin-top: 30px;">Enviar</button>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <label>Producto</label>
+                        <input type="text" class="form-control" id="sku-producto" name="sku-producto" maxlength="300" />
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>SKU</label>
+                        <input type="text" class="form-control" id="sku-sku" name="sku-sku" maxlength="300" />
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>Producto presentación</label>
+                        <input type="text" class="form-control" id="sku-producto-presentacion" name="sku-producto-presentacion" maxlength="300" />
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>Cultivo</label>
+                        <input type="text" class="form-control" id="sku-cultivo" name="sku-cultivo" maxlength="300" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label>Plaga nombre común</label>
+                        <input type="text" class="form-control" id="sku-plaga" name="sku-plaga" maxlength="300" />
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label>Plaga nombre científico</label>
+                        <input type="text" class="form-control" id="sku-plaga-cientifico" name="sku-plaga-cientifico" maxlength="300" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <label>Nutrientes</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>Resistencia</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>Ingrediente activo</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <label>Tipo producto</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <button type="submit" class="btn btn-info pull-right">Guardar</button>
+                    </div>
+                </div>*@
+            </form>
+        </div>
+        <!-- TAB Nuevo SKU END -->
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('#ver-intra-nuevo-producto-descripcion')
+            .on('froalaEditor.initialized', function (e, editor) {
+            })
+        .froalaEditor({
+        })
+    });
+
+    $(function () {
+    	$('#ver-intra-nuevo-producto-beneficios')
+            .on('froalaEditor.initialized', function (e, editor) {
+            })
+        .froalaEditor({
+        })
+    });
+
+    $(function () {
+    	$('#ver-intra-nuevo-producto-cintillo')
+            .on('froalaEditor.initialized', function (e, editor) {
+            })
+        .froalaEditor({
+        })
+    });
+
+    $(function () {
+    	$('#ver-intra-nuevo-producto-pie')
+            .on('froalaEditor.initialized', function (e, editor) {
+            })
+        .froalaEditor({
+        })
+    });
+</script>

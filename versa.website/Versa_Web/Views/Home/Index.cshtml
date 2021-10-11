@@ -1,0 +1,349 @@
+﻿ @model IEnumerable<Versa_Web.Code.objetos.OProducto>
+@using Versa_Web.Controllers.Utils
+@using Versa_Web.Code.objetos;
+@using System.Data.Entity.Core.Objects
+@using Versa_Web.Models.EntityFramework
+@using Versa_Web.Code.fecades
+@using Versa_Web.Code
+
+@{
+    ViewBag.Title = "VERSA";
+    Layout = Constantes.layout_principal_website;
+
+    List<cms_seccionHomeNoticiasCarruselObtener_Result> dbresCarruselNoticias = DBFecade.dbObj().cms_seccionHomeNoticiasCarruselObtener().ToList();
+    List<int> ordenesCarruselNoticias = new List<int>();
+    List<int> ordenesCarruselNoticiasSenales = new List<int>();
+    foreach (var el in dbresCarruselNoticias)
+    {
+        if (!ordenesCarruselNoticias.Exists(e => e == el.orden))
+        {
+            ordenesCarruselNoticias.Add(el.orden);
+            ordenesCarruselNoticiasSenales.Add(el.orden);
+        }
+    }
+
+    List<cms_seccionHomeVideosEventosObtener_Result> dbresVideosEventos = DBFecade.dbObj().cms_seccionHomeVideosEventosObtener().ToList();
+
+}
+
+@section css {
+    <link href="@Utils.getUrlAssets("app/Inicio.css", this)" rel="stylesheet" />
+    <link href="@Utils.getUrlAssets("app/InicioIndex.css", this)" rel="stylesheet"/>
+}
+
+<style type="text/css">
+	.carousel-no-mov {
+		display: block;
+	}
+
+	.carousel-yes-mov {
+		display: none !important;
+	}
+
+	@@media only screen and (max-width: 575.98px) {
+		.carousel-no-mov {
+			display: none !important;
+		}
+
+		.carousel-yes-mov {
+			display: block !important;
+		}
+	}
+</style>
+
+<!-- SLIDER NOTICIAS START -->
+<div id="versaSlider" class="carousel slide" data-ride="carousel" style="margin-top:6.5vh">
+    <div class="carousel-inner">
+        @{
+            int contador = 0;
+            foreach (var el in ordenesCarruselNoticias)
+            {
+                <div class="@(contador == 0 ? "carousel-item active" : "carousel-item")">
+                    @foreach (var elAux in dbresCarruselNoticias.FindAll(e => e.orden == el))
+                    {
+                        if (!Convert.ToBoolean(elAux.movil))
+                        {
+                            if (String.IsNullOrWhiteSpace(elAux.url_redireccion))
+                            {
+                                <img class="carousel-img carousel-no-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)">
+                            }
+                            else
+                            {
+                                <a href="@elAux.url_redireccion">
+                                    <img class="carousel-img carousel-no-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)">
+                                </a>
+                            }
+                        }
+                        else
+                        {
+                            if (String.IsNullOrWhiteSpace(elAux.url_redireccion))
+                            {
+                                <img class="carousel-img carousel-yes-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)">
+                            }
+                            else
+                            {
+                                <a href="@elAux.url_redireccion">
+                                    <img class="carousel-img carousel-yes-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)">
+                                </a>
+                            }
+                        }
+                    }
+                    <a class="carousel-control-prev" href="#versaSlider" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#versaSlider" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                    <ul class="carousel-indicators">
+                        @{
+                            int contadorSenales = 0;
+                            foreach (var elSenales in ordenesCarruselNoticiasSenales)
+                            {
+                                <li data-target="#versaSlider" data-slide-to="@contadorSenales" class="indicator"></li>
+                                contadorSenales = contadorSenales + 1;
+                            }
+                        }
+                    </ul>
+                </div>
+                contador = contador + 1;
+            }
+        }
+    </div>
+</div>
+<!-- SLIDER NOTICIAS END -->
+
+<!-- Unidades estrategicas START -->
+@Html.Partial("~/Views/Componentes/_unidades_estrategicas.cshtml", "#FFF")
+<!-- Unidades estrategicas END -->
+
+
+<!-- SECCIÓN DE EVENTOS START -->
+<div class="row" style="padding-top: 10vh; padding-bottom: 5vh;background-color: #EBEBEB">
+    <div class="col-1"></div>
+    <div class="col-10 pl-5 pr-5 mx-auto text-center" style="font-size:30px;border-bottom: 2px solid #B1DA41;color: #163A59;">
+        EVENTOS
+	</div>
+    <div class="col-1"></div>
+</div>
+<div class="row" style="padding-top: 2.5vh; padding-bottom: 15vh;background-color: #EBEBEB">
+    <div class="col-10 mx-auto text-center">
+        <div class="row">
+            @foreach (var el in dbresVideosEventos)
+            {
+                ObjectResult<string> descripcion = DBFecade.dbObj().cms_seccionHomeVideosEventosObtenerDescripcion(el.id);
+                string descripcionVideo = string.Empty;
+                foreach (var elAux in descripcion)
+                {
+                    descripcionVideo = elAux;
+                }
+                <div class="col-md-4 col-sm-6 mx-auto my-auto">
+                    <video controls="controls" style="width: 100%;height: 100%">
+                        <source src="@Utils.getUrlFile(el.nombre_archivo)" type="video/mp4" />
+                    </video>
+                    <p>
+                        @Html.Raw(descripcionVideo)
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- SECCIÓN DE EVENTOS END -->
+
+<!-- SECCIÓN NOSOTROS START -->
+@{
+    List<cms_seccionHomeSobreNosotrosObtener_Result> dbresSeccionNosotros = DBFecade.dbObj().cms_seccionHomeSobreNosotrosObtener().ToList();
+    string seccionNosotros = string.Empty;
+    string seccionNosotrosImagen = string.Empty;
+    foreach (var el in dbresSeccionNosotros)
+    {
+        seccionNosotros = el.contenido;
+        seccionNosotrosImagen = el.nombre_archivo;
+    }
+}
+<style>
+    #sobre-nosotros-contenido {
+       font-size: 20px;
+    }
+
+    #sobre-nosotros-contenido b {
+        font-size: 1.5rem;
+        color: #163A59;
+    }
+</style>
+<div class="row" style="padding-top: 10vh; padding-bottom:5vh;background-color: #FFF">
+    <div class="col-1"></div>
+    <div class="col-10 pl-5 pr-5 mx-auto text-center" style="font-size:30px;border-bottom: 2px solid #B1DA41;color: #163A59;">
+        NOSOTROS
+    </div>
+    <div class="col-1"></div>
+</div>
+<div class="row" style="padding-top: 2.5vh; padding-bottom: 15vh;">
+    <div class="col-md-1"></div>
+    <div class="col-lg-5 col-md-12 col-sm-12 pl-5 pr-5 mx-auto" id="sobre-nosotros-contenido">
+        @Html.Raw(seccionNosotros)
+    </div>
+    <div class="col-lg-5 col-md-12 col-sm-12 pl-5 pr-5 mx-auto">
+        <img src="@Utils.getUrlFile(seccionNosotrosImagen)" style="width: 100%" />
+        <br>
+        <br />
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<!-- SECCIÓN NOSOTROS END -->
+
+
+<!-- SLIDER DE PRODUCTOS START -->
+<style >
+    @@media only screen and (max-width: 375px) {
+        #versaSliderProductos {
+            width: 100%;
+            height: 640px;
+            padding-bottom: 0px;
+			display: none;
+        }
+
+        #versaSliderProductos .carousel-item {
+            height: 100vh;
+        }
+
+        #versaSliderProductos .caption-icon {
+            display: none;
+        }
+
+        #versaSliderProductos .product-img {
+            position: initial;
+            width: 80%;
+            margin-top: 2.5%;
+            margin-left: 20%;
+        }
+    }
+</style>
+<div>
+
+	<!-- Slider productos - Desktop START -->
+    <div id="versaSliderProductos" class="carousel slide carousel-fade" data-ride="carousel" style="padding-bottom:60px !important;border-style:none;">
+        <div class="carousel-inner" style="overflow: visible;">
+            @{int i = 0;}
+            @foreach (OProducto item in Model)
+            {
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img class="carousel-img img-@item.nombre" style="background-color: #6a6868">                
+                    <div class="carousel-caption">
+                        <div class="caption-information">
+                            <div class="row mb-5 mt-2 @item.classname linea-@item.classname line-container banner-rp">
+                                <div class="col-xs-12 pl-4">
+                                    <h4 style="color: #FFF; font-size: 28px;padding-top: 10px;text-transform: uppercase;">
+                                        <img style="width: 80px;height: 80px;" src="@Url.Content("~/Public/img/families/icon-line-" + @Html.DisplayFor(modelItem => item.idTipo) + ".png")">
+                                        @Html.DisplayFor(modelItem => item.categoria)
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="caption-family">
+                                <div>
+                                    <img class="caption-icon" src="@Url.Content("~/Public/img/families/icon-line-"+ item.idTipo +".png")">
+                                    <h3 style="text-transform: uppercase;">@Html.DisplayFor(modelItem => item.categoria)</h3>
+                                </div>
+                            </div>
+                            <div class="caption-product row">
+
+                                <div class="product-name">
+                                    
+									<img src="@Utils.getUrlFile(item.imagenLogoBlanco)" style="max-height: 65px; margin-bottom: 10px; margin-top: 10px; max-width: 100%;" />
+									<br />
+                                    <p style="font-size:14px;" id="slogan-@Html.DisplayFor(modelItem => item.nombre)"></p>
+                                </div>
+
+                                <div class="a">
+                                    <div style="overflow-y:hidden;">
+                                        <div class="product-name-rp">
+											<img src="@Utils.getUrlFile(item.imagenLogoBlanco)" style="max-height: 65px; margin-bottom: 10px; margin-top: 10px; max-width: 100%;" />
+                                        </div>
+                                        <p style="font-size: 16px !important;letter-spacing:0px; line-height:16px;text-align: justify !important;width: 100%;" class="descripcion-text">
+                                            @Html.Raw(item.descripcion)
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-@item.classname more-info">
+                                        <a href="@Url.Action("VerProducto", "Home", new { q = "" + @Html.DisplayFor(modelItem => item.id) + "" })" style="text-decoration: none; color: #FFF;" role="button" aria-pressed="true">Ver más</a>
+                                    </button>
+                                </div>
+
+                                <div class="b">
+                                    <img src="@Url.Content("~/Public/img/misc/molecula-bco.png")" style="width:60px;float:left;margin-left: 16px;margin-right: 16px;margin-bottom:80px;">
+                                    <p style="text-align: left !important;font-size:14px;width:50%">
+                                        @Html.Raw(item.cintillo)
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <img class="product-img" src="@Utils.getUrlFile(item.imagen)">
+                    </div>                
+                <a class="carousel-control-prev" href="#versaSliderProductos" data-slide="prev" style="z-index:9999; ">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#versaSliderProductos" data-slide="next" style="z-index:9999;">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+                { i++; }
+            }
+        </div>
+    </div>
+	<!-- Slider productos - Desktop END -->
+
+	<!-- Slider productos - Mobile START -->
+	<div>
+		@Html.Partial("~/Views/Componentes/Home/_slider-productos.cshtml", Model);
+	</div>
+	<!-- Slider productos - Mobile END -->
+
+</div>
+<!-- SLIDER DE PRODUCTOS END -->
+
+
+
+<script>
+
+	$('.descripcion-text').each(function () {
+		var texto = $(this).text();
+		//var trim = texto.split('.')[0];
+		var trim = texto.substring(0, 300);
+		trim += ' . . .';
+		$(this).text(trim);
+	});
+
+    $('.indicator').click(function () {
+        $('.indicator').removeClass("active")
+        $(this).addClass("active");
+    });
+
+    $('.selector').click(function () {
+        $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+    });
+
+    $('#bannerBtn').click(function () {
+        $('#bannerIcons').slideToggle("slow", function () {
+        });
+    });
+
+    $('.descripcion-text').each(function () {
+        var texto = $(this).text();
+        var trim = texto.split('.')[0];
+        trim += '.';
+        $(this).text(trim);
+    });
+
+    $('#slogan-Famster').html('Control tan <strong>amplio</strong>... como su <strong>espectro</strong>');
+    $('#slogan-Furonto').html('Para la defensa de tu <strong>cultivo</strong>... Nada mejor que <strong>Furonto</strong>&reg');
+    $('#slogan-Citán').html('<strong>Super adherente</strong> dispersante');
+    $('#slogan-Collision').html('La unión hace la fuerza... Maximiza tus cultivos con <strong>Collision</strong>&reg');
+    $('#slogan-Hypnos').html('Que las <strong>plagas</strong> no te quiten el sueño... contrólalas con <strong>HYPNOS</strong>&reg');
+    $('#slogan-Elimplan').html('Alternativa <strong>perfecta</strong> en el control de <strong>plagas</strong>');
+    $('#slogan-Blissful').html('Doble <strong>acción</strong>, doble <strong>control</strong>');
+    $('#slogan-Kaxtoli').html('<strong>Contra</strong> las bacterias... es el <strong>ÚNICO</strong> en su clase');
+    $('#slogan-Kook').html('<strong>Ólvidate</strong> de las <strong>malezas</strong>');
+    $('#slogan-Mordare').html('<strong>Mayor</strong> concentración... <strong>mejores</strong> resultados');
+
+</script>

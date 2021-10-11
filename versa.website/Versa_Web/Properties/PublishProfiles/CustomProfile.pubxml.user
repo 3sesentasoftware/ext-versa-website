@@ -1,0 +1,1469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPNWh21dEakysqfgpjTHcJQAAAAACAAAAAAAQZgAAAAEAACAAAABxrr0334J/O72YXRPv4KkvSA8Lt39QuYH5UZoYkEvY1AAAAAAOgAAAAAIAACAAAADpMVqhUjwkvQoVt2NaRKEknZk/S9FnG7qYP3nD/ef/8yAAAABJ0nPNIvB4EEGLmWZykSeOy7bdrR2UepeL/tMCCIHwgUAAAABlCmHfLoc5N2VxwdMPKkUICqpPkCppBw+ZSuJST4ZeBCnendKk4wagPd5+nXnTO3CekPe4ZHwrqfNw7E66Wxet</EncryptedPassword>
+    <_PublishTargetUrl>C:\Users\PCX1\Desktop\VersaWeb Publicacion</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>08/16/2019 12:51:59</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>08/16/2019 12:51:58</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 14:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 14:15:20</publishTime>
+    </File>
+    <File Include="bin/es/EntityFramework.resources.dll">
+      <publishTime>10/23/2017 14:15:38</publishTime>
+    </File>
+    <File Include="bin/es/EntityFramework.SqlServer.resources.dll">
+      <publishTime>10/23/2017 14:15:38</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.AspNet.Identity.Core.resources.dll">
+      <publishTime>04/24/2018 13:50:42</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.AspNet.Identity.EntityFramework.resources.dll">
+      <publishTime>04/24/2018 13:50:42</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.AspNet.Identity.Owin.resources.dll">
+      <publishTime>04/24/2018 13:50:44</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Helpers.resources.dll">
+      <publishTime>02/01/2018 12:21:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Mvc.resources.dll">
+      <publishTime>02/01/2018 12:16:42</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Optimization.resources.dll">
+      <publishTime>02/11/2014 15:28:40</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Razor.resources.dll">
+      <publishTime>02/01/2018 12:17:04</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>02/01/2018 12:21:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>02/01/2018 12:21:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.resources.dll">
+      <publishTime>02/01/2018 12:21:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>04/24/2018 13:47:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>04/24/2018 13:47:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>04/24/2018 13:47:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
+      <publishTime>06/28/2017 16:05:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2018 16:28:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2018 16:28:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2018 16:28:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2018 16:28:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>02/13/2018 16:28:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>02/13/2018 16:28:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>02/13/2018 16:28:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>02/13/2018 16:28:28</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>02/13/2018 16:28:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 12:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/18/2018 09:44:54</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 13:00:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 14:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 14:38:24</publishTime>
+    </File>
+    <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>07/19/2017 11:01:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>02/01/2018 12:16:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>02/01/2018 12:16:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/Versa_Web.dll">
+      <publishTime>08/16/2019 12:51:27</publishTime>
+    </File>
+    <File Include="bin/Versa_Web.pdb">
+      <publishTime>06/11/2019 16:43:32</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="Content/app/carrusel-productos.css">
+      <publishTime>07/15/2019 11:46:40</publishTime>
+    </File>
+    <File Include="Content/app/Contacto.css">
+      <publishTime>02/28/2019 22:55:21</publishTime>
+    </File>
+    <File Include="Content/app/Fonts.css">
+      <publishTime>08/12/2019 02:52:13</publishTime>
+    </File>
+    <File Include="Content/app/Inicio.css">
+      <publishTime>07/04/2019 11:06:56</publishTime>
+    </File>
+    <File Include="Content/app/InicioIndex.css">
+      <publishTime>07/15/2019 13:47:13</publishTime>
+    </File>
+    <File Include="Content/app/Menu.css">
+      <publishTime>07/04/2019 11:06:56</publishTime>
+    </File>
+    <File Include="Content/app/Nosotros.css">
+      <publishTime>07/04/2019 11:06:56</publishTime>
+    </File>
+    <File Include="Content/app/Proteccion-Menu.css">
+      <publishTime>01/30/2019 14:21:08</publishTime>
+    </File>
+    <File Include="Content/app/Proteccion.css">
+      <publishTime>03/05/2019 08:57:50</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>08/12/2019 02:51:47</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>08/12/2019 02:54:33</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/datatables.css">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Content/datatables.min.css">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Content/Fonts.css">
+      <publishTime>08/12/2019 02:45:00</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/fonts/gotham-black.ttf">
+      <publishTime>03/22/2017 11:26:00</publishTime>
+    </File>
+    <File Include="Content/fonts/gotham-bold.ttf">
+      <publishTime>03/22/2017 11:26:14</publishTime>
+    </File>
+    <File Include="Content/fonts/gotham-book.ttf">
+      <publishTime>03/22/2017 11:35:22</publishTime>
+    </File>
+    <File Include="Content/general/ver-gen-tipografias.css">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/Scripts/bootstrap.js">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/Scripts/bootstrap.min.js">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Content/Scripts/datatables.js">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Content/Scripts/datatables.min.js">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Content/Scripts/Email/Email.js">
+      <publishTime>04/06/2019 17:36:35</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.min.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.min.map">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.slim.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery.validate.js">
+      <publishTime>01/29/2019 12:28:48</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery.validate.min.js">
+      <publishTime>01/29/2019 12:28:48</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/29/2019 12:28:49</publishTime>
+    </File>
+    <File Include="Content/Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/29/2019 12:28:49</publishTime>
+    </File>
+    <File Include="Content/Scripts/modernizr-2.8.3.js">
+      <publishTime>01/29/2019 12:28:47</publishTime>
+    </File>
+    <File Include="Content/Scripts/Producto/Search.js">
+      <publishTime>01/30/2019 13:48:44</publishTime>
+    </File>
+    <File Include="Content/Scripts/sweetalert.min.js">
+      <publishTime>01/29/2019 14:05:02</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>01/29/2019 12:28:35</publishTime>
+    </File>
+    <File Include="Content/sweetalert.css">
+      <publishTime>01/29/2019 14:13:59</publishTime>
+    </File>
+    <File Include="Content/unify/animate.css">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/appear.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.area-chart.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.bar-chart.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.core.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.datepicker.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.donut-chart.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.dropdown.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.focus-state.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.hamburgers.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.pie-chart.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.popup.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.range-datepicker.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.scrollbar.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/hs.side-nav.js">
+      <publishTime>07/04/2019 11:06:57</publishTime>
+    </File>
+    <File Include="Content/unify/unify-admin.css">
+      <publishTime>07/04/2019 11:07:06</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>01/29/2019 12:28:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="fonts/gotham-black.ttf">
+      <publishTime>07/04/2019 11:07:32</publishTime>
+    </File>
+    <File Include="fonts/gotham-bold.ttf">
+      <publishTime>07/04/2019 11:07:32</publishTime>
+    </File>
+    <File Include="fonts/gotham-book.ttf">
+      <publishTime>07/04/2019 11:07:32</publishTime>
+    </File>
+    <File Include="Models/Versa_Model.edmx.diagram">
+      <publishTime>07/04/2019 11:07:06</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>08/16/2019 12:51:38</publishTime>
+    </File>
+    <File Include="Public/docs/algamax.pdf">
+      <publishTime>01/30/2019 23:24:59</publishTime>
+    </File>
+    <File Include="Public/docs/citan.pdf">
+      <publishTime>01/30/2019 23:24:45</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BACTERICIDAS/Ficha_comercial_Blissful.jpg">
+      <publishTime>04/01/2019 17:32:25</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BACTERICIDAS/Ficha_comercial_Kaxtoli.jpg">
+      <publishTime>04/01/2019 17:32:39</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BACTERICIDAS/FT - Blissful.pdf">
+      <publishTime>04/01/2019 17:32:41</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BACTERICIDAS/FT - Kaxtoli.pdf">
+      <publishTime>04/01/2019 17:32:45</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Algamax.pdf">
+      <publishTime>04/01/2019 17:37:12</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Atento.pdf">
+      <publishTime>04/01/2019 17:37:22</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Bacimín.pdf">
+      <publishTime>04/01/2019 17:38:39</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Cazanelli.pdf">
+      <publishTime>04/01/2019 17:37:31</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Chimal.pdf">
+      <publishTime>04/01/2019 17:37:42</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Citán.pdf">
+      <publishTime>04/01/2019 17:37:49</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Collision.pdf">
+      <publishTime>04/01/2019 17:39:19</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Eday.pdf">
+      <publishTime>04/01/2019 17:38:00</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Labrador.pdf">
+      <publishTime>04/01/2019 17:39:29</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Proact.pdf">
+      <publishTime>04/01/2019 17:39:39</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Rootver.pdf">
+      <publishTime>04/01/2019 17:39:46</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/BIORRACIONAL/Softguard.pdf">
+      <publishTime>04/01/2019 17:39:52</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/COADYUVANTES/Bufferver.pdf">
+      <publishTime>04/01/2019 17:42:36</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Celeste 720 FW.pdf">
+      <publishTime>04/01/2019 17:43:48</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Cineto 600 PH.pdf">
+      <publishTime>04/01/2019 17:43:55</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Famster.pdf">
+      <publishTime>04/01/2019 17:44:04</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Forradol.pdf">
+      <publishTime>04/01/2019 17:44:13</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Furonto 80 WG.pdf">
+      <publishTime>04/01/2019 17:44:20</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Kilotón 30-30 FW.pdf">
+      <publishTime>04/01/2019 17:44:27</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Militant.pdf">
+      <publishTime>04/01/2019 17:44:35</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Noster CLN.pdf">
+      <publishTime>04/01/2019 17:44:44</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Noster MZ.pdf">
+      <publishTime>04/01/2019 17:44:51</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Satorius 250.pdf">
+      <publishTime>04/01/2019 17:44:58</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Tokat 240 CE.pdf">
+      <publishTime>04/01/2019 17:45:06</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Tokat CLN.pdf">
+      <publishTime>04/01/2019 17:45:16</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Tokat MZ.pdf">
+      <publishTime>04/01/2019 17:45:28</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/FUNGICIDAS/Voltio 500 PH.pdf">
+      <publishTime>04/01/2019 17:45:40</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Archer 10 G.pdf">
+      <publishTime>04/01/2019 17:47:29</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Archer 480 CE.pdf">
+      <publishTime>04/01/2019 17:47:39</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Brasero 100 SL.pdf">
+      <publishTime>04/01/2019 17:48:09</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Cedrus.pdf">
+      <publishTime>04/01/2019 17:48:18</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Daga 480.pdf">
+      <publishTime>04/01/2019 17:48:29</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Diuron 800 FW.pdf">
+      <publishTime>04/01/2019 17:48:38</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Kook.pdf">
+      <publishTime>04/01/2019 17:48:45</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Llanero.pdf">
+      <publishTime>04/01/2019 17:50:06</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/MORDARE.pdf">
+      <publishTime>04/01/2019 17:50:18</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Patriarca 101.pdf">
+      <publishTime>04/01/2019 17:50:34</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Poderío.pdf">
+      <publishTime>04/01/2019 17:50:49</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Rudo 43 LS.pdf">
+      <publishTime>04/01/2019 17:51:13</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Versatus 80 WG.pdf">
+      <publishTime>04/01/2019 17:51:32</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/HERBICIDAS/Versátil.pdf">
+      <publishTime>04/01/2019 17:51:42</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Arquía 18 CE.pdf">
+      <publishTime>04/01/2019 17:53:21</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Bombasil 90 PS.pdf">
+      <publishTime>04/01/2019 17:53:29</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Castor 25 CE.pdf">
+      <publishTime>04/01/2019 17:53:38</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Cazador Agro 500.pdf">
+      <publishTime>04/01/2019 17:54:06</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Centurión Ultra.pdf">
+      <publishTime>04/01/2019 17:54:23</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Citlalli 350 FW.pdf">
+      <publishTime>04/01/2019 17:54:34</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Citlalli 70 WG.pdf">
+      <publishTime>04/01/2019 17:54:48</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Clorver 480 CE.pdf">
+      <publishTime>04/01/2019 17:55:02</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Clorver 50 W.pdf">
+      <publishTime>04/01/2019 17:55:18</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Cytrin 200.pdf">
+      <publishTime>04/01/2019 17:55:32</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Dynamo.pdf">
+      <publishTime>04/01/2019 17:55:44</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Elimiplan.pdf">
+      <publishTime>04/01/2019 17:55:58</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Hypnos.pdf">
+      <publishTime>04/01/2019 17:56:16</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Kik 100 CE.pdf">
+      <publishTime>04/01/2019 17:56:31</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Loxton.pdf">
+      <publishTime>04/01/2019 17:56:40</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Malathion 1000.pdf">
+      <publishTime>04/01/2019 17:56:52</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Platino 375 CE.pdf">
+      <publishTime>04/01/2019 17:57:11</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Ripper.pdf">
+      <publishTime>04/01/2019 17:57:25</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Rostov 340 CE.pdf">
+      <publishTime>04/01/2019 17:57:38</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Stinguo 70 CE.pdf">
+      <publishTime>04/01/2019 17:57:47</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/INSECTICIDAS/Sumatrus.pdf">
+      <publishTime>04/01/2019 17:57:55</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/NUTRICION/Distingo.pdf">
+      <publishTime>04/01/2019 18:00:32</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/NUTRICION/Folyver.pdf">
+      <publishTime>04/01/2019 18:00:40</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/NUTRICION/Proboron.pdf">
+      <publishTime>04/01/2019 18:00:49</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/NUTRICION/Rotundo.pdf">
+      <publishTime>04/01/2019 18:01:00</publishTime>
+    </File>
+    <File Include="Public/docs/FICHAS TECNICAS/NUTRICION/Tecnogreen.pdf">
+      <publishTime>04/01/2019 18:01:08</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/ACTUA GEL 2.15%25.pdf">
+      <publishTime>04/01/2019 18:28:51</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/ARMA.pdf">
+      <publishTime>04/01/2019 18:30:49</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BACTERICIDAS/BLISSFUL.pdf">
+      <publishTime>04/01/2019 18:32:24</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BACTERICIDAS/KAXTOLI.pdf">
+      <publishTime>04/01/2019 19:02:55</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/ALGAMAX.pdf">
+      <publishTime>04/01/2019 18:29:39</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/ATENTO.pdf">
+      <publishTime>04/01/2019 18:31:41</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/BACIMIN.pdf">
+      <publishTime>04/01/2019 18:32:03</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/CAZANELLI.pdf">
+      <publishTime>04/01/2019 18:44:06</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/CHIMAL msds.pdf">
+      <publishTime>04/01/2019 18:47:10</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/CHIMAL.pdf">
+      <publishTime>04/01/2019 18:47:38</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/CITAN.pdf">
+      <publishTime>04/01/2019 18:48:09</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/COLLISION.pdf">
+      <publishTime>04/01/2019 18:54:34</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/EDAY.pdf">
+      <publishTime>04/01/2019 18:58:09</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/LABRADOR.pdf">
+      <publishTime>04/01/2019 19:08:49</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/PROACT.pdf">
+      <publishTime>04/01/2019 21:52:46</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/ROOTVER.pdf">
+      <publishTime>04/01/2019 21:54:55</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BIORRACIONAL/SOFTGUARD.pdf">
+      <publishTime>04/01/2019 21:58:25</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/BRIDO 200 FW.pdf">
+      <publishTime>04/01/2019 18:34:00</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/CAZADOR 50 DDVP.pdf">
+      <publishTime>04/01/2019 18:42:18</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/CITLALLI 2%25G.pdf">
+      <publishTime>04/01/2019 18:49:02</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/CLORVER 5%25 G.pdf">
+      <publishTime>04/01/2019 18:53:50</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/COADYUVANTES/ADHERENTE 30.pdf">
+      <publishTime>04/01/2019 18:29:16</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/COADYUVANTES/BUFFERVER.pdf">
+      <publishTime>04/01/2019 18:41:13</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/COUGAR 25 CE.pdf">
+      <publishTime>04/01/2019 19:20:23</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/DONGO 600 PH.pdf">
+      <publishTime>04/01/2019 18:56:46</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/EMIR 480 FW.pdf">
+      <publishTime>04/01/2019 18:58:47</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FALCON CLN.pdf">
+      <publishTime>04/01/2019 18:59:13</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FRUTVER.pdf">
+      <publishTime>04/01/2019 19:01:09</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/CELESTE 720 FW.pdf">
+      <publishTime>04/01/2019 18:44:55</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/CINETO 600 PH.pdf">
+      <publishTime>04/01/2019 18:48:37</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/FAMSTER.pdf">
+      <publishTime>04/01/2019 18:59:43</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/FORRADOL.pdf">
+      <publishTime>04/01/2019 19:00:45</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/FURONTO 80 WG.pdf">
+      <publishTime>04/01/2019 19:01:29</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/KILOTON 30-30.pdf">
+      <publishTime>04/01/2019 19:04:00</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/MILITANT.pdf">
+      <publishTime>04/01/2019 19:11:31</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/NOSTER CLN.pdf">
+      <publishTime>04/01/2019 19:14:32</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/NOSTER MZ.pdf">
+      <publishTime>04/01/2019 19:15:41</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/SATORIUS 250.pdf">
+      <publishTime>04/01/2019 21:56:36</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/TOKAT 240 CE.pdf">
+      <publishTime>04/01/2019 22:00:44</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/TOKAT CLN.pdf">
+      <publishTime>04/01/2019 22:01:09</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/TOKAT MZ.pdf">
+      <publishTime>04/01/2019 22:01:26</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/FUNGICIDAS/VOLTIO 500 PH.pdf">
+      <publishTime>04/01/2019 22:13:30</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/GLYXTRA 41%25.pdf">
+      <publishTime>04/01/2019 19:01:49</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/ARCHER 10 G.pdf">
+      <publishTime>04/01/2019 18:30:04</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/ARCHER 480 CE.pdf">
+      <publishTime>04/01/2019 18:30:26</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/BRASERO 100 SL.pdf">
+      <publishTime>04/01/2019 18:33:20</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/CEDRUS.pdf">
+      <publishTime>04/01/2019 18:44:24</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/DAGA 480.pdf">
+      <publishTime>04/01/2019 18:55:29</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/DIURON 800 FW.pdf">
+      <publishTime>04/01/2019 18:56:20</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/KOOK.pdf">
+      <publishTime>04/01/2019 19:08:28</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/LLANERO.pdf">
+      <publishTime>04/01/2019 19:09:11</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/MORDARE.pdf">
+      <publishTime>04/01/2019 19:13:41</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/PATRIARCA 101.pdf">
+      <publishTime>04/01/2019 21:48:46</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/PODERIO.pdf">
+      <publishTime>04/01/2019 21:49:53</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/RUDO 43%25 LS.pdf">
+      <publishTime>04/01/2019 21:56:09</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/VERSATIL.pdf">
+      <publishTime>04/01/2019 22:02:22</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/HERBICIDAS/VERSATUS 80 WG.pdf">
+      <publishTime>04/01/2019 22:02:51</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/ICARUS 330 CE.pdf">
+      <publishTime>04/01/2019 19:02:33</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/ARQUIA 18 CE.pdf">
+      <publishTime>04/01/2019 18:31:11</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/BOMBASIL 90 PS.pdf">
+      <publishTime>04/01/2019 18:32:57</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CASTOR 25 CE.pdf">
+      <publishTime>04/01/2019 18:41:50</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CAZADOR AGRO 500.pdf">
+      <publishTime>04/01/2019 18:42:52</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CENTURION ULTRA.pdf">
+      <publishTime>04/01/2019 18:46:42</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CITLALLI 350 FW.pdf">
+      <publishTime>04/01/2019 18:51:31</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CITLALLI 70 WG.pdf">
+      <publishTime>04/01/2019 18:53:11</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CLORVER 480 CE.pdf">
+      <publishTime>04/01/2019 18:53:31</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CLORVER 50 W.pdf">
+      <publishTime>04/01/2019 18:54:15</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/CYTRIN 200.pdf">
+      <publishTime>04/01/2019 18:54:53</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/DYNAMO.pdf">
+      <publishTime>04/01/2019 18:57:10</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/ELIMIPLAN.pdf">
+      <publishTime>04/01/2019 18:58:29</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/HYPNOS.pdf">
+      <publishTime>04/01/2019 19:02:11</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/KIK 100 CE.pdf">
+      <publishTime>04/01/2019 19:03:20</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/LOXTON.pdf">
+      <publishTime>04/01/2019 19:09:29</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/MALATHION 1000.pdf">
+      <publishTime>04/01/2019 19:11:00</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/PLATINO 375 CE.pdf">
+      <publishTime>04/01/2019 21:49:28</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/RIPPER.pdf">
+      <publishTime>04/01/2019 21:53:49</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/ROSTOV 340.pdf">
+      <publishTime>04/01/2019 21:55:18</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/STINGUO 70 CE.pdf">
+      <publishTime>04/01/2019 21:58:43</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/INSECTICIDAS/SUMATRUS.pdf">
+      <publishTime>04/01/2019 21:59:08</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/KONOX 60 FW.pdf">
+      <publishTime>04/01/2019 19:08:05</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/MONOCROTOFOS 600.pdf">
+      <publishTime>04/01/2019 19:13:02</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NO BICHO.pdf">
+      <publishTime>04/01/2019 19:14:05</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NUTRICION/DISTINGO.pdf">
+      <publishTime>04/01/2019 18:55:54</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NUTRICION/FOLYVER.pdf">
+      <publishTime>04/01/2019 19:00:12</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NUTRICION/PROBORON.pdf">
+      <publishTime>04/01/2019 21:53:26</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NUTRICION/ROTUNDO.pdf">
+      <publishTime>04/01/2019 21:55:45</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/NUTRICION/TECNOGREEN.pdf">
+      <publishTime>04/01/2019 21:59:43</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/PLANTBLACK.pdf">
+      <publishTime>04/01/2019 21:49:07</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/PRESTO .5G.pdf">
+      <publishTime>04/01/2019 21:51:41</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/PRESTO CE.pdf">
+      <publishTime>04/01/2019 21:52:11</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/ROKACH 2E.pdf">
+      <publishTime>04/01/2019 21:54:14</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/SAVAGE 10-3 FW.pdf">
+      <publishTime>04/01/2019 21:56:55</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/SECAQUAT 200.pdf">
+      <publishTime>04/01/2019 21:57:31</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/SKAR 400 FW.pdf">
+      <publishTime>04/01/2019 21:57:54</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/THERMINE 4E.pdf">
+      <publishTime>04/01/2019 22:00:14</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/VALOR .5G.pdf">
+      <publishTime>04/01/2019 22:01:55</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/VERSOATO 400.pdf">
+      <publishTime>04/01/2019 22:03:23</publishTime>
+    </File>
+    <File Include="Public/docs/HOJAS DE SEGURIDAD/WARRIOR 600.pdf">
+      <publishTime>04/01/2019 22:03:48</publishTime>
+    </File>
+    <File Include="Public/img/avatar_intra.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/B--01.jpg">
+      <publishTime>04/10/2019 17:36:31</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/B--02.jpg">
+      <publishTime>04/10/2019 17:36:28</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/B--03.jpg">
+      <publishTime>04/10/2019 17:36:22</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/B--04.jpg">
+      <publishTime>04/10/2019 17:36:20</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/Banners_NOSOTROS-01.jpg">
+      <publishTime>03/02/2019 12:30:52</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/Banners_NOSOTROS-02.jpg">
+      <publishTime>03/02/2019 12:30:54</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/Banners_NOSOTROS-03.jpg">
+      <publishTime>03/02/2019 12:30:54</publishTime>
+    </File>
+    <File Include="Public/img/banners-nosotros/Banners_NOSOTROS-04.jpg">
+      <publishTime>03/02/2019 12:30:54</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-1.png">
+      <publishTime>12/02/2018 21:11:16</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-2.png">
+      <publishTime>12/02/2018 21:13:01</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-3.png">
+      <publishTime>12/02/2018 21:11:52</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-4.png">
+      <publishTime>12/02/2018 21:11:38</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-5.png">
+      <publishTime>12/02/2018 21:12:10</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-6.png">
+      <publishTime>12/02/2018 21:12:22</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-fill-7.png">
+      <publishTime>12/02/2018 21:12:45</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-1.png">
+      <publishTime>12/02/2018 20:08:18</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-2.png">
+      <publishTime>12/02/2018 20:14:38</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-3.png">
+      <publishTime>12/02/2018 20:08:53</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-4.png">
+      <publishTime>12/02/2018 20:05:03</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-5.png">
+      <publishTime>12/02/2018 20:09:30</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-6.png">
+      <publishTime>12/02/2018 20:09:51</publishTime>
+    </File>
+    <File Include="Public/img/families/icon-line-7.png">
+      <publishTime>12/02/2018 20:10:13</publishTime>
+    </File>
+    <File Include="Public/img/favicon64.ico">
+      <publishTime>08/08/2019 10:56:58</publishTime>
+    </File>
+    <File Include="Public/img/icon-1.png">
+      <publishTime>11/28/2018 01:02:27</publishTime>
+    </File>
+    <File Include="Public/img/icon-2.png">
+      <publishTime>11/28/2018 01:07:40</publishTime>
+    </File>
+    <File Include="Public/img/icon-3.png">
+      <publishTime>11/28/2018 01:08:26</publishTime>
+    </File>
+    <File Include="Public/img/icon-4.png">
+      <publishTime>11/28/2018 01:09:00</publishTime>
+    </File>
+    <File Include="Public/img/icon-fill-1.png">
+      <publishTime>01/22/2019 22:44:52</publishTime>
+    </File>
+    <File Include="Public/img/icon-fill-2.png">
+      <publishTime>01/22/2019 22:44:52</publishTime>
+    </File>
+    <File Include="Public/img/icon-fill-3.png">
+      <publishTime>01/22/2019 22:44:52</publishTime>
+    </File>
+    <File Include="Public/img/icon-fill-4.png">
+      <publishTime>01/22/2019 22:44:52</publishTime>
+    </File>
+    <File Include="Public/img/logo-white.png">
+      <publishTime>02/17/2018 11:44:48</publishTime>
+    </File>
+    <File Include="Public/img/logo.png">
+      <publishTime>01/29/2018 08:44:32</publishTime>
+    </File>
+    <File Include="Public/img/misc/lineatiempo.png">
+      <publishTime>03/11/2019 12:45:24</publishTime>
+    </File>
+    <File Include="Public/img/misc/molecula-bco.png">
+      <publishTime>03/14/2019 12:14:46</publishTime>
+    </File>
+    <File Include="Public/img/misc/molecula.png">
+      <publishTime>02/27/2019 21:27:15</publishTime>
+    </File>
+    <File Include="Public/img/misc/PDF-download.png">
+      <publishTime>04/10/2019 22:40:56</publishTime>
+    </File>
+    <File Include="Public/img/misc/pdf.png">
+      <publishTime>04/03/2019 20:10:05</publishTime>
+    </File>
+    <File Include="Public/img/misc/versa-aereo.jpg">
+      <publishTime>03/14/2019 12:19:22</publishTime>
+    </File>
+    <File Include="Public/img/misc/versa-contacto.jpg">
+      <publishTime>03/14/2019 12:13:23</publishTime>
+    </File>
+    <File Include="Public/img/nosotros/empresa_socialmente_responsable.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/ornament.png">
+      <publishTime>11/28/2018 01:55:25</publishTime>
+    </File>
+    <File Include="Public/img/products/algamax.png">
+      <publishTime>03/15/2019 10:20:02</publishTime>
+    </File>
+    <File Include="Public/img/products/bacimin.png">
+      <publishTime>12/02/2018 22:10:25</publishTime>
+    </File>
+    <File Include="Public/img/products/citan.png">
+      <publishTime>03/15/2019 10:22:42</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-bactericida.jpg">
+      <publishTime>03/15/2019 18:21:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-biocontrol.jpg">
+      <publishTime>03/15/2019 18:21:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Blissful.jpg">
+      <publishTime>03/28/2019 20:33:25</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Citan.jpg">
+      <publishTime>03/28/2019 18:58:59</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Collision.jpg">
+      <publishTime>03/28/2019 19:00:15</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Elimplan.jpg">
+      <publishTime>03/28/2019 19:01:13</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Famster.jpg">
+      <publishTime>03/28/2019 18:57:44</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-fungicida.jpg">
+      <publishTime>03/15/2019 18:21:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Furonto.jpg">
+      <publishTime>03/28/2019 18:58:12</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-herbicida.jpg">
+      <publishTime>03/15/2019 18:21:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Hypnos.jpg">
+      <publishTime>03/28/2019 19:01:31</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-insecticida.jpg">
+      <publishTime>03/15/2019 18:21:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Kaxtoli.jpg">
+      <publishTime>03/28/2019 18:58:37</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Kook.jpg">
+      <publishTime>03/28/2019 19:00:39</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-Mordare.jpg">
+      <publishTime>03/28/2019 19:00:56</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-nutricion.jpg">
+      <publishTime>04/10/2019 21:46:24</publishTime>
+    </File>
+    <File Include="Public/img/proteccion/b-otros.jpg">
+      <publishTime>04/10/2019 21:57:11</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-1-mov.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-1.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-2-mov.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-2.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-3.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-4-mov.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-home/slide-4.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--01-mov.jpg">
+      <publishTime>07/04/2019 11:07:07</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--01.jpg">
+      <publishTime>07/04/2019 11:07:10</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--02-mov.jpg">
+      <publishTime>07/04/2019 11:07:10</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--02.jpg">
+      <publishTime>07/04/2019 11:07:13</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--03-mov.jpg">
+      <publishTime>07/04/2019 11:07:13</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--03.jpg">
+      <publishTime>07/04/2019 11:07:15</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--04-mov.jpg">
+      <publishTime>07/04/2019 11:07:15</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/B--04.jpg">
+      <publishTime>07/04/2019 11:07:17</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/Banners_NOSOTROS-01.jpg">
+      <publishTime>07/04/2019 11:07:18</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/Banners_NOSOTROS-02.jpg">
+      <publishTime>07/04/2019 11:07:18</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/Banners_NOSOTROS-03.jpg">
+      <publishTime>07/04/2019 11:07:19</publishTime>
+    </File>
+    <File Include="Public/img/slider-nosotros/Banners_NOSOTROS-04.jpg">
+      <publishTime>07/04/2019 11:07:20</publishTime>
+    </File>
+    <File Include="Public/img/social/fb.png">
+      <publishTime>02/28/2019 23:29:08</publishTime>
+    </File>
+    <File Include="Public/img/social/youtube.png">
+      <publishTime>02/28/2019 23:28:49</publishTime>
+    </File>
+    <File Include="Public/img/tablas/rudo-composicion.jpg">
+      <publishTime>03/27/2019 23:23:53</publishTime>
+    </File>
+    <File Include="Public/img/tablas/versatil-composicion.jpg">
+      <publishTime>03/27/2019 23:22:15</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/29/2019 12:28:41</publishTime>
+    </File>
+    <File Include="Scripts/datatables.js">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Scripts/datatables.min.js">
+      <publishTime>12/13/2018 00:22:50</publishTime>
+    </File>
+    <File Include="Scripts/Email/Email.js">
+      <publishTime>04/06/2019 17:36:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.map">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>01/29/2019 12:28:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/29/2019 12:28:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/29/2019 12:28:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/29/2019 12:28:49</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/29/2019 12:28:49</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>01/29/2019 12:28:47</publishTime>
+    </File>
+    <File Include="Scripts/Producto/Search.js">
+      <publishTime>01/30/2019 13:48:44</publishTime>
+    </File>
+    <File Include="Scripts/sweetalert.min.js">
+      <publishTime>01/29/2019 14:05:02</publishTime>
+    </File>
+    <File Include="Views/Home/BuscarProducto.cshtml">
+      <publishTime>08/12/2019 11:36:08</publishTime>
+    </File>
+    <File Include="Views/Home/Contacto.cshtml">
+      <publishTime>08/12/2019 10:53:15</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/16/2019 12:26:42</publishTime>
+    </File>
+    <File Include="Views/Home/Nosotros.cshtml">
+      <publishTime>07/04/2019 11:07:20</publishTime>
+    </File>
+    <File Include="Views/Home/Productos.cshtml">
+      <publishTime>01/30/2019 14:12:50</publishTime>
+    </File>
+    <File Include="Views/Home/VerCategoria.cshtml">
+      <publishTime>08/16/2019 12:41:16</publishTime>
+    </File>
+    <File Include="Views/Home/VerProducto.cshtml">
+      <publishTime>08/12/2019 02:37:34</publishTime>
+    </File>
+    <File Include="Views/Intra/Home.cshtml">
+      <publishTime>07/04/2019 11:07:20</publishTime>
+    </File>
+    <File Include="Views/Intra/Login.cshtml">
+      <publishTime>08/15/2019 12:03:09</publishTime>
+    </File>
+    <File Include="Views/Intra/Productos/EditarProducto.cshtml">
+      <publishTime>08/16/2019 01:14:28</publishTime>
+    </File>
+    <File Include="Views/Intra/Productos/NuevoProducto.cshtml">
+      <publishTime>07/04/2019 15:35:52</publishTime>
+    </File>
+    <File Include="Views/Intra/Productos/VerProductos.cshtml">
+      <publishTime>08/15/2019 12:58:23</publishTime>
+    </File>
+    <File Include="Views/Intra/_Layout.cshtml">
+      <publishTime>08/15/2019 12:56:10</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Producto/Create.cshtml">
+      <publishTime>02/02/2019 12:52:37</publishTime>
+    </File>
+    <File Include="Views/Producto/Delete.cshtml">
+      <publishTime>01/29/2019 12:36:18</publishTime>
+    </File>
+    <File Include="Views/Producto/Details.cshtml">
+      <publishTime>01/29/2019 12:36:18</publishTime>
+    </File>
+    <File Include="Views/Producto/Detalles.cshtml">
+      <publishTime>07/04/2019 16:03:09</publishTime>
+    </File>
+    <File Include="Views/Producto/Edit.cshtml">
+      <publishTime>01/29/2019 12:36:19</publishTime>
+    </File>
+    <File Include="Views/Producto/Index.cshtml">
+      <publishTime>01/29/2019 12:36:20</publishTime>
+    </File>
+    <File Include="Views/Producto/Search.cshtml">
+      <publishTime>08/01/2019 12:05:00</publishTime>
+    </File>
+    <File Include="Views/Producto/_AddP_Aplicacion.cshtml">
+      <publishTime>02/03/2019 21:02:50</publishTime>
+    </File>
+    <File Include="Views/Producto/_AddP_Composicion.cshtml">
+      <publishTime>02/02/2019 12:52:01</publishTime>
+    </File>
+    <File Include="Views/Producto/_AddP_Tipo.cshtml">
+      <publishTime>02/02/2019 12:52:01</publishTime>
+    </File>
+    <File Include="Views/Producto/_AddP_TipoPartialView.cshtml">
+      <publishTime>02/02/2019 12:52:01</publishTime>
+    </File>
+    <File Include="Views/Proteccion/Categoria.cshtml">
+      <publishTime>08/06/2019 14:32:39</publishTime>
+    </File>
+    <File Include="Views/Proteccion/Index.cshtml">
+      <publishTime>04/15/2019 19:05:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Shared/Lockout.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Shared/_Footer.cshtml">
+      <publishTime>08/12/2019 11:26:05</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/12/2019 11:30:12</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutMenu.cshtml">
+      <publishTime>03/13/2019 13:54:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>01/29/2019 12:28:50</publishTime>
+    </File>
+    <File Include="Views/Shared/_Menu.cshtml">
+      <publishTime>08/01/2019 11:35:43</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/29/2019 12:28:35</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/29/2019 12:28:35</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/12/2019 10:29:02</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

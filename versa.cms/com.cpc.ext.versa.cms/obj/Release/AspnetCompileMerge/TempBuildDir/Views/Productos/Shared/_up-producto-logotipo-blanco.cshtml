@@ -1,0 +1,18 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+
+@{
+	EProducto productos_data = @Model;
+}
+<h2>Logotipo a blanco</h2>
+<div class="img-logotipos-productos-container">
+	<img src="@Url.Content("~/Public/img/productos-logos-blancos/" + productos_data.imagen_logo_blanco)" style="background-color: black;" />
+</div>
+<form id="form-files-upload-logo-blanco" name="form-files-upload-logo-blanco" method="post" action="@Url.Content("~/intra/productos/editar/subir/logotipo-blanco")" enctype="multipart/form-data">
+	<label for="fichero">Fichero:</label>
+	<input type="file" name="fichero" size="40">
+	<input type="hidden" id="form-files-upload-logotipo-blanco-id" name="form-files-upload-logotipo-blanco-id" value="@productos_data.id" />
+	<br />
+	<input type="submit" value="Enviar" />
+</form>

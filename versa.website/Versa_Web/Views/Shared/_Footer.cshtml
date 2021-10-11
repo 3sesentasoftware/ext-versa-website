@@ -1,0 +1,147 @@
+﻿@using Versa_Web.ViewModels
+@using Versa_Web.Controllers.General
+@using System.Data.Entity.Core.Objects
+@using Versa_Web.Code.fecades
+@using Versa_Web.Models.EntityFramework
+@using Versa_Web.Controllers.Utils
+
+@{ 
+    List<cms_informacionContactoEmpresaObtener_Result> dbresContactoEmpresa = DBFecade.dbObj().cms_informacionContactoEmpresaObtener().ToList();
+    cms_informacionContactoEmpresaObtener_Result elContactoEmpresa = dbresContactoEmpresa[0];
+}
+<style>
+    footer {
+        color: #989898;
+    }
+
+    .index-social {
+        background-color: #EBEBEB;
+        color: #707070;
+    }
+
+    .link-area .fa-li {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: solid 1px #fff;
+        list-style-type: none;
+        margin: 5px;
+        display: inline-block;
+    }
+
+    .index-social a {
+        color: #fff;
+        font-size: 25px;
+        display: block;
+        float: left;
+        padding: 10px;
+    }
+
+    .index-link h3 {
+        text-align: center;
+        text-align: left;
+    }
+
+    .index-link {
+        background-color: #FFF;
+    }
+
+    .index-link ul {
+        padding: 0px;
+    }
+
+    .index-link ul li {
+        list-style-type: none;
+    }
+
+    .index-link ul li a {
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        padding: 5px 0;
+        text-align: left;
+    }
+
+    .index-link ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .copy-c {
+        padding-top: 15px;
+    }
+
+    input, textarea {
+        border: none !important;
+        border-radius: 5px !important;
+    }
+</style>
+
+@{ 
+    string url = Request.Url.AbsolutePath.ToString();
+}
+@if (url != "/contacto")
+{
+	<div id="contactForm" class="row" style="margin-left:auto;margin-right:auto; padding-top: 10vh; padding-bottom: 10vh;background-color: #EBEBEB;background-image: url('@Url.Content("~/Public/img/misc/versa-contacto.jpg")');background-size: 100% 100%;">
+		<div class="col-lg-4 col-md-6 contact-form mx-auto">
+			<h4><strong>Contáctanos</strong></h4>
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Nombre" id="txt_nombre" maxlength="50">
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" placeholder="E-mail" id="txt_mail" maxlength="50">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Asunto" id="txt_asunto" maxlength="100">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" rows="6" placeholder="Mensaje" draggable="false" id="txta_mensaje" maxlength="500"></textarea>
+				</div>
+				<button class="btn btn-default" type="button" name="button" id="btn_enviar" style="float:right;color: #FFF;background-color: #8AC746;">
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Enviar
+				</button>
+			</form>
+		</div>
+	</div>
+}
+
+<footer class="index-link" style="background-color: #133B59;">
+    <div class="container">
+        <div class="row pb-5 pt-2">
+            <div class="col-md-12 pt-2 mx-auto text-center" style="color: #FFF;font-size:30px;">
+                <strong>@elContactoEmpresa.telefono_contacto</strong>
+            </div>
+            <div class="col-md-12 mx-auto text-center" style="color: #FFF;">
+                @elContactoEmpresa.direccion_fisica
+            </div>
+            <div class="col-md-12 my-auto" style="text-align:center;padding-top:10px;color: #FFF;">
+                @{
+                    foreach (var el in DBFecade.dbObj().cms_redesSocialesEmpresaObtener())
+                    {
+                        <h5 style="color: #FFF !important;font-size:30px;"><strong>Síguenos</strong></h5>
+                        <a href="@el.url_facebook" target="_blank">
+                            <img src="@Url.Content("~/Public/img/social/fb.png")" width="40" />
+                        </a>
+                        <a href="@el.url_youtube" target="_blank">
+                            <img src="@Url.Content("~/Public/img/social/youtube.png")" width="40" />
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%;text-align: center;padding:18px;background-color: #EBEBEB; color: #707070;">
+		
+		<br />
+        <strong>VERSA 2019.</strong>
+        Incrementar el potencial de los cultivos para alimentar el mundo.
+    </div>
+	@if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings.Get("showappdeployversion")))
+	{
+		<div style="width: 100%; text-align: center; background-color: red; color: white; font-size: .7em;">
+			Versión de desarrollo | @System.Configuration.ConfigurationManager.AppSettings.Get("appdeployversion")
+		</div>
+	}
+</footer>
+<script type="text/javascript" src="~/Content/Scripts/Email/Email.js"></script>

@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMSVersaV3StoreContainer" CdmEntityContainer="CMSVersaV3Entities">
+    <FunctionImportMapping FunctionImportName="cms_borrarEstructuraTablaAplicacion" FunctionName="CMSVersaV3.Store.cms_borrarEstructuraTablaAplicacion" />
+    <FunctionImportMapping FunctionImportName="cms_borrarImagenTablaAplicacion" FunctionName="CMSVersaV3.Store.cms_borrarImagenTablaAplicacion" />
+    <FunctionImportMapping FunctionImportName="cms_cmsHomeCarruselNuevo" FunctionName="CMSVersaV3.Store.cms_cmsHomeCarruselNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_documentoEsrActualizar" FunctionName="CMSVersaV3.Store.cms_documentoEsrActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_documentoEsrObtener" FunctionName="CMSVersaV3.Store.cms_documentoEsrObtener" />
+    <FunctionImportMapping FunctionImportName="cms_informacionContactoEmpresaActualizar" FunctionName="CMSVersaV3.Store.cms_informacionContactoEmpresaActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_informacionContactoEmpresaObtener" FunctionName="CMSVersaV3.Store.cms_informacionContactoEmpresaObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_informacionContactoEmpresaObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="telefono_contacto" ColumnName="telefono_contacto" />
+          <ScalarProperty Name="direccion_fisica" ColumnName="direccion_fisica" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_logotipoEmpresaActualizar" FunctionName="CMSVersaV3.Store.cms_logotipoEmpresaActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_logotipoEmpresaObtener" FunctionName="CMSVersaV3.Store.cms_logotipoEmpresaObtener" />
+    <FunctionImportMapping FunctionImportName="cms_modufilesArchivoNuevo" FunctionName="CMSVersaV3.Store.cms_modufilesArchivoNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_modufilesArchivoNuevoId" FunctionName="CMSVersaV3.Store.cms_modufilesArchivoNuevoId" />
+    <FunctionImportMapping FunctionImportName="cms_obtImagenTabla" FunctionName="CMSVersaV3.Store.cms_obtImagenTabla" />
+    <FunctionImportMapping FunctionImportName="cms_obtNombreUsuario" FunctionName="CMSVersaV3.Store.cms_obtNombreUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_obtNombreUsuario_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_productoActualizarTablaAplicacion" FunctionName="CMSVersaV3.Store.cms_productoActualizarTablaAplicacion" />
+    <FunctionImportMapping FunctionImportName="cms_pSkuNuevo" FunctionName="CMSVersaV3.Store.cms_pSkuNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_pSkuObtener" FunctionName="CMSVersaV3.Store.cms_pSkuObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_pSkuObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producto" ColumnName="producto" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="producto_presentacion" ColumnName="producto_presentacion" />
+          <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+          <ScalarProperty Name="plaga_nombre_comun" ColumnName="plaga_nombre_comun" />
+          <ScalarProperty Name="plaga_nombre_cientifico" ColumnName="plaga_nombre_cientifico" />
+          <ScalarProperty Name="nutrientes" ColumnName="nutrientes" />
+          <ScalarProperty Name="resistencia" ColumnName="resistencia" />
+          <ScalarProperty Name="ingrediente_activo" ColumnName="ingrediente_activo" />
+          <ScalarProperty Name="tipo_producto" ColumnName="tipo_producto" />
+          <ScalarProperty Name="numero_aplicaciones" ColumnName="numero_aplicaciones" />
+          <ScalarProperty Name="dosis_minima" ColumnName="dosis_minima" />
+          <ScalarProperty Name="dosis_maxima" ColumnName="dosis_maxima" />
+          <ScalarProperty Name="unidades" ColumnName="unidades" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="tipo_formulacion" ColumnName="tipo_formulacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_pTipoActualizar" FunctionName="CMSVersaV3.Store.cms_pTipoActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_pTipoEliminar" FunctionName="CMSVersaV3.Store.cms_pTipoEliminar" />
+    <FunctionImportMapping FunctionImportName="cms_pTipoNuevo" FunctionName="CMSVersaV3.Store.cms_pTipoNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_pTipoObtenerTodos" FunctionName="CMSVersaV3.Store.cms_pTipoObtenerTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_pTipoObtenerTodos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_redesSocialesEmpresaActualizar" FunctionName="CMSVersaV3.Store.cms_redesSocialesEmpresaActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_redesSocialesEmpresaObtener" FunctionName="CMSVersaV3.Store.cms_redesSocialesEmpresaObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_redesSocialesEmpresaObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="url_facebook" ColumnName="url_facebook" />
+          <ScalarProperty Name="url_youtube" ColumnName="url_youtube" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselActualizar" FunctionName="CMSVersaV3.Store.cms_seccionHomeNoticiasCarruselActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselDesactivar" FunctionName="CMSVersaV3.Store.cms_seccionHomeNoticiasCarruselDesactivar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselNuevo" FunctionName="CMSVersaV3.Store.cms_seccionHomeNoticiasCarruselNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselObtener" FunctionName="CMSVersaV3.Store.cms_seccionHomeNoticiasCarruselObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionHomeNoticiasCarruselObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="url_redireccion" ColumnName="url_redireccion" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="movil" ColumnName="movil" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" FunctionName="CMSVersaV3.Store.cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosActualizar" FunctionName="CMSVersaV3.Store.cms_seccionHomeSobreNosotrosActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosActualizarNombreArchivo" FunctionName="CMSVersaV3.Store.cms_seccionHomeSobreNosotrosActualizarNombreArchivo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeSobreNosotrosObtener" FunctionName="CMSVersaV3.Store.cms_seccionHomeSobreNosotrosObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionHomeSobreNosotrosObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosActualizar" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosActualizarDescripcion" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosActualizarDescripcion" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosDesactivar" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosDesactivar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosNuevo" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtener" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionHomeVideosEventosObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerDescripcion" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosObtenerDescripcion" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerUltimoOrden" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosObtenerUltimoOrden" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasActualizarMovil" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasActualizarMovil" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasActualizarOrden" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasActualizarOrden" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasDesactivar" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasDesactivar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasNuevo" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasObtener" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionNosotrosCarruselPlantasObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="movil" ColumnName="movil" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoActualizar" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosLineaTiempoActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoNuevo" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosLineaTiempoNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionNosotrosLineaTiempoObtener" FunctionName="CMSVersaV3.Store.cms_seccionNosotrosLineaTiempoObtener" />
+    <FunctionImportMapping FunctionImportName="cms_seccionProductosActualizarImagenTablaAplicacion" FunctionName="CMSVersaV3.Store.cms_seccionProductosActualizarImagenTablaAplicacion" />
+    <FunctionImportMapping FunctionImportName="cms_seccionProductosDocumentosActualizar" FunctionName="CMSVersaV3.Store.cms_seccionProductosDocumentosActualizar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionProductosDocumentosObtener" FunctionName="CMSVersaV3.Store.cms_seccionProductosDocumentosObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionProductosDocumentosObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+          <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+          <ScalarProperty Name="tipo_Documento" ColumnName="tipo_Documento" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionProductosEliminar" FunctionName="CMSVersaV3.Store.cms_seccionProductosEliminar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionProductosNuevo" FunctionName="CMSVersaV3.Store.cms_seccionProductosNuevo" />
+    <FunctionImportMapping FunctionImportName="cms_seccionUsuariosEditar" FunctionName="CMSVersaV3.Store.cms_seccionUsuariosEditar" />
+    <FunctionImportMapping FunctionImportName="cms_seccionUsuariosObtener" FunctionName="CMSVersaV3.Store.cms_seccionUsuariosObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionUsuariosObtener_Result">
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="usuario_perfil_id" ColumnName="usuario_perfil_id" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_borrado" ColumnName="fecha_borrado" />
+          <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+          <ScalarProperty Name="contexto_mod" ColumnName="contexto_mod" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_tablaAplicacionTituloObtener" FunctionName="CMSVersaV3.Store.cms_tablaAplicacionTituloObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_tablaAplicacionTituloObtener_Result">
+          <ScalarProperty Name="id_columna" ColumnName="id_columna" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_usuarioBorrar" FunctionName="CMSVersaV3.Store.cms_usuarioBorrar" />
+    <FunctionImportMapping FunctionImportName="cms_websiteMensajeContactoObtener" FunctionName="CMSVersaV3.Store.cms_websiteMensajeContactoObtener">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_websiteMensajeContactoObtener_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fraseguModuloNivelObtenerPorModulo" FunctionName="CMSVersaV3.Store.fraseguModuloNivelObtenerPorModulo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.fraseguModuloNivelObtenerPorModulo_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fraseguModuloObtenerTodos" FunctionName="CMSVersaV3.Store.fraseguModuloObtenerTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.fraseguModuloObtenerTodos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilEditar" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilEditar" />
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilEliminar" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilEliminar" />
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilModuloNivelNuevo" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilModuloNivelNuevo" />
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilModuloNivelObtenerTodos" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilModuloNivelObtenerTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.fraseguUsuarioPerfilModuloNivelObtenerTodos_Result">
+          <ScalarProperty Name="frasegu_modulo_id" ColumnName="frasegu_modulo_id" />
+          <ScalarProperty Name="modulo" ColumnName="modulo" />
+          <ScalarProperty Name="frasegu_usuario_perfil_id" ColumnName="frasegu_usuario_perfil_id" />
+          <ScalarProperty Name="usuario_perfil" ColumnName="usuario_perfil" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="nivel_descripcion" ColumnName="nivel_descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilNuevo" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilNuevo" />
+    <FunctionImportMapping FunctionImportName="fraseguUsuarioPerfilObtenerTodos" FunctionName="CMSVersaV3.Store.fraseguUsuarioPerfilObtenerTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.fraseguUsuarioPerfilObtenerTodos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="guardarMensajeContacto" FunctionName="CMSVersaV3.Store.guardarMensajeContacto" />
+    <FunctionImportMapping FunctionImportName="ins_cms_seccion" FunctionName="CMSVersaV3.Store.ins_cms_seccion" />
+    <FunctionImportMapping FunctionImportName="ins_cms_seccion_contenido" FunctionName="CMSVersaV3.Store.ins_cms_seccion_contenido" />
+    <FunctionImportMapping FunctionImportName="ins_cms_website_menu" FunctionName="CMSVersaV3.Store.ins_cms_website_menu" />
+    <FunctionImportMapping FunctionImportName="ins_producto" FunctionName="CMSVersaV3.Store.ins_producto" />
+    <FunctionImportMapping FunctionImportName="ins_productos_aplicacion" FunctionName="CMSVersaV3.Store.ins_productos_aplicacion" />
+    <FunctionImportMapping FunctionImportName="ins_productos_composicion" FunctionName="CMSVersaV3.Store.ins_productos_composicion" />
+    <FunctionImportMapping FunctionImportName="ins_usuario" FunctionName="CMSVersaV3.Store.ins_usuario" />
+    <FunctionImportMapping FunctionImportName="ins_website_seccion" FunctionName="CMSVersaV3.Store.ins_website_seccion" />
+    <FunctionImportMapping FunctionImportName="modutrackNuevoIngresoAplicacion" FunctionName="CMSVersaV3.Store.modutrackNuevoIngresoAplicacion" />
+    <FunctionImportMapping FunctionImportName="modutrackNuevoIngresoFallido" FunctionName="CMSVersaV3.Store.modutrackNuevoIngresoFallido" />
+    <FunctionImportMapping FunctionImportName="nuevoEventoAplicacion" FunctionName="CMSVersaV3.Store.nuevoEventoAplicacion" />
+    <FunctionImportMapping FunctionImportName="search_productos_filtro" FunctionName="CMSVersaV3.Store.search_productos_filtro">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.search_productos_filtro_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+          <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_cms_seccion_contenido" FunctionName="CMSVersaV3.Store.sel_cms_seccion_contenido">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_cms_seccion_contenido_Result">
+          <ScalarProperty Name="cms_seccion_id" ColumnName="cms_seccion_id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
+          <ScalarProperty Name="cms_seccion_contenido_id" ColumnName="cms_seccion_contenido_id" />
+          <ScalarProperty Name="html_control_id" ColumnName="html_control_id" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_cms_website_menu" FunctionName="CMSVersaV3.Store.sel_cms_website_menu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_cms_website_menu_Result">
+          <ScalarProperty Name="cms_website_menu_id" ColumnName="cms_website_menu_id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="html_control_id" ColumnName="html_control_id" />
+          <ScalarProperty Name="cms_website_menu_padre_id" ColumnName="cms_website_menu_padre_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_cultivos_para_filtros" FunctionName="CMSVersaV3.Store.sel_cultivos_para_filtros">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_cultivos_para_filtros_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_enfermedades_para_filtro_por_cultivo" FunctionName="CMSVersaV3.Store.sel_enfermedades_para_filtro_por_cultivo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_enfermedades_para_filtro_por_cultivo_Result">
+          <ScalarProperty Name="id_enfermedad" ColumnName="id_enfermedad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_enfermedades_para_filtros" FunctionName="CMSVersaV3.Store.sel_enfermedades_para_filtros">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_enfermedades_para_filtros_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="data_crudo" ColumnName="data_crudo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_producto_nombre_para_intra_ver_productos" FunctionName="CMSVersaV3.Store.sel_producto_nombre_para_intra_ver_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_producto_nombre_para_intra_ver_productos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_producto_tipo" FunctionName="CMSVersaV3.Store.sel_producto_tipo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_producto_tipo_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos" FunctionName="CMSVersaV3.Store.sel_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+          <ScalarProperty Name="pie" ColumnName="pie" />
+          <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_aplicacion_Fil_id_producto" FunctionName="CMSVersaV3.Store.sel_productos_aplicacion_Fil_id_producto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_aplicacion_Fil_id_producto_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+          <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+          <ScalarProperty Name="dosis" ColumnName="dosis" />
+          <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+          <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+          <ScalarProperty Name="epoca" ColumnName="epoca" />
+          <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+          <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+          <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+          <ScalarProperty Name="estudios" ColumnName="estudios" />
+          <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_composicion_Fil_id_producto" FunctionName="CMSVersaV3.Store.sel_productos_composicion_Fil_id_producto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_composicion_Fil_id_producto_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+          <ScalarProperty Name="formula" ColumnName="formula" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="usable" ColumnName="usable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_home_index" FunctionName="CMSVersaV3.Store.sel_productos_para_home_index">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_home_index_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_intra_editar_productos" FunctionName="CMSVersaV3.Store.sel_productos_para_intra_editar_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_intra_editar_productos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+          <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="show_index" ColumnName="show_index" />
+          <ScalarProperty Name="pie" ColumnName="pie" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_intra_ver_productos" FunctionName="CMSVersaV3.Store.sel_productos_para_intra_ver_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_intra_ver_productos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+          <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="show_index" ColumnName="show_index" />
+          <ScalarProperty Name="pie" ColumnName="pie" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_intra_ver_productos_filtro" FunctionName="CMSVersaV3.Store.sel_productos_para_intra_ver_productos_filtro">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_intra_ver_productos_filtro_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producto_tipo_id" ColumnName="producto_tipo_id" />
+          <ScalarProperty Name="producto_tipo" ColumnName="producto_tipo" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="show_index" ColumnName="show_index" />
+          <ScalarProperty Name="pie" ColumnName="pie" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_producto_buscar" FunctionName="CMSVersaV3.Store.sel_productos_para_producto_buscar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_producto_buscar_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+          <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_para_proteccion_categoria" FunctionName="CMSVersaV3.Store.sel_productos_para_proteccion_categoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_para_proteccion_categoria_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname_img_mobile" ColumnName="classname_img_mobile" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_sku" FunctionName="CMSVersaV3.Store.sel_productos_sku">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_sku_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_productos_tipos_para_intra_ver_productos" FunctionName="CMSVersaV3.Store.sel_productos_tipos_para_intra_ver_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_productos_tipos_para_intra_ver_productos_Result">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_sku_para_intra_ver_productos" FunctionName="CMSVersaV3.Store.sel_sku_para_intra_ver_productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_sku_para_intra_ver_productos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_tabla_aplicacion_titulo_por_id_producto" FunctionName="CMSVersaV3.Store.sel_tabla_aplicacion_titulo_por_id_producto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_tabla_aplicacion_titulo_por_id_producto_Result">
+          <ScalarProperty Name="id_columna" ColumnName="id_columna" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sel_tabla_composicion_por_id_producto" FunctionName="CMSVersaV3.Store.sel_tabla_composicion_por_id_producto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sel_tabla_composicion_por_id_producto_Result">
+          <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_temp_buscador_v1" FunctionName="CMSVersaV3.Store.sp_temp_buscador_v1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.sp_temp_buscador_v1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+          <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="upd_producto" FunctionName="CMSVersaV3.Store.upd_producto" />
+    <FunctionImportMapping FunctionImportName="upd_productos_aplicacion" FunctionName="CMSVersaV3.Store.upd_productos_aplicacion" />
+    <FunctionImportMapping FunctionImportName="upd_productos_aplicacion_inactive" FunctionName="CMSVersaV3.Store.upd_productos_aplicacion_inactive" />
+    <FunctionImportMapping FunctionImportName="upd_productos_composicion" FunctionName="CMSVersaV3.Store.upd_productos_composicion" />
+    <FunctionImportMapping FunctionImportName="upd_productos_composicion_inactive" FunctionName="CMSVersaV3.Store.upd_productos_composicion_inactive" />
+    <FunctionImportMapping FunctionImportName="upd_productos_imagen_color" FunctionName="CMSVersaV3.Store.upd_productos_imagen_color" />
+    <FunctionImportMapping FunctionImportName="upd_productos_imagen_logo_blanco" FunctionName="CMSVersaV3.Store.upd_productos_imagen_logo_blanco" />
+    <FunctionImportMapping FunctionImportName="upd_productos_imagen_render" FunctionName="CMSVersaV3.Store.upd_productos_imagen_render" />
+    <FunctionImportMapping FunctionImportName="upd_titulo_tabla_aplicacion" FunctionName="CMSVersaV3.Store.upd_titulo_tabla_aplicacion" />
+    <FunctionImportMapping FunctionImportName="usuarioNuevo" FunctionName="CMSVersaV3.Store.usuarioNuevo" />
+    <FunctionImportMapping FunctionImportName="usuarioObtTodos" FunctionName="CMSVersaV3.Store.usuarioObtTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.usuarioObtTodos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="perfilPuesto" ColumnName="perfilPuesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="val_login" FunctionName="CMSVersaV3.Store.val_login" />
+    <FunctionImportMapping FunctionImportName="website_sp1" FunctionName="CMSVersaV3.Store.website_sp1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.website_sp1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="beneficios" ColumnName="beneficios" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="pdf_nombre" ColumnName="pdf_nombre" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="subnombre" ColumnName="subnombre" />
+          <ScalarProperty Name="Cintillo" ColumnName="Cintillo" />
+          <ScalarProperty Name="show_index" ColumnName="show_index" />
+          <ScalarProperty Name="pie" ColumnName="pie" />
+          <ScalarProperty Name="imagen_logo" ColumnName="imagen_logo" />
+          <ScalarProperty Name="imagen_logo_carpeta" ColumnName="imagen_logo_carpeta" />
+          <ScalarProperty Name="imagen_logo_blanco" ColumnName="imagen_logo_blanco" />
+          <ScalarProperty Name="cms_tablas_composicion_id" ColumnName="cms_tablas_composicion_id" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="imagen_tabla_aplicacion" ColumnName="imagen_tabla_aplicacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="website_sp2" FunctionName="CMSVersaV3.Store.website_sp2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.website_sp2_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+          <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+          <ScalarProperty Name="dosis" ColumnName="dosis" />
+          <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+          <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+          <ScalarProperty Name="epoca" ColumnName="epoca" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+          <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+          <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+          <ScalarProperty Name="estudios" ColumnName="estudios" />
+          <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+          <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="website_sp3" FunctionName="CMSVersaV3.Store.website_sp3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.website_sp3_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+          <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+          <ScalarProperty Name="dosis" ColumnName="dosis" />
+          <ScalarProperty Name="intervalo_seguridad" ColumnName="intervalo_seguridad" />
+          <ScalarProperty Name="obervaciones" ColumnName="obervaciones" />
+          <ScalarProperty Name="epoca" ColumnName="epoca" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="LMRP" ColumnName="LMRP" />
+          <ScalarProperty Name="EPA2" ColumnName="EPA2" />
+          <ScalarProperty Name="Tolerancias" ColumnName="Tolerancias" />
+          <ScalarProperty Name="estudios" ColumnName="estudios" />
+          <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+          <ScalarProperty Name="agricultura_protegida" ColumnName="agricultura_protegida" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="website_sp4" FunctionName="CMSVersaV3.Store.website_sp4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.website_sp4_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+          <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+          <ScalarProperty Name="formula" ColumnName="formula" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+          <ScalarProperty Name="usable" ColumnName="usable" />
+          <ScalarProperty Name="active_inactive" ColumnName="active_inactive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="website_sp5" FunctionName="CMSVersaV3.Store.website_sp5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.website_sp5_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+          <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+          <ScalarProperty Name="tipo_Documento" ColumnName="tipo_Documento" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="website_sp6" FunctionName="CMSVersaV3.Store.website_sp6" />
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerTodos" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosObtenerTodos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionHomeVideosEventosObtenerTodos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosObtenerTodosV2" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosObtenerTodosV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CMSVersaV3.cms_seccionHomeVideosEventosObtenerTodosV2_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="cms_seccionHomeVideosEventosNuevoV2" FunctionName="CMSVersaV3.Store.cms_seccionHomeVideosEventosNuevoV2" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,77 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+
+@{
+    ViewBag.Title = "BuscadorProductos";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h1>Sección - Buscador productos</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<h2>Categorías productos</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<!--Basic Table-->
+			<div class="table-responsive">
+				<table class="table table-bordered u-table--v2">
+					<thead class="text-uppercase g-letter-spacing-1">
+						<tr>
+							<th class="g-font-weight-300 g-color-black">ID</th>
+							<th class="g-font-weight-300 g-color-black">Nombre</th>
+							<th class="g-font-weight-300 g-color-black">Imagen</th>
+							<th class="g-font-weight-300 g-color-black">Alias</th>
+							<th class="g-font-weight-300 g-color-black">Class-name</th>
+							<th class="g-font-weight-300 g-color-black">Acciones</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@foreach (EProductoTipo item in Utils.EProductoTipo.obtTodos())
+						{
+							<tr>
+								<td class="align-middle text-nowrap">
+									<p>@item.id</p>
+								</td>
+								<td class="align-middle text-nowrap">
+									<p>@item.nombre</p>
+								</td>
+								<td class="align-middle text-nowrap">
+									<img src="http://grupoversa.com/Public/img/families/@item.imagen" />
+								</td>
+								<td class="align-middle">
+									<p>@item.alias</p>
+								</td>
+
+								<td class="align-middle">
+									<p>@item.classNameImgMobile</p>
+								</td>
+
+								<td class="align-middle text-nowrap text-center">
+									<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="@(Url.Action(Utils.Ruta.rutaVistaEditarProductos.action, Utils.Ruta.rutaVistaEditarProductos.controller) + "?productoid=" + item.id)" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+										<i class="icon-pencil g-font-size-18 g-mr-7"></i>
+									</a>
+									<a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href="#!" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+										<i class="icon-trash g-font-size-18 g-mr-7"></i>
+									</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!--End Basic Table-->
+		</div>
+	</div>
+</div>
+
+

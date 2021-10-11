@@ -1,0 +1,309 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using System.Data.Entity.Core.Objects
+@using System.Linq
+@using System
+@using System.Collections.Generic
+
+
+@{
+    ViewBag.Title = "Sección Home";
+    Layout = "~/Views/_Layout.cshtml";
+    ESeccionNosotrosCarruselPlantas carruselPlantas = new ESeccionNosotrosCarruselPlantas();
+    List<cms_seccionHomeNoticiasCarruselObtener_Result> noticiasCarrusel = new List<cms_seccionHomeNoticiasCarruselObtener_Result>();
+    foreach (var el in BDFecade.db().cms_seccionHomeNoticiasCarruselObtener())
+    {
+        noticiasCarrusel.Add(el);
+    }
+
+    ObjectResult<int?> dbres = BDFecade.db().cms_seccionHomeNoticiasCarruselObtenerUltimoOrden();
+    int resultado = -1;
+    foreach (var el in dbres)
+    {
+        resultado = Convert.ToInt32(el);
+    }
+
+    ObjectResult<cms_seccionHomeVideosEventosObtenerTodosV2_Result> dbresVideosEventos = BDFecade.db().cms_seccionHomeVideosEventosObtenerTodosV2();
+
+
+    ObjectResult<int?> dbresUltimoOrden = BDFecade.db().cms_seccionHomeVideosEventosObtenerUltimoOrden();
+    int ultimoOrdenVideosEventos = -1;
+    foreach (var el in dbresUltimoOrden)
+    {
+        ultimoOrdenVideosEventos = Convert.ToInt32(el);
+    }
+
+    ObjectResult<cms_seccionHomeSobreNosotrosObtener_Result> dbresSobreNosotrosContenido = BDFecade.db().cms_seccionHomeSobreNosotrosObtener();
+    string sobreNosotrosContenido = string.Empty;
+    string sobreNosotrosNombreArchivo = string.Empty;
+    foreach (var el in dbresSobreNosotrosContenido)
+    {
+        sobreNosotrosContenido = el.contenido;
+        sobreNosotrosNombreArchivo = el.nombre_archivo;
+    }
+
+}
+
+<!-- Pell START -->
+<link rel="stylesheet" href="@Url.Content("~/AppStorage/pell/pell.min.css")" />
+<script src="@Url.Content("~/AppStorage/pell/pell.min.js")"></script>
+<script>
+	// Inicializa un control
+    function InicializarControl(nombre_elemento, nombre_input) {
+        // Initialize pell on an HTMLElement
+        pell.init({
+            // <HTMLElement>, required
+            element: document.getElementById(nombre_elemento),
+            // <Function>, required
+            // Use the output html, triggered by element's `oninput` event
+            onChange: html => document.getElementById(nombre_input).value = html,
+            // <string>, optional, default = 'div'
+            // Instructs the editor which element to inject via the return key
+            defaultParagraphSeparator: 'br',
+            // <boolean>, optional, default = false
+            // Outputs <span style="font-weight: bold;"></span> instead of <b></b>
+            styleWithCSS: false,
+            // <Array[string | Object]>, string if overwriting, object if customizing/creating
+            // action.name<string> (only required if overwriting)
+            // action.icon<string> (optional if overwriting, required if custom action)
+            // action.title<string> (optional)
+            // action.result<Function> (required)
+            // Specify the actions you specifically want (in order)
+            actions: [
+			  'bold',
+			  'underline',
+			  'italic',
+			  {
+			      name: 'custom',
+			      icon: 'C',
+			      title: 'Subindice',
+			      result: () => document.execCommand('subscript', false, null)
+			  }
+            ],
+            // classes<Array[string]> (optional)
+            // Choose your custom class names
+            classes: {
+                actionbar: 'pell-actionbar',
+                button: 'pell-button',
+                content: 'pell-content',
+                selected: 'pell-button-selected'
+            }
+        }).content.innerHTML = document.getElementById(nombre_input).value;
+
+        // editor.content.innerHTML = document.getElementById(nombre_input).value;
+    }
+</script>
+<style>
+    /* override styles here */
+    .pell-container {
+        border: 1px solid black;
+    }
+</style>
+<!-- Pell END -->
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h1>Sitio web - Home</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-noticias-tab" data-toggle="tab" href="#nav-noticias" role="tab" aria-controls="nav-noticias" aria-selected="true">Noticias</a>
+                    <a class="nav-item nav-link" id="nav-eventos-tab" data-toggle="tab" href="#nav-eventos" role="tab" aria-controls="nav-eventos" aria-selected="false">Eventos</a>
+                    <a class="nav-item nav-link" id="nav-sobre-nosotros-tab" data-toggle="tab" href="#nav-sobre-nosotros" role="tab" aria-controls="nav-sobre-nosotros" aria-selected="false">Sobre nosotros</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="nav-noticias" role="tabpanel" aria-labelledby="nav-carrusel-plantas-tab">
+                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostNuevoNoticiasCarrusel.getRedirect())" enctype="multipart/form-data">
+                        <div class="col-sm-12 col-md-6">
+                            <label>Seleccione un archivo</label>
+                            <input type="file" name="imagen" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <label>Órden</label>
+                            <input type="number" name="orden" class="form-control" value="@resultado" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <label>Móvil</label>
+                            <input type="checkbox" name="movil" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <label>Url redirección</label>
+                            <input type="text" name="url-redireccion" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-12 text-right"><br />
+                            <button type="submit" class="btn btn-info">Enviar</button>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <h3>Versión desktop</h3>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="container-fluid">
+                                @foreach (cms_seccionHomeNoticiasCarruselObtener_Result el in noticiasCarrusel)
+                                {
+                                    if (el.movil == true)
+                                    {
+                                        continue;
+                                    }
+                                    <hr />
+                                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarNoticiasCarrusel.getRedirect())">
+                                        <div class="col-sm-12 col-md-3">
+                                            <img src="@("http://grupoversa.com/files/storage/" + el.nombre_archivo)" style="width: 100%;" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-5">
+                                            <label>Orden</label>
+                                            <input type="text" name="orden" class="form-control" value="@el.orden.ToString()" required />
+                                            <input type="hidden" name="id" value="@el.id" />
+                                            <label>Url Redirección</label>
+                                            <input type="text" class="form-control" disabled value="@el.url_redireccion" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-1">
+                                            <label>Móvil</label>
+                                            @if (Convert.ToBoolean(el.movil))
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" />
+                                            }
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <a href="@Url.Content((Utils.Ruta.rutaGetEliminarNoticiasCarrusel.getRedirect() + "?idVideo=" + el.id))">
+                                                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                            </a>
+                                            <button type="submit" class="btn btn-info btn-sm">Guardar cambios</button>
+                                        </div>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <hr />
+                            <h3>Versión móvil</h3>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="container-fluid">
+                                @foreach (cms_seccionHomeNoticiasCarruselObtener_Result el in noticiasCarrusel)
+                                {
+                                    if (el.movil == false)
+                                    {
+                                        continue;
+                                    }
+                                    <hr />
+                                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarNoticiasCarrusel.getRedirect())">
+                                        <div class="col-sm-12 col-md-3">
+                                            <img src="@("http://grupoversa.com/files/storage/" + el.nombre_archivo)" style="width: 100%;" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-5">
+                                            <label>Orden</label>
+                                            <input type="text" name="orden" class="form-control" value="@el.orden.ToString()" required />
+                                            <input type="hidden" name="id" value="@el.id" />
+                                            <label>Url Redirección</label>
+                                            <input type="text" class="form-control" disabled value="@el.url_redireccion" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-1">
+                                            <label>Móvil</label>
+                                            @if (Convert.ToBoolean(el.movil))
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" />
+                                            }
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <a href="@Url.Content((Utils.Ruta.rutaGetEliminarNoticiasCarrusel.getRedirect() + "?idVideo=" + el.id))">
+                                                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                            </a>
+                                            <button type="submit" class="btn btn-info btn-sm">Guardar cambios</button>
+                                        </div>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-linea-tiempo-tab">
+                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostNuevoVideoNoticia.getRedirect())" enctype="multipart/form-data">
+                        <div class="col-sm-12 col-md-2">
+                            <label>Seleccione un archivo</label>
+                            <input type="file" name="video" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <label>Descripción</label>
+                            <input type="text" name="descripcion" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <label>Órden</label>
+                            <input type="number" name="orden" class="form-control" value="@ultimoOrdenVideosEventos" />
+                        </div>
+                        <div class="col-sm-12 col-md-12 text-right">
+                            <br />
+                            <button type="submit" class="btn btn-info">Enviar</button>
+                        </div>
+                    </form>
+                    @foreach (var el in dbresVideosEventos)
+                    {
+                        <hr />
+                        <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarVideoNoticia.getRedirect())">
+                            <div class="col-sm-12 col-md-4">
+                                <video src="@("http://grupoversa.com/files/storage/" + el.nombre_archivo)" style="width: 100%;" controls></video>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <input type="hidden" name="id" value="@el.id" />
+                                <label>Orden</label>
+                                <input type="text" class="form-control" disabled value="@el.orden" />
+                                <br />
+                                <label>Descripción</label>
+                                <input type="text" class="form-control" name="descripcion" value="@el.descripcion" />
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <a href="@Url.Content((Utils.Ruta.rutaGetEliminarVideoNoticia.getRedirect() + "?idVideo=" + el.id))">
+                                    <button type="button" class="btn btn-danger" style="margin-top: 20px;">Eliminar</button>
+                                </a>
+                                <button type="submit" class="btn btn-info" style="margin-top: 20px;">Actualizar</button>
+                            </div>
+                        </form>
+                    }
+                </div>
+
+                <div class="tab-pane fade" id="nav-sobre-nosotros" role="tabpanel" aria-labelledby="nav-linea-tiempo-tab">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form class="col-sm-12 col-md-6" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarSobreNosotros.getRedirect())">
+                                <h3><label for="ver-intra-nuevo-producto-descripcion">Descripción producto</label></h3>
+                                <div id="seccion-nosotros-contenido-div" class="pell-container"></div>
+                                <input type="hidden" id="seccion-nosotros-contenido" name="seccion-nosotros-contenido" value="@Html.Raw(sobreNosotrosContenido)" />
+                                <script> InicializarControl('seccion-nosotros-contenido-div', 'seccion-nosotros-contenido'); </script>
+                                <br />
+                                <button type="submit" class="btn btn-info pull-right">Guardar</button>
+                            </form>
+                            <form class="col-sm-12 col-md-6" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarSobreNosotrosImagen.getRedirect())" enctype="multipart/form-data">
+                                <img src="@("http://grupoversa.com/files/storage/" + sobreNosotrosNombreArchivo)" class="img-all-width" />
+                                <input type="file" name="imagen" />
+                                <br />
+                                <button type="submit" class="btn btn-info pull-right">Guardar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

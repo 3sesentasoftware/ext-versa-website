@@ -1,0 +1,176 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.carzapc.core.web
+@using System.Data.Entity.Core.Objects
+
+@{
+    ViewBag.Title = "Nosotros";
+    Layout = "~/Views/_Layout.cshtml";
+    ESeccionNosotrosCarruselPlantas carruselPlantas = new ESeccionNosotrosCarruselPlantas();
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h1>Sección nosotros</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-carrusel-plantas-tab" data-toggle="tab" href="#nav-carrusel-plantas" role="tab" aria-controls="nav-carrusel-plantas" aria-selected="true">Carrusel plantas</a>
+                    <a class="nav-item nav-link" id="nav-linea-tiempo-tab" data-toggle="tab" href="#nav-linea-tiempo" role="tab" aria-controls="nav-linea-tiempo" aria-selected="false">Línea del tiempo</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-carrusel-plantas" role="tabpanel" aria-labelledby="nav-carrusel-plantas-tab">
+                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostNuevoCarruselPlanta.getRedirect())" enctype="multipart/form-data">
+                        <div class="col-sm-12 col-md-6">
+                            <label>Seleccione un archivo</label>
+                            <input type="file" name="imagen" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <label>Órden</label>
+                            <input type="number" name="orden" class="form-control" value="@carruselPlantas.obtUltimoOrden()" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <label>Móvil</label>
+                            <input type="checkbox" name="movil" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <button type="submit" class="btn btn-info" style="margin-top: 30px;">Enviar</button>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="container-fluid">
+                                @foreach (ESeccionNosotrosCarruselPlantas el in carruselPlantas.obtTodos<ESeccionNosotrosCarruselPlantas>())
+                                {
+                                    <hr />
+                                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarCarruselPlanta.getRedirect())">
+                                        <div class="col-sm-12 col-md-3">
+                                            <img src="@("http://grupoversa.com/files/storage/" + el.nombreArchivo)" style="width: 100%;" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <label>Orden</label>
+                                            <input type="text" name="orden" class="form-control" value="@el.orden.ToString()" required />
+                                            <input type="hidden" name="id" value="@el.id" />
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <label>Móvil</label>
+                                            @if (el.movil)
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="movil" class="form-control" />
+                                            }
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="eliminarCarrusel(@el.id)">Eliminar</button>
+                                            <button type="submit" class="btn btn-info btn-sm">Guardar cambios</button>
+                                        </div>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-linea-tiempo" role="tabpanel" aria-labelledby="nav-linea-tiempo-tab">
+                    <form class="row" method="post" action="@Url.Content(Utils.Ruta.rutaPostEditarLineaTiempo.getRedirect())" enctype="multipart/form-data">
+                        <div class="col-sm-12 col-md-10">
+                            <label>Seleccione un archivo</label>
+                            <input type="file" name="imagen" class="form-control" />
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <button type="submit" class="btn btn-info" style="margin-top: 30px;">Enviar</button>
+                        </div>
+                    </form>
+
+                    <!-- LINEA DEL TIEMPO START -->
+                    <style>
+                        .timeline-container {
+                            height: 90%;
+                            overflow-y: auto;
+                            margin-top: -15vh;
+                            padding-top: 5vh;
+                        }
+
+                            .timeline-container img {
+                                width: 50%;
+                                margin-left: 25%;
+                            }
+
+                        @@media only screen and (max-width: 800px) {
+                            .timeline-container {
+                                height: 75%;
+                                margin-top: 0vh;
+                            }
+
+                                .timeline-container img {
+                                    width: 80%;
+                                    margin-left: 10%;
+                                }
+                        }
+
+                        @@media only screen and (max-width: 360px) {
+                            .timeline-container img {
+                                width: 100%;
+                                margin-left: 00%;
+                            }
+
+                            .carousel-item .carousel-img {
+                                height: 100%;
+                            }
+                        }
+                    </style>
+                    @{
+                        ObjectResult<string> dbresLineaTiempo = BDFecade.db().cms_seccionNosotrosLineaTiempoObtener();
+                        string lineaTiempo = string.Empty;
+                        foreach (var el in dbresLineaTiempo)
+                        {
+                            lineaTiempo = el;
+                        }
+                    }
+                    <div class="timeline row" style="background-color: #F1F1F1;height:100vh;">
+                        <h4 class="timeline-header" style="padding-top: 10vh;color: #1F485A;background-color: #F1F1F1;">
+                            <strong>Linea de Tiempo</strong> <br />Grupo Versa
+                        </h4>
+                        <div class="timeline-container">
+                            <br>
+                            <img src="@("http://grupoversa.com/files/storage/" + lineaTiempo)" />
+                        </div>
+                    </div>
+                    <!-- LINEA DEL TIEMPO END -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    var eliminarCarrusel = function (idElemento) {
+
+        var params = {
+            id: idElemento
+        };
+
+        $.ajax({
+            type: "POST",
+            data: params,
+            url: "@Url.Content(Utils.Ruta.rutaPostEliminarCarruselPlanta.getRedirect())",
+            success: function (data) {
+                location.reload();
+            },
+            fail: function (data) {
+                location.reload();
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,517 @@
+﻿@model IEnumerable<Versa_Web.ViewModels.ProductoResumenVM>
+@using Versa_Web.Code
+
+@{
+	ViewBag.Title = "Productos";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+	<script src="@Url.Content("~/Content/js/func/fadein-fadeout.js")"></script>
+}
+
+@section css {
+    <link href="@Utils.getUrlAssets("app/BuscarProducto.css", this)" rel="stylesheet" />
+}
+
+<script>
+    $('#productos').addClass("active");
+</script>
+
+<div class="row input-container">
+	<div class="col-lg-12">
+		<form class="form-inline float-right">
+			<select class="form-control cultivo-select" id="soflow" style="cursor: pointer;">
+				<option disabled selected>Selecciona la problemática</option>
+				<option>Cualquiera</option>
+				<option>Agave</option>
+				<option>Aguacate</option>
+				<option>Alfalfa</option>
+				<option>Algodón</option>
+				<option>Apio</option>
+				<option>Arándano</option>
+				<option>Arroz</option>
+				<option>Berenjena</option>
+				<option>Brócoli</option>
+				<option>Café</option>
+				<option>Calabacita</option>
+				<option>Caña de azúcar</option>
+				<option>Cártamo</option>
+				<option>Cebada</option>
+				<option>Cebolla</option>
+				<option>Chabacano</option>
+				<option>Chile</option>
+				<option>Ciruelo</option>
+				<option>Col</option>
+				<option>Col de Bruselas</option>
+				<option>Coliflor</option>
+				<option>Durazno</option>
+				<option>Espárrago</option>
+				<option>Frambuesa</option>
+				<option>Fresa</option>
+				<option>Frijol</option>
+				<option>Garbanzo</option>
+				<option>Gerbera</option>
+				<option>Jitomate </option>
+				<option>Lechuga</option>
+				<option>Lima</option>
+				<option>Limón</option>
+				<option>Maíz</option>
+				<option>Mango</option>
+				<option>Melón</option>
+				<option>Naranja</option>
+				<option>Nuez</option>
+				<option>Papa</option>
+				<option>Papaya</option>
+				<option>Pepino</option>
+				<option>Pera</option>
+				<option>Piña</option>
+				<option>Plátano</option>
+				<option>Rosa</option>
+				<option>Sandía</option>
+				<option>Sorgo</option>
+				<option>Soya</option>
+				<option>Tabaco</option>
+				<option>Tomate</option>
+				<option>Toronja</option>
+				<option>Trigo grano</option>
+				<option>Uva</option>
+				<option>Vid</option>
+				<option>Zarzamora</option>
+			</select>
+
+			&nbsp;&nbsp;
+
+			<select class="form-control bacteria-select" id="soflow2" style="cursor: pointer;">
+				<option disabled selected>Selecciona la Enfermedad</option>
+				<option>Todos</option>
+			</select>
+		</form>
+	</div>
+</div>
+<script>
+
+	$(".bacteria-select").hide();
+
+	$(".bacteria-select").change(function () {
+		var c = $('.cultivo-select').val();
+		var e = $('.bacteria-select').val();
+		if (e == 'null') {
+			$(".bacteria-select").hide();
+		}
+		getProducts(c, e);
+	});
+
+	document.getElementById("soflow").addEventListener("click", function () {
+    	
+		// FadeOut
+    	if (document.getElementById('iconSelector').style.opacity != 1)
+    	{
+    		FX.fadeOut(document.getElementById('iconSelector'), {
+    			duration: 2500,
+    			complete: function () {
+    			}
+    		});
+    		document.getElementById('iconSelector').style.display = "none";
+    	}
+    	
+		// FadeIn
+    	if (document.getElementById('productList').style.opacity != 1)
+    	{
+    		document.getElementById('productList').style.opacity = 0;
+    		document.getElementById('productList').style.display = "flex";
+    		FX.fadeIn(document.getElementById('productList'), {
+    			duration: 2500,
+    			complete: function () {
+    			}
+    		});
+    	}
+    	
+	});
+</script>
+
+
+<!-- Icon Selector START -->
+<div class="row" style="margin-top: 2vh;" id="iconSelector">
+	<div class="col-md-8 col-xs-12 mx-auto my-auto text-center">
+		<div class="row icons-linea">
+			<div class="col-md-3 col-xs-12">
+				<a href="@Url.Action("VerCategoria", "Home", new { q="insecticida" })">
+					<img class="selector-icon insecticidas" src="~/Public/img/families/icon-insecticida.png" />
+					<br />
+					<br />
+					<span>INSECTICIDAS</span>
+				</a>
+			</div>
+			<div class="col-md-3 col-xs-12">
+				<a href="@Url.Action("VerCategoria", "Home", new { q="coadyuvante" })">
+					<img class="selector-icon coadyuvantes" src="~/Public/img/families/icon-coadyuvante.png">
+					<br />
+					<br />
+					<span>OTROS</span>
+				</a>
+			</div>
+			<div class="col-md-3 col-xs-12">
+				<a href="@Url.Action("VerCategoria", "Home", new { q="herbicida" })">
+					<img class="selector-icon herbicidas" src="~/Public/img/families/icon-herbicida.png">
+					<br />
+					<br />
+					<span>HERBICIDAS</span>
+				</a>
+			</div>
+			<div class="col-md-3 col-xs-12">
+				<a href="@Url.Action("VerCategoria", "Home", new { q="nutricion" })">
+					<img class="selector-icon nutricion" src="~/Public/img/families/icon-nutricion.png">
+					<br />
+					<br />
+					<span>NUTRICIÓN</span>
+				</a>
+			</div>
+		</div>
+		<br />
+		<div class="row icons-linea">
+			<div class="col-10 mx-auto text-center">
+				<div class="row">
+					<div class="col">
+						<a href="@Url.Action("VerCategoria", "Home", new { q="biorracional" })">
+							<img class="selector-icon biocontrol" src="~/Public/img/families/icon-biorracional.png">
+							<br />
+							<br />
+							<span>BIORRACIONAL</span>
+						</a>
+					</div>
+					<div class="col">
+						<a href="@Url.Action("VerCategoria", "Home", new { q="bactericida" })">
+							<img class="selector-icon bactericida" src="~/Public/img/families/icon-bactericida.png">
+							<br />
+							<br />
+							<span>BACTERICIDAS</span>
+						</a>
+					</div>
+					<div class="col ">
+						<a href="@Url.Action("VerCategoria", "Home", new { q="fungicida" })">
+							<img class="selector-icon fungicida" src="~/Public/img/families/icon-fungicida.png">
+							<br />
+							<br />
+							<span>FUNGICIDAS</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Icon Selector END -->
+
+<!-- Product List START -->
+<div class="row" id="productList">
+
+	@{ bool aux = true; string cat = "";}
+	@foreach (var item in Model)
+	{
+		if (cat != item.classname)
+		{
+			aux = true;
+		}
+
+		if (aux == true)
+		{
+			<div class="col-md-12 mt-2 mb-2 @item.classname linea-@item.classname line-container">
+				<div class="card flex-row flex-wrap banner-line">
+					<div class="card-header border-0 @item.classname-toggle" style="background-color: transparent;z-index:10; cursor: pointer;" >
+						<img class="line-img" src="@Url.Content("~/Public/img/families/icon-" + @Html.DisplayFor(modelItem => item.classname) + ".png")">
+					</div>
+					<div class="card-block px-2 justify-content-center align-self-center banner-@item.classname banner @item.classname-toggle" style="cursor: pointer;" >
+						<h4 class="card-title">@Html.DisplayFor(modelItem => item.categoria)</h4>
+					</div>
+				</div>
+			</div>
+
+			aux = false;
+		}
+
+		cat = item.classname;
+
+		<div class="col-md-6 col-md-6 mt-4 product-item item-@item.classname toggeable-items">
+			<div class="card flex-row flex-wrap" style="border:none;">
+				<div class="card-header border-0 text-center product-img" style="background-color:#FFF;">
+					<img class="img-dimentions" src="@Utils.getUrlFile(item.imagen)" alt="@Html.DisplayFor(modelItem => item.imagen))" />
+				</div>
+				<div class="card-block product-desc" style="width:300px;">
+					<div style="width:305px;">
+						<p class="product-name title-@item.classname">@Html.DisplayFor(modelItem => item.nombre)<sup style="font-size:20px;"> &reg;</sup><span class="product-spec subtitle-@item.classname">@Html.DisplayFor(modelItem => item.subnombre)</span></p>
+					</div>
+					<img src="@Url.Content("~/Public/img/misc/molecula.png")" style="filter: grayscale(100%);width:50px;float:left;margin-right: 16px;margin-bottom:26px;">
+					<p class="card-text" style="border-radius: 14px;font-size:14px;letter-spacing: -1px;width:100%;">
+						<span class="active-ing"><strong style="text-transform: uppercase;">@Html.DisplayFor(modelItem => item.ingrediente_activo)</strong></span><br>
+						@Html.DisplayFor(modelItem => item.presentacion)
+					</p>
+					<button type="button" class="btn btn-sm float-right btn-@item.classname" style="border: none; border-radius: 50%;">
+						<a href="/ver-producto?q=@item.id" style="text-decoration: none; color: #FFF;" role="button" aria-pressed="true"><i class="fas fa-plus"></i></a>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	}
+</div>
+<script>
+	document.getElementById("productList").style.display = "none";
+</script>
+<!-- Product List END -->
+
+
+<!-- Unidades estrategicas START -->
+@Html.Partial("~/Views/Componentes/_unidades_estrategicas.cshtml", "#F1F1F1")
+<!-- Unidades estrategicas END -->
+
+<div class="row text-center mx-auto" style="position:fixed;bottom:0 !important;width:100%;z-index: 999999;display:none;">
+	<div class="col-md-8 mx-auto my-auto text-center">
+		<button id="bannerBtn" type="button" class="btn btn-sm fixed-btn" style="border: none; border-radius: 50%;background-color: #8AC746;color: #FFF;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);">
+			<i class="fa fa-caret-up" aria-hidden="true"></i>
+		</button>
+	</div>
+	<div id="bannerIcons" class="row mx-auto text-center" style="width:35%;background-color: rgba(255,255,255,0.90);border-radius:25px;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+		<div class="mx-auto pt-5 banner-icons">
+			<div style="line-height: 14px;letter-spacing: -1px;float:left;">
+				<a href="@Url.Action("Index", "Proteccion")" style="text-decoration: none;color:#1A4256;">
+					<img src="@Url.Content("~/Public/img/icon-fill-1.png")" style="width: 80px;">
+					<br>
+					<p><br>PROTECCIÓN <br>CULTIVOS</p>
+				</a>
+			</div>
+			<div style="line-height: 14px;letter-spacing: -1px;float:left;">
+				<a href="proteccion.html" style="text-decoration: none;color:#1A4256;">
+					<img src="@Url.Content("~/Public/img/icon-fill-2.png")" style="width: 80px;">
+					<br>
+					<p><br>SEMILLAS</p>
+				</a>
+			</div>
+			<div style="line-height: 14px;letter-spacing: -1px;float:left;">
+				<a href="proteccion.html" style="text-decoration: none;color:#1A4256;">
+					<img src="@Url.Content("~/Public/img/icon-fill-3.png")" style="width: 80px;">
+					<br>
+					<p><br>INDUSTRIAL</p>
+				</a>
+			</div>
+			<div style="line-height: 14px;letter-spacing: -1px;float:left;">
+				<a href="proteccion.html" style="text-decoration: none;color:#1A4256;">
+					<img src="@Url.Content("~/Public/img/icon-fill-4.png")" style="width: 80px;">
+					<br>
+					<p><br>LÍNEA <br>URBANA</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	$(document).ready(function () {
+		// Estos eventos, muestran y ocultan los productos al dar clic en la categoría.
+		// Bactericida
+    	$('.bactericida-toggle').click(function () {
+            $('.item-bactericida').slideToggle();
+        });
+
+		// Fungicida
+        $('.fungicida-toggle').click(function () {
+            $('.item-fungicida').slideToggle();
+        });
+
+		// Herbicida
+        $('.herbicida-toggle').click(function () {
+            $('.item-herbicida').slideToggle();
+        });
+
+		// Nutricion
+        $('.nutricion-toggle').click(function () {
+            $('.item-nutricion').slideToggle();
+        });
+
+		// Biorracional
+        $('.biorracional-toggle').click(function () {
+            $('.item-biorracional').slideToggle();
+        });
+
+		// Insecticida
+        $('.insecticida-toggle').click(function () {
+            $('.item-insecticida').slideToggle();
+        });
+		        
+		// Coadyuvante
+        $('.coadyuvante-toggle').click(function () {
+            $('.item-coadyuvante').slideToggle();
+        });
+
+    });
+
+
+	// Agrega las enfermedades en el select 2
+    function RenderEnfermedades(b, e) {
+    	console.log("RenderEnfermedades");
+
+        $("#soflow2").find('option').remove().end();
+        if (e == null) {
+           $('#soflow2').prepend('<option disabled="disabled" selected>Selecciona Enfermedad </option>');
+        }
+        for (var i = 0; i < b.length; i++) {
+            if (b[i] != "") {
+                if (b[i] == e) {
+                   $('#soflow2').prepend('<option value="'+e+'" selected>'+e+'</option>')
+                } else {
+                    var o = new Option(b[i], b[i]);
+                    $(o).html(b[i]);
+                    $("#soflow2").append(o);
+                }
+            }
+        }
+    }
+
+    enfermedades = [];
+    function getProducts(c, e) {
+    	console.log("Ejecutando getProducts()");
+
+    	if (e != 'null') {
+    		$(".bacteria-select").fadeIn(500);
+    	}
+
+    	dataP = '{cultivo: "' + c + '", ' + 'enfermedad: "' + e + '" }';
+    	$.ajax({
+    		type: "POST",
+    		url: "/post/buscar-producto/filter",
+    		data: dataP,
+    		contentType: "application/json; charset=utf-8",
+    		dataType: "json",
+    		success: function (data) {
+    			clearProsucts();
+    			if (data.length > 0) {
+    				for (var i = 0; i < data.length; i++) {
+    					RenderItem(data[i].id, data[i].nombre, data[i].subnombre, data[i].imagen, data[i].presentacion, data[i].classname, data[i].ingrediente_activo);
+    					enfermedades.push(data[i].id);
+    				}
+    				getEnfermedades(enfermedades, c, e);
+    			} else {
+    				$(".bacteria-select").fadeOut(500);
+    			}
+    		},
+    		error: function (response) {
+    			alert("Sin resultados");
+    		}
+    	});
+    }
+
+
+    function getEnfermedades(e, c, index) {
+    	console.log("ejecutando getEnfermedades");
+    	var dataParams = ''
+    	for (i = 0; i < e.length - 1; i++) {
+    		dataParams += 'listIds=' + e[i] + '&'
+    	}
+    	dataParams += 'listIds=' + e[e.length - 1]
+    	$.ajax({
+    		type: "POST",
+    		url: "/get/json/buscar-producto/enfermedades?" + dataParams + "&cultivo=" + c,
+    		data: '',
+    		contentType: "application/json; charset=utf-8",
+    		dataType: "json",
+    		success: function (data) {
+    			var bacterias = [];
+    			for (var i = 0; i < data.length; i++) {
+    				if (data[i].enfermedad != "" && data[i].enfermedad != null) {
+    					var n = data[i].enfermedad;
+    					separador = "<strong>";
+    					separador2 = "</strong>";
+    					ns = n.split(separador);
+
+    					for (var j = 0; j < ns.length; j++) {
+    						sn = ns[j].split(separador2);
+    						bacterias.push(sn[0]);
+    					}
+    				}
+    			}
+    			RenderEnfermedades(bacterias, index);
+    		},
+    		error: function (response) {
+    			alert("Sin resultados");
+    		}
+    	});
+    }
+
+
+    function clearProsucts() {
+    	console.log("clearProducts");
+    	$('.product-item').remove();
+    }
+
+
+    function RenderItem(id, nombre, subnombre, imagen, presentacion, categoria, ingrediente) {
+    	console.log("RenderItem");
+    	if (subnombre == null) {
+    		subnombre = "";
+    	}
+    	var item =
+			'<div class="col-md-6 col-md-6 mt-4 product-item item-' + categoria + '" style="float: left;">' +
+			'	<div class="card flex-row flex-wrap" style="border:none;">' +
+			'		<div class="card-header border-0" style="background-color:#FFF;">   ' +
+			'			<a href="/ver-producto?q=' + id + '">' +
+			'				<img class="img-dimentions" src="http://grupoversa.com/files/storage/' + imagen + '" />' +
+			'			</a>' +
+			'		</div>' +
+			'		<div class="card-block" style="width:300px;">' +
+			'			<div style="width:305px;">' +
+			'				<p class="product-name title-' + categoria + '">' + nombre + ' <sup style="font-size:20px;"> &reg;</sup><span class="product-spec subtitle-' + categoria + '">' + subnombre + '</span></p>' +
+			'			</div>' +
+			'			<p class="card-text" style="border-radius: 14px;font-size:14px;letter-spacing: -1px;width:100%;">' +
+			'				<span class="active-ing">' +
+			'					<strong style="text-transform: uppercase;">' + ingrediente + '</strong>' +
+			'				</span>' +
+			'				<br>' +
+								presentacion +
+			'			</p>' +
+			'			<a href="/ver-producto?q=' + id + '" style="text-decoration: none;" role="button" aria-pressed="true">' +
+			'			<button type="button" class="btn btn-sm float-right btn-' + categoria + '" style="border: none; border-radius: 50%;">' +
+			'				<i style="color: #FFF;" class="fas fa-plus"></i>' +
+			'			</button>' +
+			'			</a>' +
+			'		</div>' +
+			'		<div class="w-100"></div>' +
+			'	</div>' +
+			'</div>';
+    	$('.linea-' + categoria).after(item);
+    }
+
+	// Cuando recibe un clic, se despliega la lista completa de productos
+    //$('#soflow').click(function () {
+    //	console.log("Primer clic a primer select");
+    //    $('#iconSelector').fadeOut(500);
+    //    $('#productList').fadeIn(2500);
+	//});
+
+    
+	
+    
+
+
+
+
+
+
+    $(".cultivo-select").change(function () {
+    	console.log("Evento change del primer select");
+    	var c = $('.cultivo-select').val();
+    	getProducts(c, null);
+    });
+
+
+    
+
+
+    $('#bannerBtn').click(function () {
+        $('#bannerIcons').slideToggle("slow", function () {
+        });
+    });
+
+
+</script>

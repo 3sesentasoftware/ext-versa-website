@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ApiFilesVersaV3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ApiFilesVersaV3Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="cms_borrarEstructuraTablaAplicacion">
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_borrarImagenTablaAplicacion">
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_cmsHomeCarruselNuevo">
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="imagen_escritorio" Mode="In" Type="String" />
+      <Parameter Name="imagen_movil" Mode="In" Type="String" />
+      <Parameter Name="url_redireccion" Mode="In" Type="String" />
+      <Parameter Name="usuario_creo" Mode="In" Type="Int32" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_documentoEsrActualizar">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_documentoEsrObtener" ReturnType="Collection(String)" />
+    <FunctionImport Name="cms_informacionContactoEmpresaActualizar">
+      <Parameter Name="telefono_contacto" Mode="In" Type="String" />
+      <Parameter Name="direccion_fisica" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_informacionContactoEmpresaObtener" ReturnType="Collection(ApiFilesVersaV3.cms_informacionContactoEmpresaObtener_Result)" />
+    <FunctionImport Name="cms_logotipoEmpresaActualizar">
+      <Parameter Name="nombre_imagen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_logotipoEmpresaObtener" ReturnType="Collection(String)" />
+    <FunctionImport Name="cms_modufilesArchivoNuevo">
+      <Parameter Name="archivo_hash" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_modufilesArchivoNuevoId" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="cms_obtImagenTabla" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_obtNombreUsuario" ReturnType="Collection(ApiFilesVersaV3.cms_obtNombreUsuario_Result)">
+      <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_productoActualizarTablaAplicacion">
+      <Parameter Name="imagen_tabla_aplicacion" Mode="In" Type="String" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_pSkuNuevo">
+      <Parameter Name="sku" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_pSkuObtener" ReturnType="Collection(ApiFilesVersaV3.cms_pSkuObtener_Result)" />
+    <FunctionImport Name="cms_pTipoActualizar">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="imagen" Mode="In" Type="String" />
+      <Parameter Name="alias" Mode="In" Type="String" />
+      <Parameter Name="classname_img_mobile" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_pTipoEliminar">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_pTipoNuevo">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="imagen" Mode="In" Type="String" />
+      <Parameter Name="alias" Mode="In" Type="String" />
+      <Parameter Name="classname_img_mobile" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_pTipoObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.cms_pTipoObtenerTodos_Result)" />
+    <FunctionImport Name="cms_redesSocialesEmpresaActualizar">
+      <Parameter Name="url_facebook" Mode="In" Type="String" />
+      <Parameter Name="url_youtube" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_redesSocialesEmpresaObtener" ReturnType="Collection(ApiFilesVersaV3.cms_redesSocialesEmpresaObtener_Result)" />
+    <FunctionImport Name="cms_seccionHomeNoticiasCarruselActualizar">
+      <Parameter Name="cms_seccion_home_carrusel_noticias_id" Mode="In" Type="Int32" />
+      <Parameter Name="url_redireccion" Mode="In" Type="String" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+      <Parameter Name="movil" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeNoticiasCarruselDesactivar">
+      <Parameter Name="cms_seccion_home_carrusel_noticias_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeNoticiasCarruselNuevo">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+      <Parameter Name="url_redireccion" Mode="In" Type="String" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+      <Parameter Name="movil" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeNoticiasCarruselObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeNoticiasCarruselObtener_Result)" />
+    <FunctionImport Name="cms_seccionHomeNoticiasCarruselObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="cms_seccionHomeSobreNosotrosActualizar">
+      <Parameter Name="contenido" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeSobreNosotrosActualizarNombreArchivo">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeSobreNosotrosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeSobreNosotrosObtener_Result)" />
+    <FunctionImport Name="cms_seccionHomeVideosEventosActualizar">
+      <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeVideosEventosActualizarDescripcion">
+      <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeVideosEventosDesactivar">
+      <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeVideosEventosNuevo">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeVideosEventosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionHomeVideosEventosObtener_Result)" />
+    <FunctionImport Name="cms_seccionHomeVideosEventosObtenerDescripcion" ReturnType="Collection(String)">
+      <Parameter Name="cms_seccion_home_videos_eventos_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionHomeVideosEventosObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasActualizarMovil">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="movil" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasActualizarOrden">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasDesactivar">
+      <Parameter Name="cms_seccion_nosotros_carrusel_plantas_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasNuevo">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+      <Parameter Name="orden" Mode="In" Type="Int32" />
+      <Parameter Name="movil" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionNosotrosCarruselPlantasObtener_Result)" />
+    <FunctionImport Name="cms_seccionNosotrosCarruselPlantasObtenerUltimoOrden" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="cms_seccionNosotrosLineaTiempoActualizar">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosLineaTiempoNuevo">
+      <Parameter Name="nombre_archivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionNosotrosLineaTiempoObtener" ReturnType="Collection(String)" />
+    <FunctionImport Name="cms_seccionProductosActualizarImagenTablaAplicacion">
+      <Parameter Name="imagenTablaAplicacion" Mode="In" Type="String" />
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionProductosDocumentosActualizar">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="documento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionProductosDocumentosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionProductosDocumentosObtener_Result)">
+      <Parameter Name="id_Producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionProductosEliminar">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionProductosNuevo" ReturnType="Collection(Int32)">
+      <Parameter Name="id_tipo" Mode="In" Type="Int32" />
+      <Parameter Name="sku" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="subnombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionUsuariosEditar">
+      <Parameter Name="usuarioId" Mode="In" Type="Int32" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_seccionUsuariosObtener" ReturnType="Collection(ApiFilesVersaV3.cms_seccionUsuariosObtener_Result)">
+      <Parameter Name="usuarioId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_tablaAplicacionTituloObtener" ReturnType="Collection(ApiFilesVersaV3.cms_tablaAplicacionTituloObtener_Result)">
+      <Parameter Name="id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_usuarioBorrar">
+      <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="cms_websiteMensajeContactoObtener" ReturnType="Collection(ApiFilesVersaV3.cms_websiteMensajeContactoObtener_Result)" />
+    <FunctionImport Name="fraseguModuloNivelObtenerPorModulo" ReturnType="Collection(ApiFilesVersaV3.fraseguModuloNivelObtenerPorModulo_Result)">
+      <Parameter Name="frasegu_modulo_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fraseguModuloObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguModuloObtenerTodos_Result)" />
+    <FunctionImport Name="fraseguUsuarioPerfilEditar">
+      <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fraseguUsuarioPerfilEliminar">
+      <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fraseguUsuarioPerfilModuloNivelNuevo">
+      <Parameter Name="frasegu_usuario_perfil_id" Mode="In" Type="Int32" />
+      <Parameter Name="frasegu_modulo_nivel_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fraseguUsuarioPerfilModuloNivelObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguUsuarioPerfilModuloNivelObtenerTodos_Result)" />
+    <FunctionImport Name="fraseguUsuarioPerfilNuevo">
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fraseguUsuarioPerfilObtenerTodos" ReturnType="Collection(ApiFilesVersaV3.fraseguUsuarioPerfilObtenerTodos_Result)" />
+    <FunctionImport Name="guardarMensajeContacto">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="asunto" Mode="In" Type="String" />
+      <Parameter Name="mensaje" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ins_cms_seccion">
+      <Parameter Name="website_seccion_id" Mode="In" Type="Int32" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="descripcion_corta" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ins_cms_seccion_contenido">
+      <Parameter Name="cms_seccion_id" Mode="In" Type="Int32" />
+      <Parameter Name="html_control_id" Mode="In" Type="String" />
+      <Parameter Name="contenido" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ins_cms_website_menu">
+      <Parameter Name="url" Mode="In" Type="String" />
+      <Parameter Name="controlador" Mode="In" Type="String" />
+      <Parameter Name="accion" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="cms_website_menu_padre_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ins_producto">
+      <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+      <Parameter Name="var_sku" Mode="In" Type="String" />
+      <Parameter Name="var_nombre" Mode="In" Type="String" />
+      <Parameter Name="var_descripcion" Mode="In" Type="String" />
+      <Parameter Name="var_presentacion" Mode="In" Type="String" />
+      <Parameter Name="var_contenido" Mode="In" Type="String" />
+      <Parameter Name="var_beneficios" Mode="In" Type="String" />
+      <Parameter Name="var_imagen" Mode="In" Type="String" />
+      <Parameter Name="var_precio" Mode="In" Type="Double" />
+      <Parameter Name="var_pdf_nombre" Mode="In" Type="String" />
+      <Parameter Name="var_subnombre" Mode="In" Type="String" />
+      <Parameter Name="var_cintillo" Mode="In" Type="String" />
+      <Parameter Name="var_show_index" Mode="In" Type="Boolean" />
+      <Parameter Name="var_pie" Mode="In" Type="String" />
+      <Parameter Name="var_imagen_logo" Mode="In" Type="String" />
+      <Parameter Name="var_imagen_logo_carpeta" Mode="In" Type="String" />
+      <Parameter Name="var_imagen_logo_blanco" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ins_productos_aplicacion">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+      <Parameter Name="var_cultivo" Mode="In" Type="String" />
+      <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+      <Parameter Name="var_dosis" Mode="In" Type="String" />
+      <Parameter Name="var_intervalo_seguridad" Mode="In" Type="String" />
+      <Parameter Name="var_observaciones" Mode="In" Type="String" />
+      <Parameter Name="var_epoca" Mode="In" Type="String" />
+      <Parameter Name="var_lmrp" Mode="In" Type="String" />
+      <Parameter Name="var_epa" Mode="In" Type="String" />
+      <Parameter Name="var_tolerancias" Mode="In" Type="String" />
+      <Parameter Name="var_estudios" Mode="In" Type="String" />
+      <Parameter Name="var_agricultura_protegida" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ins_productos_composicion">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+      <Parameter Name="var_ingrediente" Mode="In" Type="String" />
+      <Parameter Name="var_formula" Mode="In" Type="String" />
+      <Parameter Name="var_tipo" Mode="In" Type="Boolean" />
+      <Parameter Name="var_porcentaje" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ins_usuario" ReturnType="Collection(Int32)">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="clave" Mode="In" Type="String" />
+      <Parameter Name="usuario_perfil_id" Mode="In" Type="Int32" />
+      <Parameter Name="usuario_mod" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ins_website_seccion">
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="nombre_fichero_vista" Mode="In" Type="String" />
+      <Parameter Name="ruta_publica" Mode="In" Type="String" />
+      <Parameter Name="descripcion_corta" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modutrackNuevoIngresoAplicacion">
+      <Parameter Name="usuario_id" Mode="In" Type="Int32" />
+      <Parameter Name="sistema_ip" Mode="In" Type="String" />
+      <Parameter Name="sistema_operativo" Mode="In" Type="String" />
+      <Parameter Name="sistema_navegador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modutrackNuevoIngresoFallido">
+      <Parameter Name="correo_fallido" Mode="In" Type="String" />
+      <Parameter Name="pass_fallida" Mode="In" Type="String" />
+      <Parameter Name="sistema_ip" Mode="In" Type="String" />
+      <Parameter Name="sistema_operativo" Mode="In" Type="String" />
+      <Parameter Name="sistema_navegador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="nuevoEventoAplicacion">
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="evento_aplicacion_tipo_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="search_productos_filtro" ReturnType="Collection(ApiFilesVersaV3.search_productos_filtro_Result)">
+      <Parameter Name="var_id_cultivo" Mode="In" Type="Int32" />
+      <Parameter Name="var_id_enfermedad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_cms_seccion_contenido" ReturnType="Collection(ApiFilesVersaV3.sel_cms_seccion_contenido_Result)">
+      <Parameter Name="website_seccion_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_cms_website_menu" ReturnType="Collection(ApiFilesVersaV3.sel_cms_website_menu_Result)" />
+    <FunctionImport Name="sel_cultivos_para_filtros" ReturnType="Collection(ApiFilesVersaV3.sel_cultivos_para_filtros_Result)" />
+    <FunctionImport Name="sel_enfermedades_para_filtro_por_cultivo" ReturnType="Collection(ApiFilesVersaV3.sel_enfermedades_para_filtro_por_cultivo_Result)">
+      <Parameter Name="var_id_cultivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_enfermedades_para_filtros" ReturnType="Collection(ApiFilesVersaV3.sel_enfermedades_para_filtros_Result)" />
+    <FunctionImport Name="sel_producto_nombre_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_producto_nombre_para_intra_ver_productos_Result)" />
+    <FunctionImport Name="sel_producto_tipo" ReturnType="Collection(ApiFilesVersaV3.sel_producto_tipo_Result)" />
+    <FunctionImport Name="sel_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_Result)" />
+    <FunctionImport Name="sel_productos_aplicacion_Fil_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_productos_aplicacion_Fil_id_producto_Result)">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_productos_composicion_Fil_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_productos_composicion_Fil_id_producto_Result)">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_productos_para_home_index" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_home_index_Result)" />
+    <FunctionImport Name="sel_productos_para_intra_editar_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_editar_productos_Result)">
+      <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_productos_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_ver_productos_Result)" />
+    <FunctionImport Name="sel_productos_para_intra_ver_productos_filtro" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_intra_ver_productos_filtro_Result)">
+      <Parameter Name="producto_tipo" Mode="In" Type="Int32" />
+      <Parameter Name="producto_sku" Mode="In" Type="String" />
+      <Parameter Name="producto_nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sel_productos_para_producto_buscar" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_producto_buscar_Result)" />
+    <FunctionImport Name="sel_productos_para_proteccion_categoria" ReturnType="Collection(ApiFilesVersaV3.sel_productos_para_proteccion_categoria_Result)">
+      <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_productos_sku" ReturnType="Collection(ApiFilesVersaV3.sel_productos_sku_Result)" />
+    <FunctionImport Name="sel_productos_tipos_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_productos_tipos_para_intra_ver_productos_Result)" />
+    <FunctionImport Name="sel_sku_para_intra_ver_productos" ReturnType="Collection(ApiFilesVersaV3.sel_sku_para_intra_ver_productos_Result)" />
+    <FunctionImport Name="sel_tabla_aplicacion_titulo_por_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_tabla_aplicacion_titulo_por_id_producto_Result)">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sel_tabla_composicion_por_id_producto" ReturnType="Collection(ApiFilesVersaV3.sel_tabla_composicion_por_id_producto_Result)">
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_temp_buscador_v1" ReturnType="Collection(ApiFilesVersaV3.sp_temp_buscador_v1_Result)">
+      <Parameter Name="var_cultivo" Mode="In" Type="String" />
+      <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="upd_producto">
+      <Parameter Name="var_id_tipo" Mode="In" Type="Int32" />
+      <Parameter Name="var_sku" Mode="In" Type="String" />
+      <Parameter Name="var_nombre" Mode="In" Type="String" />
+      <Parameter Name="var_subnombre" Mode="In" Type="String" />
+      <Parameter Name="var_descripcion" Mode="In" Type="String" />
+      <Parameter Name="var_presentacion" Mode="In" Type="String" />
+      <Parameter Name="var_contenido" Mode="In" Type="String" />
+      <Parameter Name="var_beneficios" Mode="In" Type="String" />
+      <Parameter Name="var_cintillo" Mode="In" Type="String" />
+      <Parameter Name="var_pie" Mode="In" Type="String" />
+      <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_aplicacion">
+      <Parameter Name="var_id" Mode="In" Type="Int32" />
+      <Parameter Name="var_cultivo" Mode="In" Type="String" />
+      <Parameter Name="var_enfermedad" Mode="In" Type="String" />
+      <Parameter Name="var_dosis" Mode="In" Type="String" />
+      <Parameter Name="var_intervalo_seguridad" Mode="In" Type="String" />
+      <Parameter Name="var_observaciones" Mode="In" Type="String" />
+      <Parameter Name="var_epoca" Mode="In" Type="String" />
+      <Parameter Name="var_lmrp" Mode="In" Type="String" />
+      <Parameter Name="var_epa" Mode="In" Type="String" />
+      <Parameter Name="var_tolerancias" Mode="In" Type="String" />
+      <Parameter Name="var_estudios" Mode="In" Type="String" />
+      <Parameter Name="var_agricultura_protegida" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_aplicacion_inactive">
+      <Parameter Name="var_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_composicion">
+      <Parameter Name="var_ingrediente" Mode="In" Type="String" />
+      <Parameter Name="var_formula" Mode="In" Type="String" />
+      <Parameter Name="var_porcentaje" Mode="In" Type="String" />
+      <Parameter Name="var_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_composicion_inactive">
+      <Parameter Name="var_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_imagen_color">
+      <Parameter Name="var_logo_color" Mode="In" Type="String" />
+      <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_imagen_logo_blanco">
+      <Parameter Name="var_imagen_logo_blanco" Mode="In" Type="String" />
+      <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_productos_imagen_render">
+      <Parameter Name="var_render" Mode="In" Type="String" />
+      <Parameter Name="var_producto_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="upd_titulo_tabla_aplicacion">
+      <Parameter Name="var_id_columna" Mode="In" Type="Int32" />
+      <Parameter Name="var_titulo" Mode="In" Type="String" />
+      <Parameter Name="var_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usuarioNuevo">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="clave" Mode="In" Type="String" />
+      <Parameter Name="usuario_perfil_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usuarioObtTodos" ReturnType="Collection(ApiFilesVersaV3.usuarioObtTodos_Result)" />
+    <FunctionImport Name="val_login" ReturnType="Collection(Int32)">
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="clave" Mode="In" Type="String" />
+      <Parameter Name="ip_usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp1" ReturnType="Collection(ApiFilesVersaV3.website_sp1_Result)">
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp2" ReturnType="Collection(ApiFilesVersaV3.website_sp2_Result)">
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp3" ReturnType="Collection(ApiFilesVersaV3.website_sp3_Result)">
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp4" ReturnType="Collection(ApiFilesVersaV3.website_sp4_Result)">
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp5" ReturnType="Collection(ApiFilesVersaV3.website_sp5_Result)">
+      <Parameter Name="productoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="website_sp6" ReturnType="Collection(DateTime)">
+      <Parameter Name="p_id_producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="cms_informacionContactoEmpresaObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="telefono_contacto" Nullable="true" />
+    <Property Type="String" Name="direccion_fisica" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_obtNombreUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="cms_pSkuObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="producto" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="sku" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="producto_presentacion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="cultivo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="plaga_nombre_comun" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="plaga_nombre_cientifico" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nutrientes" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="resistencia" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ingrediente_activo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="tipo_producto" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="numero_aplicaciones" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="dosis_minima" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dosis_maxima" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="unidades" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="presentacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tipo_formulacion" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="cms_pTipoObtenerTodos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="imagen" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="alias" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="cms_redesSocialesEmpresaObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="url_facebook" Nullable="true" />
+    <Property Type="String" Name="url_youtube" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionHomeNoticiasCarruselObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre_archivo" Nullable="true" />
+    <Property Type="String" Name="url_redireccion" Nullable="true" />
+    <Property Type="Int32" Name="orden" Nullable="false" />
+    <Property Type="Boolean" Name="movil" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionHomeSobreNosotrosObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="contenido" Nullable="true" />
+    <Property Type="String" Name="nombre_archivo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionHomeVideosEventosObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre_archivo" Nullable="true" />
+    <Property Type="Int32" Name="orden" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionNosotrosCarruselPlantasObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre_archivo" Nullable="true" />
+    <Property Type="Int32" Name="orden" Nullable="false" />
+    <Property Type="Boolean" Name="movil" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionProductosDocumentosObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_Producto" Nullable="true" />
+    <Property Type="Int32" Name="id_Tipo" Nullable="true" />
+    <Property Type="String" Name="tipo_Documento" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ruta" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="cms_seccionUsuariosObtener_Result">
+    <Property Type="Int32" Name="usuario_id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="clave" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="usuario_perfil_id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha_creacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="fecha_borrado" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="usuario_mod" Nullable="true" />
+    <Property Type="String" Name="contexto_mod" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="cms_tablaAplicacionTituloObtener_Result">
+    <Property Type="Int32" Name="id_columna" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" />
+    <Property Type="Int32" Name="id_producto" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="cms_websiteMensajeContactoObtener_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="asunto" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="mensaje" Nullable="false" />
+    <Property Type="DateTime" Name="fecha_creacion" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="fraseguModuloNivelObtenerPorModulo_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="nivel" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="fraseguModuloObtenerTodos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="fraseguUsuarioPerfilModuloNivelObtenerTodos_Result">
+    <Property Type="Int32" Name="frasegu_modulo_id" Nullable="false" />
+    <Property Type="String" Name="modulo" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="frasegu_usuario_perfil_id" Nullable="false" />
+    <Property Type="String" Name="usuario_perfil" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="nivel" Nullable="false" />
+    <Property Type="String" Name="nivel_descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="fraseguUsuarioPerfilObtenerTodos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="search_productos_filtro_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="presentacion" Nullable="true" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="sel_cms_seccion_contenido_Result">
+    <Property Type="Int32" Name="cms_seccion_id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="descripcion_corta" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="cms_seccion_contenido_id" Nullable="false" />
+    <Property Type="String" Name="html_control_id" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="contenido" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sel_cms_website_menu_Result">
+    <Property Type="Int32" Name="cms_website_menu_id" Nullable="false" />
+    <Property Type="String" Name="url" Nullable="true" />
+    <Property Type="String" Name="controlador" Nullable="true" />
+    <Property Type="String" Name="accion" Nullable="true" />
+    <Property Type="String" Name="texto" Nullable="false" />
+    <Property Type="String" Name="html_control_id" Nullable="true" />
+    <Property Type="Int32" Name="cms_website_menu_padre_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_cultivos_para_filtros_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sel_enfermedades_para_filtro_por_cultivo_Result">
+    <Property Type="Int32" Name="id_enfermedad" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sel_enfermedades_para_filtros_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="data_crudo" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sel_producto_nombre_para_intra_ver_productos_Result">
+    <Property Type="String" Name="id" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="sel_producto_tipo_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="imagen" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="alias" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_tipo" Nullable="false" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+    <Property Type="Double" Name="precio" Nullable="false" />
+    <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_aplicacion_Fil_id_producto_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_producto" Nullable="false" />
+    <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_composicion_Fil_id_producto_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="formula" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="porcentaje" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="tipo" Nullable="true" />
+    <Property Type="Boolean" Name="usable" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_home_index_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="id_tipo" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_intra_editar_productos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+    <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="Double" Name="precio" Nullable="false" />
+    <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="status" Nullable="true" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="show_index" Nullable="true" />
+    <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_intra_ver_productos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+    <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="Double" Name="precio" Nullable="false" />
+    <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="status" Nullable="true" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="show_index" Nullable="true" />
+    <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_intra_ver_productos_filtro_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="producto_tipo_id" Nullable="false" />
+    <Property Type="String" Name="producto_tipo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="Double" Name="precio" Nullable="false" />
+    <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="status" Nullable="true" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="show_index" Nullable="true" />
+    <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_producto_buscar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_para_proteccion_categoria_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname_img_mobile" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="id_tipo" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_sku_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="394" />
+  </ComplexType>
+  <ComplexType Name="sel_productos_tipos_para_intra_ver_productos_Result">
+    <Property Type="Int32" Name="id_tipo" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sel_sku_para_intra_ver_productos_Result">
+    <Property Type="String" Name="id" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="17" />
+  </ComplexType>
+  <ComplexType Name="sel_tabla_aplicacion_titulo_por_id_producto_Result">
+    <Property Type="Int32" Name="id_columna" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sel_tabla_composicion_por_id_producto_Result">
+    <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+    <Property Type="String" Name="nombre_archivo" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_temp_buscador_v1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="categoria" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="classname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cat_img" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="usuarioObtTodos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="perfilPuesto" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="website_sp1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_tipo" Nullable="false" />
+    <Property Type="String" Name="sku" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="presentacion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="contenido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="beneficios" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="imagen" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="pdf_nombre" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="status" Nullable="true" />
+    <Property Type="String" Name="subnombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Cintillo" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="show_index" Nullable="true" />
+    <Property Type="String" Name="pie" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imagen_logo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_carpeta" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="imagen_logo_blanco" Nullable="true" />
+    <Property Type="Int32" Name="cms_tablas_composicion_id" Nullable="true" />
+    <Property Type="Double" Name="precio" Nullable="false" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="String" Name="imagen_tabla_aplicacion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="website_sp2_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_producto" Nullable="false" />
+    <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+    <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="website_sp3_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_producto" Nullable="false" />
+    <Property Type="String" Name="cultivo" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="enfermedad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="dosis" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="intervalo_seguridad" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="obervaciones" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="epoca" Nullable="true" MaxLength="Max" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LMRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EPA2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Tolerancias" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="estudios" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+    <Property Type="Boolean" Name="agricultura_protegida" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="website_sp4_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_Producto" Nullable="false" />
+    <Property Type="String" Name="ingrediente" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="formula" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="tipo" Nullable="true" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="deleted_at" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="String" Name="porcentaje" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="usable" Nullable="false" />
+    <Property Type="Boolean" Name="active_inactive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="website_sp5_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_Producto" Nullable="true" />
+    <Property Type="Int32" Name="id_Tipo" Nullable="true" />
+    <Property Type="String" Name="tipo_Documento" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ruta" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>

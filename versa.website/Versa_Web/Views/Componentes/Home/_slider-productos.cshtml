@@ -1,0 +1,89 @@
+﻿@using Versa_Web.Code.objetos;
+@using Versa_Web.Code;
+
+@model IEnumerable<Versa_Web.Code.objetos.OProducto>
+
+@{ 
+	int i = 0;
+}
+<link href="@Url.Content("~/Content/app/carrusel-productos.css")" rel="stylesheet" />
+
+<div id="var-slider-mobile" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
+	<div class="carousel-inner">
+		@{ i = 0; }
+		@foreach (OProducto elemento in Model)
+			{
+			<div class="carousel-item @(i == 0 ? "active" : "")">
+
+				<div class="container-fluid">
+					<div class="row btn-@elemento.classname versa-slider-mobile-container-category">
+						<div class="col-sm-12 col-md-12" style="display: block; align-items: center; overflow-wrap: break-word; word-wrap: break-word;">
+							<img class="versa-slider-mobile-img-category" src="@Url.Content("~/Public/img/families/icon-line-"+ elemento.idTipo +".png")">
+							<h3 class="versa-slider-mobile-text-category" style="font-size: 11vw;">@Html.DisplayFor(modelItem => elemento.categoria)</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12 col-md-12">
+							<img class="versa-slider-mobile-logo-imagen" style="max-width: 100%;" src="@Utils.getUrlFile(elemento.imagen)">
+							<a class="carousel-control-prev" href="#var-slider-mobile" role="button" data-slide="prev">
+								<span class="carousel-productos-mobile-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Anterior</span>
+							</a>
+							<a class="carousel-control-next" href="#var-slider-mobile" role="button" data-slide="next">
+								<span class="carousel-productos-mobile-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Siguiente</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-fluid">
+					<div class="row @elemento.classnameImgMobile" style="padding-bottom: 40px;">
+						<div class="col-sm-12 col-md-12">
+							<div class="container-fluid">
+
+								<div class="row" style="color: white;">
+									<div class="col-sm-12 col-md-12">
+										<img src="@Utils.getUrlFile(elemento.imagenLogoBlanco)" style="max-height: 65px; margin-bottom: 10px; margin-top: 10px; max-width: 100%;" />
+
+										<br />
+
+										<p class="versa-slider-mobile-slogan-product" id="slogan-@Html.DisplayFor(modelItem => elemento.nombre)"></p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-12 col-md-12">
+										<p class="versa-slider-mobile-description-product descripcion-text">
+											@Html.Raw(elemento.descripcion)
+										</p>
+									</div>
+								</div>
+
+								<div class="row versa-slider-mobile-container-cintillo-product">
+									<div class="col-6">
+										<img class="versa-slider-mobile-img-cintillo-product" src="@Url.Content("~/Public/img/misc/molecula-bco.png")">
+										<p class="versa-slider-mobile-cintillo-product">
+											@Html.Raw(elemento.cintillo)
+										</p>
+									</div>
+									<div class="col-6 text-right">
+										<a href="@Url.Action("VerProducto", "Home", new { q = "" + @Html.DisplayFor(modelItem => elemento.id) + "" })" target="_blank" style="text-decoration: none; color: #FFF;" role="button" aria-pressed="true">
+											<button type="button" class="btn btn-@elemento.classname" style="color: white;">
+												Ver más
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				{ i++; }
+			}
+	</div>
+</div>

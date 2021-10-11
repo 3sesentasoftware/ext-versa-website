@@ -1,0 +1,17 @@
+﻿@using com.cpc.ext.versa.cms.Models.Entities
+@using com.cpc.ext.versa.cms.Models.EntityFramework
+@using com.carzapc.core.web
+
+@{ 
+	EProducto productos_data = @Model;
+}
+<h2>Render</h2>
+<div class="img-logotipos-productos-container">
+	<img src="@Url.Content("~/Public/img/products/" + productos_data.imagen)" />
+</div>
+<form id="form-files-upload-render" name="form-files-upload-render" method="post" action="@Url.Content("~/intra/productos/editar/subir/render")" enctype="multipart/form-data">
+	<input type="hidden" id="form-files-upload-render-id" name="form-files-upload-render-id" value="@productos_data.id" />
+	<label for="fichero">Seleccione el fichero</label>
+	<input type="file" name="fichero" size="40">
+	<input type="submit" value="Guardar" />
+</form>

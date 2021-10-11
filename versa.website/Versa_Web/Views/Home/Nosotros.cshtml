@@ -1,0 +1,91 @@
+﻿@using System.Data.Entity.Core.Objects
+@using Versa_Web.Models.EntityFramework
+@using Versa_Web.Code
+@using Versa_Web.Code.fecades
+
+@{ 
+    ViewBag.Title = "Nosotros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<cms_seccionNosotrosCarruselPlantasObtener_Result> dbresCarruselPlantas = DBFecade.dbObj().cms_seccionNosotrosCarruselPlantasObtener().ToList();
+    List<int> ordenesCarruselPlantas = new List<int>();
+    foreach (var el in dbresCarruselPlantas)
+    {
+        if (!ordenesCarruselPlantas.Exists(e => e == el.orden))
+        {
+            ordenesCarruselPlantas.Add(el.orden);
+        }
+    }
+}
+
+@section css {
+    <link href="@Url.Content("~/Content/app/Nosotros.css")" rel="stylesheet" />
+
+	<!-- Estílos tipográficos -->
+	<link href="@Url.Content("~/Content/general/ver-gen-tipografias.css")" rel="stylesheet" />
+}
+<script>
+    $('#nosotros').addClass("active");
+</script>
+
+<!-- SLIDER NOSOTROS PLANTAS START -->
+<div class="main-container" style="margin-top:-3.5vh;overflow-x: hidden;">
+    <div id="versaSlider" class="carousel slide carousel-fade" data-ride="carousel" style="margin-top: 10vh;">
+        <div class="carousel-inner">
+            @{
+                int contador = 0;
+                foreach (var el in ordenesCarruselPlantas)
+                {
+                    <div class="@(contador == 0 ? "carousel-item active" : "carousel-item")">
+                        @foreach (var elAux in dbresCarruselPlantas.FindAll(e => e.orden == el))
+                        {
+                            if (!Convert.ToBoolean(elAux.movil))
+                            {
+                                <img class="carousel-img carousel-no-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)" />
+                            }
+                            else
+                            {
+                                <img class="carousel-img carousel-yes-mov" src="@Utils.getUrlFile(elAux.nombre_archivo)" />
+                            }
+                        }
+                    </div>
+                    contador = contador + 1;
+                }
+            }
+        </div>
+        <ul class="carousel-indicators">
+            @{
+                contador = 0;
+                foreach (var el in ordenesCarruselPlantas)
+                {
+                    <li data-target="#versaSlider" data-slide-to="@contador" class="@(contador == 0 ? "indicator active" : "indicator")"></li>
+                    contador = contador + 1;
+                }
+            }
+        </ul>
+    </div>    
+</div>
+<!-- SLIDER NOSOTROS PLANTAS END -->
+
+<!-- Unidades estrategicas START -->
+@Html.Partial("~/Views/Componentes/_unidades_estrategicas.cshtml", "#FFF")
+<!-- Unidades estrategicas END -->
+
+<!-- LINEA DEL TIEMPO START -->
+@{ 
+    ObjectResult<string> dbresLineaTiempo = DBFecade.dbObj().cms_seccionNosotrosLineaTiempoObtener();
+    string lineaTiempo = string.Empty;
+    foreach (var el in dbresLineaTiempo)
+    {
+        lineaTiempo = el;
+    }
+}
+<div class="timeline row" style="background-color: #F1F1F1;height:100vh;">
+    <h4 class="timeline-header" style="padding-top: 10vh;color: #1F485A;background-color: #F1F1F1;">
+        <strong>Linea de Tiempo</strong> <br />Grupo Versa
+    </h4>
+    <div class="timeline-container">
+        <br>
+        <img src="@Utils.getUrlFile(lineaTiempo)" />
+    </div>
+</div>
+<!-- LINEA DEL TIEMPO END -->

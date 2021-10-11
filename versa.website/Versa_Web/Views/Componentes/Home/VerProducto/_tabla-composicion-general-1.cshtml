@@ -1,0 +1,120 @@
+﻿@using Versa_Web.Models
+@using System.Collections.Generic;
+@model Versa_Web.ViewModels.ProductoDetallesVM
+
+<!-- Tabla de composiciones - START -->
+<div class="col-md-6 table-container2">
+	<div class="row">
+		<div class="col-md-12 pt-1 pb-1 text-center header-@Model.alias" style="color: #FFF; border-radius: 5px;">
+			<strong>COMPOSICIÓN PORCENTUAL:</strong>
+		</div>
+		<div class="col-md-12 mt-2 pb-5 pt-4" style="background-color:#EDEEF0; border-radius: 5px;">
+			<div class="container-fluid">
+				@{ bool a = true; bool b = true; }
+				@foreach (var item in Model.P_Composicion)
+				{
+
+							<!-- Títulos Start -->
+					if (Convert.ToInt32(item.tipo) == 1 && a == true)
+					{
+						<div class="row">
+							<div class="w-75">
+								<h1 class="spec-@Model.alias" style="font-family: 'gotham-bold';font-size: 18px;letter-spacing: -1px;">Ingrediente Activo:</h1>
+							</div>
+							<div style="text-align: center !important;" class="w-25">
+								<h1 class="spec-@Model.alias" style="font-family: 'gotham-bold'; font-size: 18px;letter-spacing: -1px;">% en Peso</h1>
+							</div>
+						</div>
+						a = false;
+					}
+							<!-- Títulos End -->
+
+					if (Convert.ToInt32(item.tipo) == 1)
+					{
+						<div class="row">
+							<div class="w-75" style="overflow-wrap: break-word;">
+								<strong style="font-size:15px;line-height:5px;">@Html.Raw(item.ingrediente) </strong>
+								<p style="font-size:15px;line-height: 15px;padding-right:15px;">
+									@Html.Raw(item.formula)
+								</p>
+							</div>
+							<div class="ver-det-tab-com-2-col-cell">
+								<p>
+									@Html.Raw(item.porcentaje)
+								</p>
+							</div>
+						</div>
+					}
+
+					if (item.tipo != null && Convert.ToInt32(item.tipo) == 0 && b == true)
+					{
+						<div class="row">
+							<div class="w-75">
+								@if (item.ingrediente.Split(',').Length == 1)
+								{
+									<h1 class="spec-@Model.alias" style="font-family: 'gotham-bold';font-size: 18px;letter-spacing: -1px;">Ingrediente Inerte:</h1>
+								}
+								else
+								{
+									<h1 class="spec-@Model.alias" style="font-family: 'gotham-bold';font-size: 18px;letter-spacing: -1px;">Ingredientes Inertes:</h1>
+								}
+
+							</div>
+							<div class="w-25">
+							</div>
+						</div>
+						b = false;
+					}
+
+					if (item.tipo != null && Convert.ToInt32(item.tipo) == 0)
+					{
+						<div class="row">
+							<div class="w-75">
+								<span style="font-size:15px;">@Html.Raw(item.ingrediente) </span>
+								<p style="font-size:15px;line-height: 15px;padding-right:15px;">
+									@Html.Raw(item.formula)
+								</p>
+							</div>
+							<div class="ver-det-tab-com-2-col-cell">
+								<p>
+									@Html.Raw(item.porcentaje)
+								</p>
+							</div>
+						</div>
+					}
+                    
+				if (item.tipo == null)
+				{
+					<div class="row">
+						<div class="w-75">
+							<p style="font-size:15px;line-height: 15px;">
+								<span style="font-size:15px;">
+									@Html.Raw(item.ingrediente)
+								</span>
+								@Html.Raw(item.formula)
+							</p>
+						</div>
+						<div class="ver-det-tab-com-2-col-cell">
+							<p>
+								@Html.Raw(item.porcentaje)
+							</p>
+						</div>
+					</div>
+					}
+
+				}
+
+				<div class="row">
+					<div class="w-75">
+						<h1 class="total-@Model.alias" style="font-family: 'gotham-bold';font-size: 18px;letter-spacing: -1px;">Total:</h1>
+					</div>
+					<div class="w-25 number-total" >
+						<strong class="porcentual" style="border-top:2px solid #000; padding-top: 7px;" >100.00</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Tabla de composiciones - END -->

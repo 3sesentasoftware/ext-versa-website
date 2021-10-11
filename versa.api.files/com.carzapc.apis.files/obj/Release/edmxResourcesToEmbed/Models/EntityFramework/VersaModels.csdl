@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="versapruebasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VersaEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="cms_modufilesArchivoNuevo">
+      <Parameter Name="archivo_hash" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="cms_modufilesArchivoNuevoId" ReturnType="Collection(Int32)" />
+  </EntityContainer>
+</Schema>

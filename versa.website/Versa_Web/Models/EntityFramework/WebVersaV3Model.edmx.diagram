@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="429377b443844628af1f063afc5f6773" Name="Diagram1">
+        <EntityTypeShape EntityType="WebVersaV3.cms_documento_esr" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_galeria" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_home_carrusel" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_informacion_contacto_empresa" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_logotipo_empresa" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_redes_sociales_empresa" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion" Width="1.5" PointX="13" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_contenido" Width="1.5" PointX="15.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_home_carrusel_noticias" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_home_sobre_nosotros" Width="1.5" PointX="11.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_home_videos_eventos" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_nosotros_carrusel_plantas" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_seccion_nosotros_linea_tiempo" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_tablas_composicion" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_website_menu" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cultivos" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.evento_aplicacion" Width="1.5" PointX="16" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.evento_aplicacion_tipo" Width="1.5" PointX="13.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.frasegu_modulo" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.frasegu_modulo_nivel" Width="1.5" PointX="11" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.frasegu_usuario_perfil" Width="1.5" PointX="8.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.modufiles_archivo" Width="1.5" PointX="15.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.modutrack_ingreso_aplicacion" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.modutrack_ingreso_fallido_aplicacion" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.P_Aplicacion" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.P_Composicion" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.P_Documentos" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.P_SKU" Width="1.5" PointX="11.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.P_Tipo" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.Producto" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.usuario" Width="1.5" PointX="11" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.website_mensaje_contacto" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.website_seccion" Width="1.5" PointX="10.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.cms_tabla_aplicacion_titulo" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.enfermedades" Width="1.5" PointX="17.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.productos_cultivos" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebVersaV3.productos_enfermedades" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="WebVersaV3.FK__cms_secci__cms_s__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__cms_secci__websi__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__productos__id_cu__09746778" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__evento_ap__event__467D75B8" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__frasegu_m__frase__6319B466" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__usuario__usuario__6CA31EA0" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK_P_Aplicacion_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK_P_Composicion_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK_P_Documentos_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK_Producto_P_Tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__productos__id_pr__0880433F" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__productos__id_pr__11158940" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.FK__productos__id_pr__16CE6296" ManuallyRouted="false" />
+        <AssociationConnector Association="WebVersaV3.frasegu_usuario_perfil_modulo_nivel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
